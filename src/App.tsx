@@ -1,11 +1,12 @@
 import GlobalStyles from "styles/GlobalStyles"
-import Page from 'components/Page';
+import Layout from 'components/Layout';
+import Header from "components/Header";
 
 function App() {
   return (
     <div>
-      <GlobalStyles/>
-      <Page/>
+      <GlobalStyles />
+      <Layout />
     </div>
   )
 }
