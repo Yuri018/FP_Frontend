@@ -1,5 +1,4 @@
 import ImageComponent from "components/ImageComponent";
-import { HeaderProps } from "./types";
 
 import {
   HeaderMainContainer,
@@ -16,11 +15,19 @@ import {
   HeaderSignInText,
   BottomLine,
   WeatherAppContainer,
+  NavListLeft,
+  NavItem,
+  NavLink,
+  NavListRight,
 } from "./styles"
 
 import { GermanMainLogo, MainTitle, SearchIcon, SignInIcon } from "assets"
 
-function Header({ children }: HeaderProps) {
+interface HeaderProps {
+  logoText?: string 
+}
+
+function Header({logoText}: HeaderProps) {
   return (
     <HeaderMainContainer>
       <HeaderUpperContainer>
@@ -39,7 +46,7 @@ function Header({ children }: HeaderProps) {
           <LogoImgContainer>
             <ImageComponent src={GermanMainLogo} alt="GermanMainLogo" />
           </LogoImgContainer>
-          <LogoTextContainer>Берлин и Бранденбург</LogoTextContainer>
+          {logoText && <LogoTextContainer>{logoText}</LogoTextContainer>}
         </LogoContainer>
         <TitleContainer>
           <ImageComponent src={MainTitle} alt="MainTitle" />
@@ -48,13 +55,40 @@ function Header({ children }: HeaderProps) {
           Воскресенье, Сентябрь 1, 2024 +22С
         </WeatherAppContainer>
       </HeaderMiddleContainer>
-      <HeaderLowerContainer></HeaderLowerContainer>
-
-      {children}
-      
+      <HeaderLowerContainer>
+        <NavListLeft>
+          <NavItem>
+            <NavLink href="#">Новости</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="#">Культурная жизнь</NavLink>
+          </NavItem>
+        </NavListLeft>
+        <NavListRight>
+          <NavItem>
+            <NavLink href="#">Общая информация</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="#">Здоровье</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="#">Дети</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="#">Магазины</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="#">Кафе и рестораны</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="#">Услуги</NavLink>
+          </NavItem>
+        </NavListRight>
+      </HeaderLowerContainer>
     </HeaderMainContainer>
   )
 }
 
 export default Header;
 
+{/* <Header logoText="Берлин и Бранденбург" /> */}

@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import {LatoReg} from 'styles/fonts';
 import { colors } from "./styles";
 export { colors } from 'styles/colors';
+import { LatoReg } from 'styles/fonts';
 
 export const HeaderMainContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-left: 65px;
+  /* padding-left: 65px; */
   padding-right: 113px;  
   width: 1366px;  
   height: 225px;
@@ -20,7 +20,8 @@ export const HeaderUpperContainer = styled.div`
   justify-content: space-between;
   height: 55px;  
   margin-left: 225px;
-  padding-left: 45px;
+  /* padding-left: 45px; */
+  padding-left: 110px;
   position: relative;  
   /* outline: 1px solid red;   */
 `;
@@ -44,7 +45,7 @@ export const HeaderSerchContainer = styled.div`
 `;
 
 export const HeaderSerchText = styled.p`
-  font-family: '/src/styles/fonts/Lato-Regular.woff2';  
+  font-family: ${LatoReg}; 
   font-size: 14px;
   color: ${colors.baseGray30};
 `;
@@ -57,7 +58,7 @@ export const HeaderSignInContainer = styled.div`
 `;
 
 export const HeaderSignInText = styled.p`
-  font-family: '/src/styles/fonts/Lato-Regular.woff2';  
+  font-family: ${LatoReg};  
   font-size: 14px;
   font-weight: 500;
   color: ${colors.baseGray50};
@@ -68,11 +69,13 @@ export const HeaderMiddleContainer = styled.div`
   flex-grow: 1;
   justify-content: space-between;
   align-items: center;
+  padding-left: 65px;
   /* outline: 1px solid red; */
 `;
 export const LogoContainer = styled.div`
   display: flex;
   align-items: center; 
+  justify-content: center;
   gap: 5px;
   width: 365px;
 `;
@@ -83,7 +86,7 @@ export const LogoImgContainer = styled.div`
   height: 105px;  
 `;
 export const LogoTextContainer = styled.p`
-  font-family: '/src/styles/fonts/Lato-Regular.woff2';  
+  font-family: ${LatoReg}; 
   font-size: 14px;
   color: black;
 `;
@@ -96,7 +99,8 @@ export const TitleContainer = styled.div`
 export const WeatherAppContainer = styled.div`
   width: 285px;
   height: 25px;
-  font-family: '/src/styles/fonts/Lato-Regular.woff2';  
+  text-align: right;
+  font-family: ${LatoReg};  
   font-size: 14px;
   color: black;
 `;
@@ -104,35 +108,36 @@ export const WeatherAppContainer = styled.div`
 export const HeaderLowerContainer = styled.nav`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   flex-grow: 1;   
+  width: 1366px;
   height: 55px;
+  padding-right: 113px;
+  padding-left: 113px;
   background-color: ${colors.baseGrey80};
 `;
 
 export const NavListLeft = styled.ul`
   display: flex;
-  align-items: center;
-  padding-left: 113px;
-  justify-content: flex-start;
-  gap: 10px;
+  align-items: center;  
+  justify-content: flex-start;  
 `;
 
 export const NavListRight = styled.ul`
   display: flex;
-  align-items: center;
-  padding-right: 113px;
-  justify-content: flex-end;
-  gap: 10px;
+  align-items: center;     
 `;
 
-export const NavItem = styled.li`
-  margin-right: 10px;
+export const NavItem = styled.li`  
+  margin-right: 20px;
     &:last-child {
     margin-right: 0;
   } 
 `;
 
 export const NavLink = styled.a`
+  font-family: ${LatoReg};  
+  font-size: 14px;
   color: ${colors.white};
   text-decoration: none;  
   border-bottom: 2px solid transparent;

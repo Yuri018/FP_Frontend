@@ -8,9 +8,9 @@ function Layout() {
   return (
     <LayoutWrapper>
       <LayoutContainer>
-        <Header  />
+        <Header />
+        <Main imageUrl={""} />
       </LayoutContainer>
-      <Main/>
     </LayoutWrapper>
   )
 }

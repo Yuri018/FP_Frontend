@@ -1,14 +1,35 @@
-import Button from "components/Button";
-import { ButtonContainer } from "./styles";
+import Button from "components/Button"
+import ImageComponent from "components/ImageComponent"
+import { BerlinMainImg } from "assets"
 
-function Main() {
+import {
+  BcgContainer,
+  UpperGrayBackground,
+  BackgroundImageContainer,
+  BackgroundImage,
+  BcgRightToImgContainer,
+  MainTitle,
+  ButtonContainer,
+} from "./styles"
+
+import { MainProps } from "./types"
+
+function Main({ imageUrl, title }: MainProps) {
   return (
-    <>
-      <ButtonContainer>
-        <Button name="name" onClick={() => {}} />
-      </ButtonContainer>     
-    </>
+    <BcgContainer>
+      <UpperGrayBackground />
+      <BackgroundImageContainer>
+        <BackgroundImage imageUrl={imageUrl}>
+          <ImageComponent src={BerlinMainImg} />
+        </BackgroundImage>
+        <MainTitle>{(title = 'Здесь вы сможете найти полезную для себя информацию по разделам')}</MainTitle>
+        <ButtonContainer>
+          <Button name="Выбери свой город" onClick={() => {}} />
+        </ButtonContainer>
+      </BackgroundImageContainer>
+      <BcgRightToImgContainer />
+    </BcgContainer>
   )
 }
 
-export default Main;
+export default Main
