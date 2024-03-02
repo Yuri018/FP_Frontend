@@ -9,7 +9,7 @@ function Layout() {
     <LayoutWrapper>
       <LayoutContainer>
         <Header />
-        <Main imageUrl={""} />
+        <Main imageurl={""} />
       </LayoutContainer>
     </LayoutWrapper>
   )

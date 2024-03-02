@@ -1,7 +1,9 @@
 // импортируем функцию createGlobalStyles из пакет styled-components
+import { Interface } from 'readline';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
+
   * {
     box-sizing: border-box;
   }
@@ -21,12 +23,12 @@ const GlobalStyles = createGlobalStyle`
 
   ul, ol, li, h1, h2, h3, h4, h5, h6, p {
     margin: 0;
-    padding: o;
+    padding: 0;
   }
 
   ul, ol, li {
     list-style: none;
-  }
+  } 
 `;
 
 export default GlobalStyles;
