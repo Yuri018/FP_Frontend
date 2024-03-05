@@ -4,3 +4,7 @@ export { default as DuesseldorfLogo } from 'assets/Duesseldorf.jpg';
 export { default as MainTitle } from 'assets/Germany in the palm of your hand.png';
 export { default as SearchIcon } from 'assets/SearchIcon.svg';
 export { default as SignInIcon } from 'assets/SignInIcon.svg';
+export { default as Butterfly } from 'assets/butterfly.jpg';
+export { default as TwoPeople } from 'assets/Two_people.jpg';
+export { default as University } from 'assets/University.jpg';
+export { default as Guitars } from 'assets/Guitars.jpg';

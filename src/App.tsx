@@ -1,11 +1,13 @@
-import GlobalStyles from "styles/GlobalStyles"
+import GlobalStyles from "styles/GlobalStyles";
+import GlobalFonts from "./fonts/fonts";
 import Layout from 'components/Layout';
-import Header from "components/Header";
+
 
 function App() {
   return (
     <div>
       <GlobalStyles />
+      <GlobalFonts />
       <Layout />
     </div>
   )

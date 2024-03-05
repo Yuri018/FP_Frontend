@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
-export interface MainProps {
+export interface MainUpperPartProps {
   children?: ReactNode;
   title?: string;
-  imageUrl: string;
+  imageurl: string;
 }

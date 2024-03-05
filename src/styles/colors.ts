@@ -10,6 +10,11 @@ interface Colors {
   baseGray50: string;
   baseGrey75: string;
   baseGrey80: string;
+  greenGastro: string;
+  titleCars: string;
+  lilacMovie: string;
+  lightCarrot: string;
+  greenTechno: string;
 }
 
 export const colors = {
@@ -23,5 +28,10 @@ export const colors = {
   baseGray30: '#D9DADB',
   baseGray50: '#939699',
   baseGrey75: '#30363D',
-  baseGrey80: '#262D33'
+  baseGrey80: '#262D33',
+  greenGastro: '#3CBDC4',
+  titleCars: '#6E99AE',
+  lilacMovie: '#AC8EE3',
+  lightCarrot: '#FFA34D',
+  greenTechno: '#3DC47E',
 }

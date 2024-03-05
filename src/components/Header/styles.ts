@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { colors } from "./styles";
 export { colors } from 'styles/colors';
-import { LatoReg } from 'styles/fonts';
 
 export const HeaderMainContainer = styled.div`
   display: flex;
@@ -45,7 +44,7 @@ export const HeaderSerchContainer = styled.div`
 `;
 
 export const HeaderSerchText = styled.p`
-  font-family: ${LatoReg}; 
+  font-family: 'LatoRegular'; 
   font-size: 14px;
   color: ${colors.baseGray30};
 `;
@@ -58,7 +57,7 @@ export const HeaderSignInContainer = styled.div`
 `;
 
 export const HeaderSignInText = styled.p`
-  font-family: ${LatoReg};  
+  font-family: 'LatoRegular';  
   font-size: 14px;
   font-weight: 500;
   color: ${colors.baseGray50};
@@ -86,7 +85,7 @@ export const LogoImgContainer = styled.div`
   height: 105px;  
 `;
 export const LogoTextContainer = styled.p`
-  font-family: ${LatoReg}; 
+  font-family: 'LatoRegular'; 
   font-size: 14px;
   color: black;
 `;
@@ -100,7 +99,7 @@ export const WeatherAppContainer = styled.div`
   width: 285px;
   height: 25px;
   text-align: right;
-  font-family: ${LatoReg};  
+  font-family: 'LatoRegular';  
   font-size: 14px;
   color: black;
 `;
@@ -135,8 +134,7 @@ export const NavItem = styled.li`
   } 
 `;
 
-export const NavLink = styled.a`
-  font-family: ${LatoReg};  
+export const NavLink = styled.a`  
   font-size: 14px;
   color: ${colors.white};
   text-decoration: none;  
