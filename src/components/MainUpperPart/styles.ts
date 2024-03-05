@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import { colors } from 'styles/colors';
+import { Guitars } from 'assets'
 
 export const BcgContainer = styled.div`
   position: relative;
   width: 1366px;
   height: 775px;
+  margin-bottom: 30px;
 `;
 
 export const BackgroundImageContainer = styled.div`
@@ -15,6 +17,9 @@ export const BackgroundImageContainer = styled.div`
   height: 570px;  
   border-radius: 10px;
   overflow: hidden;
+  border-top: 2px solid ${colors.baseGrey80};
+  border-left: 2px solid ${colors.baseGrey80};
+  border-bottom: 2px solid ${colors.baseGrey80};
   z-index: 5; 
 `;
 
@@ -29,6 +34,9 @@ export const BcgRightToImgContainer = styled.div`
   background-color: ${colors.white};
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
+  border-top: 2px solid ${colors.baseGrey80};
+  border-right: 2px solid ${colors.baseGrey80};
+  border-bottom: 2px solid ${colors.baseGrey80};
   overflow: hidden;
   z-index: 10;
 `;
@@ -36,8 +44,8 @@ export const BcgRightToImgContainer = styled.div`
 export const RightToImgHeaderContainer = styled.div`
   position: absolute;
   top: 200px;
-  right: 113px;
-  width: 263px;
+  right: 115px;
+  width: 261px;
   height: 68px;
   border-bottom: 2px solid ${colors.baseGray30};
   z-index: 12;
@@ -56,8 +64,8 @@ export const RightHeader = styled.h3`
 export const RightToImgGastroContainer = styled.div`
   position: absolute;
   top: 268px;
-  right: 113px;
-  width: 263px;
+  right: 115px;
+  width: 261px;
   height: 100px;
   border-bottom: 2px solid ${colors.baseGray30};
   z-index: 12;
@@ -87,8 +95,8 @@ export const RightGastroContentContainer = styled.div`
 export const RightToImgAutoContainer = styled.div`
   position: absolute;
   top: 368px;
-  right: 113px;
-  width: 263px;
+  right: 115px;
+  width: 261px;
   height: 100px;
   border-bottom: 2px solid ${colors.baseGray30};
   z-index: 12;
@@ -118,8 +126,8 @@ export const RightAutoContentContainer = styled.div`
 export const RightToImgMovieContainer = styled.div`
   position: absolute;
   top: 468px;
-  right: 113px;
-  width: 263px;
+  right: 115px;
+  width: 261px;
   height: 100px;
   border-bottom: 2px solid ${colors.baseGray30};
   z-index: 12;
@@ -149,8 +157,8 @@ export const RightMovieContentContainer = styled.div`
 export const RightToImgCultureContainer = styled.div`
   position: absolute;
   top: 568px;
-  right: 113px;
-  width: 263px;
+  right: 115px;
+  width: 261px;
   height: 100px;
   border-bottom: 2px solid ${colors.baseGray30};
   z-index: 12;
@@ -180,8 +188,8 @@ export const RightCultureContentContainer = styled.div`
 export const RightToImgTechnoContainer = styled.div`
   position: absolute;
   top: 668px;
-  right: 113px;
-  width: 263px;
+  right: 115px;
+  width: 261px;
   height: 100px;  
   z-index: 12;
    &:hover {
@@ -257,14 +265,78 @@ export const UpperNewsContainer = styled.div`
   z-index: 5; 
 `;
 
-export const NewsContainerPartitionFirstLine = styled.div`
+export const NewsContainerFirstLeft = styled.div`
   position: absolute;
-  top: 5.5%;
-  left: 398px;
-  width: 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;  
+  padding-left: 25px;
+  padding-right: 25px;
+  top: 45px;
+  left: 143px;
+  width: 270px;
   height: 80px;
-  background-color: ${colors.baseGray50};
+  border-right: 2px solid ${colors.baseGray50};   
   z-index: 6;
 `;
 
-export const UpperNewsContainerLeftPart = styled.div``;
+export const NewsTitleContainer = styled.h4`
+  color: ${colors.white};
+  font-family: 'LatoRegular';
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.5rem;
+`;
+
+export const NewsContainerSrcondLeft = styled.div`
+  position: absolute;  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;  
+  padding-left: 25px;
+  padding-right: 25px;
+  top: 45px;
+  left: 413px;
+  width: 270px;
+  height: 80px;
+  border-right: 2px solid ${colors.baseGray50};  
+  z-index: 6;
+`;
+
+export const NewsContainerThirdRight = styled.div`
+  position: absolute;  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;  
+  padding-left: 25px;
+  padding-right: 25px;
+  top: 45px;
+  left: 683px;
+  width: 270px;
+  height: 80px;
+  border-right: 2px solid ${colors.baseGray50}; 
+  z-index: 6;
+`;
+
+export const NewsContainerFourthRight = styled.div`
+  position: absolute;  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;  
+  padding-left: 25px;
+  padding-right: 25px;
+  top: 45px;
+  left: 953px;
+  width: 270px;
+  height: 80px;  
+  z-index: 6;
+`;
+
+export const NewsMainContainer = styled.div`
+  width: 1140px;
+  height: 1470px;
+`;

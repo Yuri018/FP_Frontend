@@ -1,6 +1,6 @@
 import Button from "components/Button"
 import ImageComponent from "components/ImageComponent"
-import { BerlinMainImg } from "assets"
+import { BerlinMainImg, Guitars, Butterfly, TwoPeople, University } from "assets"
 
 import {
   BcgContainer,
@@ -27,21 +27,40 @@ import {
   RightTechnoHeader,
   RightTechnoContainer,
   UpperNewsContainer,
-  NewsContainerPartitionFirstLine,
+  NewsContainerFirstLeft,
+  NewsContainerSrcondLeft,
+  NewsContainerThirdRight,
+  NewsContainerFourthRight,
+  NewsTitleContainer,
   ButtonContainer,
 } from "./styles"
 
-import { MainProps } from "./types"
+import { MainUpperPartProps } from "./types"
 
-function Main({ imageurl, title }: MainProps) {
+function MainUpperPart({ imageurl, title }: MainUpperPartProps) {
   return (
     <BcgContainer>
       <UpperGrayBackground />
       <UpperNewsContainer />
-      <NewsContainerPartitionFirstLine />
+      <NewsContainerFirstLeft>
+        <NewsTitleContainer>Музыкальные истории</NewsTitleContainer>
+        <ImageComponent src={Guitars} />
+      </NewsContainerFirstLeft>
+      <NewsContainerSrcondLeft>
+        <NewsTitleContainer>Загадки природы</NewsTitleContainer>
+        <ImageComponent src={Butterfly} />
+      </NewsContainerSrcondLeft>
+      <NewsContainerThirdRight>
+        <NewsTitleContainer>Жизнь рядом с нами</NewsTitleContainer>
+        <ImageComponent src={TwoPeople} />
+      </NewsContainerThirdRight>
+      <NewsContainerFourthRight>
+        <NewsTitleContainer>Высшее образование в Германии</NewsTitleContainer>
+        <ImageComponent src={University} />
+      </NewsContainerFourthRight>
       <BackgroundImageContainer>
         <BackgroundImage imageurl={imageurl}>
-          <ImageComponent src={BerlinMainImg} />
+          <ImageComponent src={BerlinMainImg} /> {/* {imageurl} */}
         </BackgroundImage>
         <MainTitle>
           {
@@ -83,4 +102,4 @@ function Main({ imageurl, title }: MainProps) {
   )
 }
 
-export default Main
+export default MainUpperPart;

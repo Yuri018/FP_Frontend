@@ -1,5 +1,6 @@
-import Main from "components/Main";
-import { LayoutWrapper, LayoutContainer } from "./styles"
+import MainUpperPart from "components/MainUpperPart";
+import MainLowerPart from "components/MainLowerPart";
+import { LayoutWrapper, LayoutContainer } from "./styles";
 
 import Header from 'components/Header';
 import { Children } from "react";
@@ -9,7 +10,8 @@ function Layout() {
     <LayoutWrapper>
       <LayoutContainer>
         <Header />
-        <Main imageurl={""} />
+        <MainUpperPart imageurl={""} />
+        <MainLowerPart />
       </LayoutContainer>
     </LayoutWrapper>
   )
