@@ -14,16 +14,18 @@ function App() {
   return (
     <div>
       <GlobalStyles />
-      <GlobalFonts />      
+      <GlobalFonts />
       <Layout>
-        {/* <FrontalPage /> */}
-        {/* <Berlin /> */}
-        {/* <Munich /> */}
-        {/* <Rheinland /> */}
-        {/* <Frankfurt /> */}
-        <Hamburg />
+        <Routes>
+          <Route path="/" element={<FrontalPage />} />
+          <Route path="/berlin" element={<Berlin />} />
+          <Route path="/munich" element={<Munich />} />
+          <Route path="/frankfurt" element={<Frankfurt />} />
+          <Route path="/duesseldorf" element={<Rheinland />} />
+          <Route path="/hamburg" element={<Hamburg />} />
+          <Route path="*" element="Page is not found" />          
+        </Routes>
       </Layout>
-      
     </div>
   )
 }

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import MainUpperPart from "components/MainUpperPart";
 import Header from "components/Header";
 import MainLowerPart from "components/MainLowerPart"
-import { FrontalPageWrapper } from "./styles";
+import { DropdownMenuContainer, DropdownMenuItem, DropdownMenuLink, DropdownMenuList, FrontalPageWrapper } from "./styles";
 
 import {
   GermanMainImg,
@@ -18,7 +18,7 @@ import {
 
 function FrontalPage(){  
 
-  const[isShowCityMenu, setIsShowCityMenu] = useState();
+  const[isShowCityMenu, setIsShowCityMenu] = useState(false);
 
   return (
     <FrontalPageWrapper>
@@ -38,9 +38,32 @@ function FrontalPage(){
         fourthImgTitle="Высшее образование в Германии"
         buttonProps={{
           name: "Выбери свой город",
-          onClick: () => {},
+          onClick: () => {
+            setIsShowCityMenu(!isShowCityMenu)
+          },
         }}
       />
+      {isShowCityMenu && (
+        <DropdownMenuContainer>
+          <DropdownMenuList>
+            <DropdownMenuItem>
+              <DropdownMenuLink to="/berlin">БЕРЛИН</DropdownMenuLink>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <DropdownMenuLink to="/munich">МЮНХЕН</DropdownMenuLink>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <DropdownMenuLink to="/frankfurt">ФРАНКФУРТ</DropdownMenuLink>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <DropdownMenuLink to="/duesseldorf">ДЮССЕЛЬДОРФ</DropdownMenuLink>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <DropdownMenuLink to="/hamburg">ГАМБУРГ</DropdownMenuLink>
+            </DropdownMenuItem>
+          </DropdownMenuList>
+        </DropdownMenuContainer>
+      )}
       <MainLowerPart />
     </FrontalPageWrapper>
   )

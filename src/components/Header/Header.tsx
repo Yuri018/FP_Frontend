@@ -92,5 +92,3 @@ function Header({logoText, logoImgDescr}: HeaderProps) {
 }
 
 export default Header;
-
-{/* <Header logoText="Берлин и Бранденбург" /> */}
