@@ -1,18 +1,11 @@
-import MainUpperPart from "components/MainUpperPart";
-import MainLowerPart from "components/MainLowerPart";
 import { LayoutWrapper, LayoutContainer } from "./styles";
 
-import Header from 'components/Header';
-import { Children } from "react";
+import { LayoutProps } from "./types";
 
-function Layout() {
+function Layout({ children }: LayoutProps) {
   return (
     <LayoutWrapper>
-      <LayoutContainer>
-        <Header />
-        <MainUpperPart imageurl={""} />
-        <MainLowerPart />
-      </LayoutContainer>
+      {children}      
     </LayoutWrapper>
   )
 }

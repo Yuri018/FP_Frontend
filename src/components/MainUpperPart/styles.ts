@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { colors } from 'styles/colors';
-import { Guitars } from 'assets'
 
 export const BcgContainer = styled.div`
   position: relative;
@@ -224,10 +223,16 @@ export const ButtonContainer = styled.div`
   z-index: 10;
 `;
 
-export const BackgroundImage = styled.div<{ imageurl: string }>`
-  background-image: url(${props => props.imageurl});
-  background-repeat: no-repeat;
-  background-size: contain;
+// export const BackgroundImage = styled.div<{ imageurl: string }>`
+//   background-image: url(${props => props.imageurl});
+//   background-repeat: no-repeat;
+//   background-size: contain;
+//   position: absolute;  
+//   top: 0;
+//   left: 0;
+//   `;
+
+export const BackgroundImage = styled.div`  
   position: absolute;  
   top: 0;
   left: 0;

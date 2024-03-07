@@ -1,6 +1,6 @@
+import { NavLink } from 'react-router-dom';
 import styled from "styled-components";
-import { colors } from "./styles";
-export { colors } from 'styles/colors';
+import { colors } from 'styles/colors';
 
 export const HeaderMainContainer = styled.div`
   display: flex;
@@ -78,12 +78,7 @@ export const LogoContainer = styled.div`
   gap: 5px;
   width: 365px;
 `;
-export const LogoImgContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 220px;
-  height: 105px;  
-`;
+
 export const LogoTextContainer = styled.p`
   font-family: 'LatoRegular'; 
   font-size: 14px;
@@ -93,6 +88,11 @@ export const LogoTextContainer = styled.p`
 export const TitleContainer = styled.div`
   width: 440px;
   height: 50px;
+`;
+
+export const TitleLinkContainer = styled(NavLink)`
+  width: 100%;
+  height: 100%;
 `;
 
 export const WeatherAppContainer = styled.div`
@@ -134,7 +134,7 @@ export const NavItem = styled.li`
   } 
 `;
 
-export const NavLink = styled.a`  
+export const NavigationLink = styled.a`  
   font-size: 14px;
   color: ${colors.white};
   text-decoration: none;  

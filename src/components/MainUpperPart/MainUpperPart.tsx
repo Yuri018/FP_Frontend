@@ -1,6 +1,7 @@
+import { ReactNode } from "react"
+
 import Button from "components/Button"
 import ImageComponent from "components/ImageComponent"
-import { BerlinMainImg, Guitars, Butterfly, TwoPeople, University } from "assets"
 
 import {
   BcgContainer,
@@ -37,39 +38,48 @@ import {
 
 import { MainUpperPartProps } from "./types"
 
-function MainUpperPart({ imageurl, title }: MainUpperPartProps) {
+
+
+function MainUpperPart({
+  bcgImgDescr,
+  mainTitle,
+  firstImgDescr,
+  secondImgDescr,
+  thirdImgDescr,
+  fourthImgDescr,
+  firstImgTitle,
+  secondImgTitle,
+  thirdImgTitle,
+  fourthImgTitle,
+  buttonProps,
+}: MainUpperPartProps) {
   return (
     <BcgContainer>
       <UpperGrayBackground />
       <UpperNewsContainer />
       <NewsContainerFirstLeft>
-        <NewsTitleContainer>Музыкальные истории</NewsTitleContainer>
-        <ImageComponent src={Guitars} />
+        <NewsTitleContainer>{firstImgTitle}</NewsTitleContainer>
+        <ImageComponent {...firstImgDescr} />
       </NewsContainerFirstLeft>
       <NewsContainerSrcondLeft>
-        <NewsTitleContainer>Загадки природы</NewsTitleContainer>
-        <ImageComponent src={Butterfly} />
+        <NewsTitleContainer>{secondImgTitle}</NewsTitleContainer>
+        <ImageComponent {...secondImgDescr} />
       </NewsContainerSrcondLeft>
       <NewsContainerThirdRight>
-        <NewsTitleContainer>Жизнь рядом с нами</NewsTitleContainer>
-        <ImageComponent src={TwoPeople} />
+        <NewsTitleContainer>{thirdImgTitle}</NewsTitleContainer>
+        <ImageComponent {...thirdImgDescr} />
       </NewsContainerThirdRight>
       <NewsContainerFourthRight>
-        <NewsTitleContainer>Высшее образование в Германии</NewsTitleContainer>
-        <ImageComponent src={University} />
+        <NewsTitleContainer>{fourthImgTitle}</NewsTitleContainer>
+        <ImageComponent {...fourthImgDescr} />
       </NewsContainerFourthRight>
       <BackgroundImageContainer>
-        <BackgroundImage imageurl={imageurl}>
-          <ImageComponent src={BerlinMainImg} /> {/* {imageurl} */}
+        <BackgroundImage>
+          <ImageComponent {...bcgImgDescr} />
         </BackgroundImage>
-        <MainTitle>
-          {
-            (title =
-              "Здесь вы сможете найти полезную для себя информацию по разделам")
-          }
-        </MainTitle>
+        <MainTitle>{mainTitle}</MainTitle>
         <ButtonContainer>
-          <Button name="Выбери свой город" onClick={() => {}} />
+          <Button {...buttonProps} />
         </ButtonContainer>
       </BackgroundImageContainer>
       <BcgRightToImgContainer />

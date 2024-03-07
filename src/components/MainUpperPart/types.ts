@@ -1,6 +1,17 @@
 import { ReactNode } from 'react';
+
+import { ButtunProps } from "components/Button/types"
 export interface MainUpperPartProps {
-  children?: ReactNode;
-  title?: string;
-  imageurl: string;
+  children?: ReactNode
+  mainTitle?: string
+  bcgImgDescr?: { src: string; alt: string }
+  firstImgDescr?: { src: string; alt: string }
+  secondImgDescr?: { src: string; alt: string }
+  thirdImgDescr?: { src: string; alt: string }
+  fourthImgDescr?: { src: string; alt: string }
+  firstImgTitle?: string
+  secondImgTitle?: string
+  thirdImgTitle?: string
+  fourthImgTitle?: string
+  buttonProps?: ButtunProps
 }

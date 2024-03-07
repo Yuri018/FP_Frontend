@@ -1,33 +1,35 @@
 import ImageComponent from "components/ImageComponent";
+import LogoComponent from "components/LogoComponent";
 
 import {
   HeaderMainContainer,
   HeaderUpperContainer,
   HeaderMiddleContainer,
   HeaderLowerContainer,
-  LogoContainer,
-  LogoImgContainer,
+  LogoContainer,  
   LogoTextContainer,
   TitleContainer,
   HeaderSerchContainer,
-  HeaderSerchText,   
-  HeaderSignInContainer, 
+  HeaderSerchText,
+  HeaderSignInContainer,
   HeaderSignInText,
   BottomLine,
   WeatherAppContainer,
   NavListLeft,
   NavItem,
-  NavLink,
+  NavigationLink,
   NavListRight,
+  TitleLinkContainer,
 } from "./styles"
 
-import { GermanMainLogo, MainTitle, SearchIcon, SignInIcon } from "assets"
+import { MainTitle, SearchIcon, SignInIcon } from "assets"
 
 interface HeaderProps {
-  logoText?: string 
+  logoText?: string
+  logoImgDescr?: { src: string, alt: string }
 }
 
-function Header({logoText}: HeaderProps) {
+function Header({logoText, logoImgDescr}: HeaderProps) {
   return (
     <HeaderMainContainer>
       <HeaderUpperContainer>
@@ -43,13 +45,13 @@ function Header({logoText}: HeaderProps) {
       </HeaderUpperContainer>
       <HeaderMiddleContainer>
         <LogoContainer>
-          <LogoImgContainer>
-            <ImageComponent src={GermanMainLogo} alt="GermanMainLogo" />
-          </LogoImgContainer>
+          <LogoComponent {...logoImgDescr} />          
           {logoText && <LogoTextContainer>{logoText}</LogoTextContainer>}
         </LogoContainer>
         <TitleContainer>
-          <ImageComponent src={MainTitle} alt="MainTitle" />
+          <TitleLinkContainer to="/">
+            <ImageComponent src={MainTitle} alt="MainTitle" />
+          </TitleLinkContainer>
         </TitleContainer>
         <WeatherAppContainer>
           Воскресенье, Сентябрь 1, 2024 +22С
@@ -58,30 +60,30 @@ function Header({logoText}: HeaderProps) {
       <HeaderLowerContainer>
         <NavListLeft>
           <NavItem>
-            <NavLink href="#">Новости</NavLink>
+            <NavigationLink href="#">Новости</NavigationLink>
           </NavItem>
           <NavItem>
-            <NavLink href="#">Культурная жизнь</NavLink>
+            <NavigationLink href="#">Культурная жизнь</NavigationLink>
           </NavItem>
         </NavListLeft>
         <NavListRight>
           <NavItem>
-            <NavLink href="#">Общая информация</NavLink>
+            <NavigationLink href="#">Общая информация</NavigationLink>
           </NavItem>
           <NavItem>
-            <NavLink href="#">Здоровье</NavLink>
+            <NavigationLink href="#">Здоровье</NavigationLink>
           </NavItem>
           <NavItem>
-            <NavLink href="#">Дети</NavLink>
+            <NavigationLink href="#">Дети</NavigationLink>
           </NavItem>
           <NavItem>
-            <NavLink href="#">Магазины</NavLink>
+            <NavigationLink href="#">Магазины</NavigationLink>
           </NavItem>
           <NavItem>
-            <NavLink href="#">Кафе и рестораны</NavLink>
+            <NavigationLink href="#">Кафе и рестораны</NavigationLink>
           </NavItem>
           <NavItem>
-            <NavLink href="#">Услуги</NavLink>
+            <NavigationLink href="#">Услуги</NavigationLink>
           </NavItem>
         </NavListRight>
       </HeaderLowerContainer>
