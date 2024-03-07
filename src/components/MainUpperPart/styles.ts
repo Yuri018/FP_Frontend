@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import { colors } from 'styles/colors';
 
+interface ButtonContainerProps {
+  $isGeneralPage?: boolean | undefined;
+}
+
 export const BcgContainer = styled.div`
   position: relative;
   width: 1366px;
@@ -214,35 +218,38 @@ export const RightTechnoContainer = styled.div`
   z-index: 14;
 `;
 
-export const ButtonContainer = styled.div`
-  position: absolute;  
-  width: fit-content;
-  top: 280px;
-  left: 150px;
-  height: 50px; 
-  z-index: 10;
-`;
-
-// export const BackgroundImage = styled.div<{ imageurl: string }>`
-//   background-image: url(${props => props.imageurl});
-//   background-repeat: no-repeat;
-//   background-size: contain;
-//   position: absolute;  
-//   top: 0;
-//   left: 0;
-//   `;
-
 export const BackgroundImage = styled.div`  
   position: absolute;  
   top: 0;
   left: 0;
-  `;
+`;
+
+export const ButtonContainer = styled.div<ButtonContainerProps>`
+  position: absolute;  
+  width: fit-content;
+  top: ${({$isGeneralPage}) => $isGeneralPage ? '280px' : '420px'}; 
+  left: ${({$isGeneralPage}) => $isGeneralPage ? '150px' : '580px'}; 
+  height: 50px; 
+  z-index: 10;
+`;
 
 export const MainTitle = styled.h1`
   position: absolute;
   top: 80px;
   left: 150px;
   width: 600px;
+  color: ${colors.white};
+  font-family: 'LatoRegular';
+  font-weight: bold;
+  font-size: 40px;
+`;
+
+export const PageTitle = styled.h2`
+  position: absolute;
+  /* top: 385px; */
+  bottom: 100px;
+  left: 150px;
+  width: 450px;
   color: ${colors.white};
   font-family: 'LatoRegular';
   font-weight: bold;

@@ -1,33 +1,28 @@
-import { useState } from 'react';
-
-import MainUpperPart from "components/MainUpperPart";
-import Header from "components/Header";
+import MainUpperPart from "components/MainUpperPart"
+import Header from "components/Header"
 import MainLowerPart from "components/MainLowerPart"
-import { FrontalPageWrapper } from "./styles";
 
 import {
-  GermanMainImg,
-  GermanMainLogo,
+  DuesseldorfImg,
+  DuesseldorfLogo,
   Guitars,
   Butterfly,
   TwoPeople,
   University,
 } from "assets"
 
+import { RheinlandPageWrapper } from "./styles"
 
-
-function FrontalPage(){  
-
-  const[isShowCityMenu, setIsShowCityMenu] = useState();
-
+function Rheinland() {
   return (
-    <FrontalPageWrapper>
-      <Header logoImgDescr={{ src: GermanMainLogo, alt: "GermanMainLogo" }} />
+    <RheinlandPageWrapper>
+      <Header
+        logoImgDescr={{ src: DuesseldorfLogo, alt: "DuesseldorfLogo" }}
+        logoText="Дюссельдорф-Кёльн-Бонн"
+      />
       <MainUpperPart
-        isGeneralPage={true}
-        isMainPage={true}
-        bcgImgDescr={{ src: GermanMainImg, alt: "GermanMainImg" }}
-        mainTitle="Здесь вы сможете найти полезную для себя информацию по разделам"
+        bcgImgDescr={{ src: DuesseldorfImg, alt: "DuesseldorfImg" }}
+        mainTitle="Новости Райнланда: Дюссельдорф, Кёльн, Бонн"
         firstImgDescr={{ src: Guitars, alt: "Guitars" }}
         secondImgDescr={{ src: Butterfly, alt: "Butterfly" }}
         thirdImgDescr={{ src: TwoPeople, alt: "Two people" }}
@@ -37,13 +32,13 @@ function FrontalPage(){
         thirdImgTitle="Жизнь рядом с нами"
         fourthImgTitle="Высшее образование в Германии"
         buttonProps={{
-          name: "Выбери свой город",
+          name: "Читать подробнее",
           onClick: () => {},
         }}
       />
       <MainLowerPart />
-    </FrontalPageWrapper>
+    </RheinlandPageWrapper>
   )
 }
 
-export default FrontalPage;
+export default Rheinland

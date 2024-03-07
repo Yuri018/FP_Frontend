@@ -1,7 +1,16 @@
 export { default as GermanMainLogo } from 'assets/GermanyMain.jpg';
-export { default as BerlinMainImg } from 'assets/Berlin1_frontal.jpg';
-export { default as DuesseldorfLogo } from 'assets/Duesseldorf.jpg';
+export { default as GermanMainImg } from 'assets/Berlin1_frontal.jpg';
+export { default as BerlinLogo } from 'assets/BerlinVector.jpg';
+export { default as DuesseldorfLogo } from 'assets/DuesseldorfVector.jpg';
+export { default as MunichLogo } from 'assets/MunichVector.jpg';
+export { default as FrankfurtLogo } from 'assets/FrankfurtVector.jpg';
+export { default as HamburgLogo } from 'assets/FrankfurtVector.jpg';
 export { default as MainTitle } from 'assets/Germany in the palm of your hand.png';
+export { default as BerlinImg } from 'assets/Berlin.jpg';
+export { default as DuesseldorfImg } from 'assets/Dusseldorf.jpg';
+export { default as MunichImg } from 'assets/Munich.jpg';
+export { default as FrankfurtImg } from 'assets/Frankfurt.jpg';
+export { default as HamburgImg } from 'assets/Hamburg.jpg';
 export { default as SearchIcon } from 'assets/SearchIcon.svg';
 export { default as SignInIcon } from 'assets/SignInIcon.svg';
 export { default as Butterfly } from 'assets/butterfly.jpg';

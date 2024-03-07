@@ -34,6 +34,7 @@ import {
   NewsContainerFourthRight,
   NewsTitleContainer,
   ButtonContainer,
+  PageTitle,
 } from "./styles"
 
 import { MainUpperPartProps } from "./types"
@@ -52,7 +53,11 @@ function MainUpperPart({
   thirdImgTitle,
   fourthImgTitle,
   buttonProps,
+  isMainPage,  
+  isGeneralPage, 
 }: MainUpperPartProps) {
+  const TitleContainer = isMainPage ? MainTitle : PageTitle
+
   return (
     <BcgContainer>
       <UpperGrayBackground />
@@ -77,8 +82,8 @@ function MainUpperPart({
         <BackgroundImage>
           <ImageComponent {...bcgImgDescr} />
         </BackgroundImage>
-        <MainTitle>{mainTitle}</MainTitle>
-        <ButtonContainer>
+        <TitleContainer>{mainTitle}</TitleContainer>
+        <ButtonContainer $isGeneralPage = {isGeneralPage}>
           <Button {...buttonProps} />
         </ButtonContainer>
       </BackgroundImageContainer>
