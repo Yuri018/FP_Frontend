@@ -19,7 +19,7 @@ export const DropdownMenuContainer = styled.div`
   height: 270px;
   border-radius: 10px;
   z-index: 20;
-  border: 2px solid ${colors.baseGrey80};
+  border: 2px solid ${colors.baseGray50};
   background-color: ${colors.white};
   &::after{
     content: '';
@@ -28,8 +28,8 @@ export const DropdownMenuContainer = styled.div`
     left: -12px;
     height: 20px;
     width: 20px;
-    border-bottom: 2px solid ${colors.baseGrey80};
-    border-left: 2px solid ${colors.baseGrey80};
+    border-bottom: 2px solid ${colors.baseGray50};
+    border-left: 2px solid ${colors.baseGray50};
     background-color:  ${colors.white};
     transform: rotate(45deg);    
   }
@@ -81,13 +81,13 @@ export const DropdownMenuItem = styled.li`
     border-bottom: none;
   }  */
   &:hover {
-    background-color: ${colors.baseGray50}; 
+    background-color: ${colors.baseGray30}; 
   }
   &:focus {
-    background-color: ${colors.baseGray50}; 
+    background-color: ${colors.baseGray30}; 
   }
   &:active {
-    background-color: ${colors.baseGray50}; 
+    background-color: ${colors.baseGray30}; 
   }
    &:hover ${DropdownMenuLink}, &:focus ${DropdownMenuLink}, &:active ${DropdownMenuLink} {
     color: ${colors.white}; 
