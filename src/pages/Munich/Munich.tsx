@@ -12,6 +12,7 @@ import {
 } from "assets"
 
 import { MunichPageWrapper } from "./styles"
+import Footer from "components/Footer"
 
 function Munich() {
   return (
@@ -37,6 +38,7 @@ function Munich() {
         }}
       />
       <MainLowerPart />
+      <Footer />
     </MunichPageWrapper>
   )
 }

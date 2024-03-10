@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom"
 import GlobalStyles from "styles/GlobalStyles"
 import GlobalFonts from "./fonts/fonts"
 import Layout from "components/Layout"
-import FrontalPage from "pages/Frontal"
+import FrontalPage from "pages/FrontalPage"
 import Berlin from "pages/Berlin";
 import Munich from "pages/Munich";
 import Rheinland from "pages/Rheinland";

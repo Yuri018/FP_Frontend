@@ -12,6 +12,7 @@ import {
 } from "assets"
 
 import { FrankfurtPageWrapper } from "./styles"
+import Footer from "components/Footer"
 
 function Frankfurt() {
   return (
@@ -37,6 +38,7 @@ function Frankfurt() {
         }}
       />
       <MainLowerPart />
+      <Footer />
     </FrankfurtPageWrapper>
   )
 }

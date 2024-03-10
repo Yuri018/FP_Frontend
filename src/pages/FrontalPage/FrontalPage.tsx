@@ -13,6 +13,7 @@ import {
   TwoPeople,
   University,
 } from "assets"
+import Footer from 'components/Footer';
 
 
 
@@ -65,6 +66,7 @@ function FrontalPage(){
         </DropdownMenuContainer>
       )}
       <MainLowerPart />
+      <Footer />
     </FrontalPageWrapper>
   )
 }

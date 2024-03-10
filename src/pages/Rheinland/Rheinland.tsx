@@ -12,6 +12,7 @@ import {
 } from "assets"
 
 import { RheinlandPageWrapper } from "./styles"
+import Footer from "components/Footer"
 
 function Rheinland() {
   return (
@@ -37,6 +38,7 @@ function Rheinland() {
         }}
       />
       <MainLowerPart />
+      <Footer />
     </RheinlandPageWrapper>
   )
 }

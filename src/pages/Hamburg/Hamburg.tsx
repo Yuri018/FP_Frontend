@@ -12,6 +12,7 @@ import {
 } from "assets"
 
 import { HamburgtPageWrapper } from "./styles"
+import Footer from "components/Footer"
 
 function Hamburg() {
   return (
@@ -20,7 +21,7 @@ function Hamburg() {
         logoImgDescr={{ src: HamburgLogo, alt: "HamburgLogo" }}
         logoText="Гамбург"
       />
-      <MainUpperPart    
+      <MainUpperPart
         bcgImgDescr={{ src: HamburgImg, alt: "HamburgImg" }}
         mainTitle="Новости Гамбурга и окрестностей"
         firstImgDescr={{ src: Guitars, alt: "Guitars" }}
@@ -37,6 +38,7 @@ function Hamburg() {
         }}
       />
       <MainLowerPart />
+      <Footer />
     </HamburgtPageWrapper>
   )
 }

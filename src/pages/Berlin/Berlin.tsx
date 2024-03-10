@@ -12,6 +12,7 @@ import {
 } from "assets"
 
 import { BerlinPageWrapper } from "./styles"
+import Footer from "components/Footer";
 
 function Berlin() {
   return (
@@ -37,6 +38,7 @@ function Berlin() {
         }}
       />
       <MainLowerPart />
+      <Footer />
     </BerlinPageWrapper>
   )
 }

@@ -5,8 +5,7 @@ import { colors } from 'styles/colors';
 export const HeaderMainContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  /* padding-left: 65px; */
+  justify-content: space-between; 
   padding-right: 113px;  
   width: 1366px;  
   height: 225px;
