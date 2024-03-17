@@ -23,7 +23,7 @@ function FrontalPage(){
 
   return (
     <FrontalPageWrapper>
-      <Header logoImgDescr={{ src: GermanMainLogo, alt: "GermanMainLogo" }} />
+      <Header logoImgDescr={{ src: GermanMainLogo, alt: "GermanMainLogo" }} city="Берлин" />
       <MainUpperPart
         isGeneralPage={true}
         isMainPage={true}

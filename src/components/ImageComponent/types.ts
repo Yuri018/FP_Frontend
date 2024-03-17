@@ -1,4 +1,4 @@
-interface ImgComponentProps {
+export interface ImgComponentProps {
   src?: string
   alt?: string
 }

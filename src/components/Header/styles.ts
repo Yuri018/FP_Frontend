@@ -94,14 +94,40 @@ export const TitleLinkContainer = styled(NavLink)`
   height: 100%;
 `;
 
+// export const WeatherAppContainer = styled.div`
+//   width: 285px;
+//   height: 25px;
+//   text-align: right;
+//   font-family: 'LatoRegular';  
+//   font-size: 14px;
+//   color: black;
+// `;
+
 export const WeatherAppContainer = styled.div`
   width: 285px;
-  height: 25px;
-  text-align: right;
-  font-family: 'LatoRegular';  
-  font-size: 14px;
-  color: black;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start
 `;
+
+export const WeatherTextContainer = styled.div`
+  /* width: 150px; */
+  height: 25px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+`;
+
+export const WeatherTemp = styled.p`
+  color: black;
+  font-size: 14px;
+  font-family: 'LatoRegular';
+`;
+
+
 
 export const HeaderLowerContainer = styled.nav`
   display: flex;

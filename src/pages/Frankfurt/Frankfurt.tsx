@@ -20,6 +20,7 @@ function Frankfurt() {
       <Header
         logoImgDescr={{ src: FrankfurtLogo, alt: "FrankfurtLogo" }}
         logoText="Франкфурт"
+        city="Франкфурт"
       />
       <MainUpperPart
         bcgImgDescr={{ src: FrankfurtImg, alt: "FrankfurtImg" }}

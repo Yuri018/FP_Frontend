@@ -1,12 +1,13 @@
-import ImageComponent from "components/ImageComponent";
-import LogoComponent from "components/LogoComponent";
+import ImageComponent from "components/ImageComponent"
+import LogoComponent from "components/LogoComponent"
+import WeatherComponent from "components/WeatherComponent"
 
 import {
   HeaderMainContainer,
   HeaderUpperContainer,
   HeaderMiddleContainer,
   HeaderLowerContainer,
-  LogoContainer,  
+  LogoContainer,
   LogoTextContainer,
   TitleContainer,
   HeaderSerchContainer,
@@ -15,6 +16,8 @@ import {
   HeaderSignInText,
   BottomLine,
   WeatherAppContainer,
+  WeatherTextContainer,
+  WeatherTemp,
   NavListLeft,
   NavItem,
   NavigationLink,
@@ -26,10 +29,11 @@ import { MainTitle, SearchIcon, SignInIcon } from "assets"
 
 interface HeaderProps {
   logoText?: string
-  logoImgDescr?: { src: string, alt: string }
+  logoImgDescr?: { src: string; alt: string }
+  city: string
 }
 
-function Header({logoText, logoImgDescr}: HeaderProps) {
+function Header({ logoText, logoImgDescr, city }: HeaderProps) {
   return (
     <HeaderMainContainer>
       <HeaderUpperContainer>
@@ -45,7 +49,7 @@ function Header({logoText, logoImgDescr}: HeaderProps) {
       </HeaderUpperContainer>
       <HeaderMiddleContainer>
         <LogoContainer>
-          <LogoComponent {...logoImgDescr} />          
+          <LogoComponent {...logoImgDescr} />
           {logoText && <LogoTextContainer>{logoText}</LogoTextContainer>}
         </LogoContainer>
         <TitleContainer>
@@ -53,9 +57,7 @@ function Header({logoText, logoImgDescr}: HeaderProps) {
             <ImageComponent src={MainTitle} alt="MainTitle" />
           </TitleLinkContainer>
         </TitleContainer>
-        <WeatherAppContainer>
-          Воскресенье, Сентябрь 1, 2024 +22С
-        </WeatherAppContainer>
+        <WeatherComponent city={city}/>
       </HeaderMiddleContainer>
       <HeaderLowerContainer>
         <NavListLeft>
@@ -91,4 +93,4 @@ function Header({logoText, logoImgDescr}: HeaderProps) {
   )
 }
 
-export default Header;
+export default Header
