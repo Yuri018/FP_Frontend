@@ -4,6 +4,7 @@ import {
   WeatherTemp,
   ImgContainer,
   Image,
+  Loading,
 } from "./styles"
 
 import { useEffect } from "react"
@@ -16,7 +17,7 @@ interface WeatherComponentProps {
   city: string
 }
 
-function WeatherComponent({city}:WeatherComponentProps) {
+function WeatherComponent({ city }: WeatherComponentProps) {
   const { weatherCard, error, isLoading } = useSelector(weatherSelectorState)
   const dispatch: AppDispatch = useDispatch()
 
@@ -34,17 +35,22 @@ function WeatherComponent({city}:WeatherComponentProps) {
 
   return (
     <WeatherWrapper>
-      <WeatherTextContainer>
-        <WeatherTemp> {weatherCard?.date} </WeatherTemp>
-      </WeatherTextContainer>
-      <ImgContainer>
-        <WeatherTemp>{weatherCard?.temp}</WeatherTemp>
-        <Image
-          id="weather-icon"
-          src={weatherCard?.weatherLogo}
-          alt="weather-icon"
-        />
-      </ImgContainer>
+      {isLoading && <Loading>Loading...</Loading>}
+      {weatherCard && (
+        <>
+          <WeatherTextContainer>
+            <WeatherTemp> {weatherCard?.date} </WeatherTemp>
+          </WeatherTextContainer>
+          <ImgContainer>
+            <WeatherTemp>{weatherCard?.temp}</WeatherTemp>
+            <Image
+              id="weather-icon"
+              src={weatherCard?.weatherLogo}
+              alt="weather-icon"
+            />
+          </ImgContainer>
+        </>
+      )}
     </WeatherWrapper>
   )
 }

@@ -35,3 +35,9 @@ export const Image = styled.img`
   width: 100%;
   height: 100%;
 `
+
+export const Loading = styled.p`
+  color: black;
+  font-size: 14px;
+  font-family: "LatoRegular";
+`
