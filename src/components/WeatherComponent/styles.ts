@@ -6,7 +6,7 @@ export const WeatherWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-end;
 `
 
 export const WeatherTextContainer = styled.div`
