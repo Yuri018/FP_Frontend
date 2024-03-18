@@ -1,7 +1,8 @@
 import ImageComponent from "components/ImageComponent";
 import { LogoImgContainer } from "./styles";
+import { LogoComponentProps } from "./types";
 
-function LogoComponent({ src, alt }: ImgComponentProps) {
+function LogoComponent({ src, alt }: LogoComponentProps) {
   return (
     <LogoImgContainer>
       <ImageComponent src={src} alt={alt} />

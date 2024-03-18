@@ -1,3 +1,5 @@
+import { ImgComponentProps } from "./types";
+
 function ImageComponent({ src, alt }: ImgComponentProps) {
   
   return <img src={src} alt={alt} />
