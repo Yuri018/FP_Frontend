@@ -21,7 +21,7 @@ export const WeatherTextContainer = styled.div`
 export const WeatherTemp = styled.p`
   color: black;
   font-size: 14px;
-  font-family: "LatoRegular";
+  font-family: "Montserrat";
 `
 
 export const ImgContainer = styled.div`
@@ -39,5 +39,5 @@ export const Image = styled.img`
 export const Loading = styled.p`
   color: black;
   font-size: 14px;
-  font-family: "LatoRegular";
+  font-family: "Montserrat";
 `

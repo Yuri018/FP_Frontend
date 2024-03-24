@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 
 import GlobalStyles from "styles/GlobalStyles"
-import GlobalFonts from "./fonts/fonts"
 import Layout from "components/Layout"
 import FrontalPage from "pages/FrontalPage"
 import Berlin from "pages/Berlin";
@@ -14,7 +13,6 @@ function App() {
   return (
     <div>
       <GlobalStyles />
-      <GlobalFonts />
       <Layout>
         <Routes>
           <Route path="/" element={<FrontalPage />} />
@@ -23,7 +21,7 @@ function App() {
           <Route path="/frankfurt" element={<Frankfurt />} />
           <Route path="/duesseldorf" element={<Rheinland />} />
           <Route path="/hamburg" element={<Hamburg />} />
-          <Route path="*" element="Page is not found" />          
+          <Route path="*" element="Page is not found" />
         </Routes>
       </Layout>
     </div>

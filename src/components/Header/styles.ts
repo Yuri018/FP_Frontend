@@ -43,7 +43,7 @@ export const HeaderSerchContainer = styled.div`
 `;
 
 export const HeaderSerchText = styled.p`
-  font-family: 'LatoRegular'; 
+  font-family: 'Montserrat'; 
   font-size: 14px;
   color: ${colors.baseGray30};
 `;
@@ -56,7 +56,7 @@ export const HeaderSignInContainer = styled.div`
 `;
 
 export const HeaderSignInText = styled.p`
-  font-family: 'LatoRegular';  
+  font-family: 'Montserrat';  
   font-size: 14px;
   font-weight: 500;
   color: ${colors.baseGray50};
@@ -79,7 +79,7 @@ export const LogoContainer = styled.div`
 `;
 
 export const LogoTextContainer = styled.p`
-  font-family: 'LatoRegular'; 
+  font-family: 'Montserrat'; 
   font-size: 14px;
   color: black;
 `;

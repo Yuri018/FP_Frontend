@@ -1,6 +1,7 @@
 // импортируем функцию createGlobalStyles из пакет styled-components
 import { Interface } from 'readline';
 import { createGlobalStyle } from 'styled-components';
+import '../fonts/Montserrat/stylesheet.css';
 
 const GlobalStyles = createGlobalStyle`
 
@@ -9,6 +10,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html, body {
+    font-family: 'Montserrat';
     height: 100%;
     margin: 0;
     padding: 0;

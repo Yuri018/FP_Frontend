@@ -227,8 +227,8 @@ export const BackgroundImage = styled.div`
 export const ButtonContainer = styled.div<ButtonContainerProps>`
   position: absolute;  
   width: fit-content;
-  top: ${({$isGeneralPage}) => $isGeneralPage ? '280px' : '420px'}; 
-  left: ${({$isGeneralPage}) => $isGeneralPage ? '150px' : '580px'}; 
+  top: ${({ $isGeneralPage }) => $isGeneralPage ? '280px' : '420px'}; 
+  left: ${({ $isGeneralPage }) => $isGeneralPage ? '150px' : '580px'}; 
   height: 50px; 
   z-index: 10;
 `;
@@ -239,7 +239,7 @@ export const MainTitle = styled.h1`
   left: 150px;
   width: 600px;
   color: ${colors.white};
-  font-family: 'LatoRegular';
+  font-family: 'Montserrat';
   font-weight: bold;
   font-size: 40px;
 `;
@@ -251,7 +251,7 @@ export const PageTitle = styled.h2`
   left: 150px;
   width: 450px;
   color: ${colors.white};
-  font-family: 'LatoRegular';
+  font-family: 'Montserrat';
   font-weight: bold;
   font-size: 40px;
 `;
@@ -295,7 +295,7 @@ export const NewsContainerFirstLeft = styled.div`
 
 export const NewsTitleContainer = styled.h4`
   color: ${colors.white};
-  font-family: 'LatoRegular';
+  font-family: 'Montserrat';
   font-weight: bold;
   font-size: 14px;
   line-height: 1.5rem;
