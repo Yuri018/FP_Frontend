@@ -12,8 +12,8 @@ export const FrontalPageWrapper = styled.div`
 export const DropdownMenuContainer = styled.div`
   position: absolute;
   padding: 0px 20px;
-  top: 670px;
-  left: 450px;  
+  top: 567px;
+  left: 756px;
   width: 250px;
   height: 270px;
   border-radius: 10px;

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { colors } from 'styles/colors'
 
-export const FooterMainContainer = styled.div`
+export const FooterMainContainer = styled.footer`
   display: flex;
   flex-direction: column;
   justify-content: space-between; 

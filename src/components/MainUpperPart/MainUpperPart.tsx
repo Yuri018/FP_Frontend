@@ -5,36 +5,17 @@ import ImageComponent from "components/ImageComponent"
 
 import {
   BcgContainer,
-  UpperGrayBackground,
+  RightTitle,
   BackgroundImageContainer,
   BackgroundImage,
-  BcgRightToImgContainer,
   MainTitle,
-  RightToImgHeaderContainer,
-  RightHeader,
-  RightToImgGastroContainer,
-  RightGastroHeader,
-  RightGastroContentContainer,
-  RightToImgAutoContainer,
-  RightAutoHeader,
-  RightAutoContentContainer,
-  RightToImgMovieContainer,
-  RightMovieHeader,
-  RightMovieContentContainer,
-  RightToImgCultureContainer,
-  RightCultureHeader,
-  RightCultureContentContainer,
-  RightToImgTechnoContainer,
-  RightTechnoHeader,
-  RightTechnoContainer,
+  RightLink,
   UpperNewsContainer,
-  NewsContainerFirstLeft,
-  NewsContainerSrcondLeft,
-  NewsContainerThirdRight,
-  NewsContainerFourthRight,
+  NewsContainer,
   NewsTitleContainer,
   ButtonContainer,
   PageTitle,
+  RightWraper
 } from "./styles"
 
 import { MainUpperPartProps } from "./types"
@@ -53,66 +34,51 @@ function MainUpperPart({
   thirdImgTitle,
   fourthImgTitle,
   buttonProps,
-  isMainPage,  
-  isGeneralPage, 
+  isMainPage,
+  isGeneralPage,
 }: MainUpperPartProps) {
   const TitleContainer = isMainPage ? MainTitle : PageTitle
 
   return (
     <BcgContainer>
-      <UpperGrayBackground />
-      <UpperNewsContainer />
-      <NewsContainerFirstLeft>
-        <NewsTitleContainer>{firstImgTitle}</NewsTitleContainer>
-        <ImageComponent {...firstImgDescr} />
-      </NewsContainerFirstLeft>
-      <NewsContainerSrcondLeft>
-        <NewsTitleContainer>{secondImgTitle}</NewsTitleContainer>
-        <ImageComponent {...secondImgDescr} />
-      </NewsContainerSrcondLeft>
-      <NewsContainerThirdRight>
-        <NewsTitleContainer>{thirdImgTitle}</NewsTitleContainer>
-        <ImageComponent {...thirdImgDescr} />
-      </NewsContainerThirdRight>
-      <NewsContainerFourthRight>
-        <NewsTitleContainer>{fourthImgTitle}</NewsTitleContainer>
-        <ImageComponent {...fourthImgDescr} />
-      </NewsContainerFourthRight>
+      {/* <UpperGrayBackground /> */}
+      <UpperNewsContainer>
+        <NewsContainer>
+          <NewsTitleContainer>{firstImgTitle}</NewsTitleContainer>
+          <ImageComponent {...firstImgDescr} />
+        </NewsContainer>
+        <NewsContainer>
+          <NewsTitleContainer>{secondImgTitle}</NewsTitleContainer>
+          <ImageComponent {...secondImgDescr} />
+        </NewsContainer>
+        <NewsContainer>
+          <NewsTitleContainer>{thirdImgTitle}</NewsTitleContainer>
+          <ImageComponent {...thirdImgDescr} />
+        </NewsContainer>
+        <NewsContainer>
+          <NewsTitleContainer>{fourthImgTitle}</NewsTitleContainer>
+          <ImageComponent {...fourthImgDescr} />
+        </NewsContainer>
+      </UpperNewsContainer>
+
       <BackgroundImageContainer>
         <BackgroundImage>
           <ImageComponent {...bcgImgDescr} />
+          <TitleContainer>{mainTitle}</TitleContainer>
+          <ButtonContainer $isGeneralPage={isGeneralPage}>
+            <Button {...buttonProps} />
+          </ButtonContainer>
         </BackgroundImage>
-        <TitleContainer>{mainTitle}</TitleContainer>
-        <ButtonContainer $isGeneralPage = {isGeneralPage}>
-          <Button {...buttonProps} />
-        </ButtonContainer>
+        <RightWraper>
+          <RightTitle>НАШИ РЕКОМЕНДАЦИИ</RightTitle>
+          <RightLink href="#">ГАСТРОНОМИЯ</RightLink>
+          <RightLink href="#">АВТОПРОМ</RightLink>
+          <RightLink href="#">КИНО</RightLink>
+          <RightLink href="#">КУЛЬТУРА</RightLink>
+          <RightLink href="#">ТЕХНИКА</RightLink>
+        </RightWraper>
       </BackgroundImageContainer>
-      <BcgRightToImgContainer />
-      <RightToImgHeaderContainer />
-      <RightHeader>НАШИ РЕКОМЕНДАЦИИ</RightHeader>
-      <RightToImgGastroContainer />
-      <RightGastroHeader>ГАСТРОНОМИЯ</RightGastroHeader>
-      <RightGastroContentContainer>
-        {/* !!! TODO !!!  */}
-      </RightGastroContentContainer>
-      <RightToImgAutoContainer />
-      <RightAutoHeader>АВТОПРОМ</RightAutoHeader>
-      <RightAutoContentContainer>
-        {/* !!! TODO !!!  */}
-      </RightAutoContentContainer>
-      <RightToImgMovieContainer />
-      <RightMovieHeader>КИНО</RightMovieHeader>
-      <RightMovieContentContainer>
-        {/* !!! TODO !!!  */}
-      </RightMovieContentContainer>
-      <RightToImgCultureContainer />
-      <RightCultureHeader>КУЛЬТУРА</RightCultureHeader>
-      <RightCultureContentContainer>
-        {/* !!! TODO !!!  */}
-      </RightCultureContentContainer>
-      <RightToImgTechnoContainer />
-      <RightTechnoHeader>ТЕХНИКА</RightTechnoHeader>
-      <RightTechnoContainer>{/* !!! TODO !!!  */}</RightTechnoContainer>
+
     </BcgContainer>
   )
 }

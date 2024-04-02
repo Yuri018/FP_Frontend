@@ -11,12 +11,11 @@ import {
   University,
 } from "assets"
 
-import { RheinlandPageWrapper } from "./styles"
 import Footer from "components/Footer"
 
 function Rheinland() {
   return (
-    <RheinlandPageWrapper>
+    <>
       <Header
         logoImgDescr={{ src: DuesseldorfLogo, alt: "DuesseldorfLogo" }}
         logoText="Дюссельдорф-Кёльн-Бонн"
@@ -35,12 +34,12 @@ function Rheinland() {
         fourthImgTitle="Высшее образование в Германии"
         buttonProps={{
           name: "Читать подробнее",
-          onClick: () => {},
+          onClick: () => { },
         }}
       />
       <MainLowerPart />
       <Footer />
-    </RheinlandPageWrapper>
+    </>
   )
 }
 

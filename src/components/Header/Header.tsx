@@ -15,7 +15,6 @@ import {
   HeaderSearch,
   HeaderSignInContainer,
   HeaderSignInText,
-  BottomLine,
   NavListLeft,
   NavItem,
   NavigationLink,
@@ -47,7 +46,6 @@ function Header({ logoText, logoImgDescr, city }: HeaderProps) {
             Sign In
           </HeaderSignInText>
         </HeaderSignInContainer>
-        <BottomLine />
       </HeaderUpperContainer>
       <HeaderMiddleContainer>
         <LogoContainer>
