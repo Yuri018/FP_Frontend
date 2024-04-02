@@ -17,12 +17,12 @@ import Footer from 'components/Footer';
 
 
 
-function FrontalPage(){  
+function FrontalPage() {
 
-  const[isShowCityMenu, setIsShowCityMenu] = useState(false);
+  const [isShowCityMenu, setIsShowCityMenu] = useState(false);
 
   return (
-    <FrontalPageWrapper>
+    <>
       <Header logoImgDescr={{ src: GermanMainLogo, alt: "GermanMainLogo" }} city="Берлин" />
       <MainUpperPart
         isGeneralPage={true}
@@ -67,7 +67,7 @@ function FrontalPage(){
       )}
       <MainLowerPart />
       <Footer />
-    </FrontalPageWrapper>
+    </>
   )
 }
 

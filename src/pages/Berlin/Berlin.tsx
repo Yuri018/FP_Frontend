@@ -11,12 +11,12 @@ import {
   University,
 } from "assets"
 
-import { BerlinPageWrapper } from "./styles"
+// import { BerlinPageWrapper } from "./styles"
 import Footer from "components/Footer";
 
 function Berlin() {
   return (
-    <BerlinPageWrapper>
+    <>
       <Header
         logoImgDescr={{ src: BerlinLogo, alt: "BerlinLogo" }}
         logoText="Берлин и Бранденбург"
@@ -35,12 +35,12 @@ function Berlin() {
         fourthImgTitle="Высшее образование в Германии"
         buttonProps={{
           name: "Читать подробнее",
-          onClick: () => {},
+          onClick: () => { },
         }}
       />
       <MainLowerPart />
       <Footer />
-    </BerlinPageWrapper>
+    </>
   )
 }
 

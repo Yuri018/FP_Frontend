@@ -4,7 +4,6 @@ import { createGlobalStyle } from 'styled-components';
 import '../fonts/Montserrat/stylesheet.css';
 
 const GlobalStyles = createGlobalStyle`
-
   * {
     box-sizing: border-box;
   }

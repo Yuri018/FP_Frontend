@@ -6,8 +6,7 @@ import { colors } from 'styles/colors';
 
 export const FrontalPageWrapper = styled.div`
   position: relative;
-  width: 1366px;
-  min-height: 965px;
+
 `;
 
 export const DropdownMenuContainer = styled.div`
