@@ -3,6 +3,7 @@ import { BrowserRouter } from "react-router-dom"
 import { Provider } from "react-redux"
 import App from "./App"
 import { store } from "./store/store"
+import { StrictMode } from "react"
 
 const container = document.getElementById("root")
 
@@ -12,7 +13,9 @@ if (container) {
   root.render(
     <BrowserRouter>
       <Provider store={store}>
-        <App />
+        <StrictMode>
+          <App />
+        </StrictMode>
       </Provider>
     </BrowserRouter>,
   )

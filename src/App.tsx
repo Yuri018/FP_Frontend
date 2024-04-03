@@ -11,7 +11,7 @@ import Hamburg from "pages/Hamburg";
 
 function App() {
   return (
-    <div>
+    <>
       <GlobalStyles />
       <Layout>
         <Routes>
@@ -24,7 +24,7 @@ function App() {
           <Route path="*" element="Page is not found" />
         </Routes>
       </Layout>
-    </div>
+    </>
   )
 }
 

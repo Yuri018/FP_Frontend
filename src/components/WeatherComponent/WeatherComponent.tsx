@@ -1,6 +1,7 @@
 import {
   WeatherWrapper,
   WeatherTextContainer,
+  WeatherDate,
   WeatherTemp,
   ImgContainer,
   Image,
@@ -39,7 +40,7 @@ function WeatherComponent({ city }: WeatherComponentProps) {
       {weatherCard && (
         <>
           <WeatherTextContainer>
-            <WeatherTemp> {weatherCard?.date} </WeatherTemp>
+            <WeatherDate> {weatherCard?.date} </WeatherDate>
           </WeatherTextContainer>
           <ImgContainer>
             <WeatherTemp>{weatherCard?.temp}</WeatherTemp>

@@ -1,40 +1,29 @@
 import { ReactNode } from "react"
+import { useState } from 'react';
 
 import Button from "components/Button"
 import ImageComponent from "components/ImageComponent"
 
 import {
   BcgContainer,
-  UpperGrayBackground,
+  RightTitle,
   BackgroundImageContainer,
   BackgroundImage,
-  BcgRightToImgContainer,
   MainTitle,
-  RightToImgHeaderContainer,
-  RightHeader,
-  RightToImgGastroContainer,
-  RightGastroHeader,
-  RightGastroContentContainer,
-  RightToImgAutoContainer,
-  RightAutoHeader,
-  RightAutoContentContainer,
-  RightToImgMovieContainer,
-  RightMovieHeader,
-  RightMovieContentContainer,
-  RightToImgCultureContainer,
-  RightCultureHeader,
-  RightCultureContentContainer,
-  RightToImgTechnoContainer,
-  RightTechnoHeader,
-  RightTechnoContainer,
+  RightLink,
   UpperNewsContainer,
-  NewsContainerFirstLeft,
-  NewsContainerSrcondLeft,
-  NewsContainerThirdRight,
-  NewsContainerFourthRight,
+  NewsContainer,
   NewsTitleContainer,
   ButtonContainer,
   PageTitle,
+  RightWraper,
+  ImageWrap,
+  DropdownMenuContainer,
+  DropdownMenuList,
+  DropdownMenuLink,
+  DropdownMenuItem,
+
+
 } from "./styles"
 
 import { MainUpperPartProps } from "./types"
@@ -52,67 +41,81 @@ function MainUpperPart({
   secondImgTitle,
   thirdImgTitle,
   fourthImgTitle,
-  buttonProps,
-  isMainPage,  
-  isGeneralPage, 
+  isMainPage,
+  isGeneralPage,
 }: MainUpperPartProps) {
-  const TitleContainer = isMainPage ? MainTitle : PageTitle
-
+  const TitleContainer = isMainPage ? MainTitle : PageTitle;
+  const [isShowCityMenu, setIsShowCityMenu] = useState(false);
+  const handleToggle = () => setIsShowCityMenu(!isShowCityMenu);
   return (
     <BcgContainer>
-      <UpperGrayBackground />
-      <UpperNewsContainer />
-      <NewsContainerFirstLeft>
-        <NewsTitleContainer>{firstImgTitle}</NewsTitleContainer>
-        <ImageComponent {...firstImgDescr} />
-      </NewsContainerFirstLeft>
-      <NewsContainerSrcondLeft>
-        <NewsTitleContainer>{secondImgTitle}</NewsTitleContainer>
-        <ImageComponent {...secondImgDescr} />
-      </NewsContainerSrcondLeft>
-      <NewsContainerThirdRight>
-        <NewsTitleContainer>{thirdImgTitle}</NewsTitleContainer>
-        <ImageComponent {...thirdImgDescr} />
-      </NewsContainerThirdRight>
-      <NewsContainerFourthRight>
-        <NewsTitleContainer>{fourthImgTitle}</NewsTitleContainer>
-        <ImageComponent {...fourthImgDescr} />
-      </NewsContainerFourthRight>
+
+      <UpperNewsContainer>
+        <NewsContainer>
+          <NewsTitleContainer>{firstImgTitle}</NewsTitleContainer>
+          <ImageWrap>
+            <ImageComponent {...firstImgDescr} />
+          </ImageWrap>
+        </NewsContainer>
+        <NewsContainer>
+          <NewsTitleContainer>{secondImgTitle}</NewsTitleContainer>
+          <ImageWrap>
+            <ImageComponent {...secondImgDescr} />
+          </ImageWrap>
+        </NewsContainer>
+        <NewsContainer>
+          <NewsTitleContainer>{thirdImgTitle}</NewsTitleContainer>
+          <ImageWrap>
+            <ImageComponent {...thirdImgDescr} />
+          </ImageWrap>
+        </NewsContainer>
+        <NewsContainer>
+          <NewsTitleContainer>{fourthImgTitle}</NewsTitleContainer>
+          <ImageWrap>
+            <ImageComponent {...fourthImgDescr} />
+          </ImageWrap>
+        </NewsContainer>
+      </UpperNewsContainer>
+
       <BackgroundImageContainer>
         <BackgroundImage>
           <ImageComponent {...bcgImgDescr} />
+          <TitleContainer>{mainTitle}</TitleContainer>
+          <ButtonContainer $isGeneralPage={isGeneralPage}>
+            <Button name={"Выбери свой город"} onClick={handleToggle} type={"button"} />
+            {isShowCityMenu && (
+              <DropdownMenuContainer>
+                <DropdownMenuList>
+                  <DropdownMenuItem>
+                    <DropdownMenuLink to="/berlin">БЕРЛИН</DropdownMenuLink>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <DropdownMenuLink to="/munich">МЮНХЕН</DropdownMenuLink>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <DropdownMenuLink to="/frankfurt">ФРАНКФУРТ</DropdownMenuLink>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <DropdownMenuLink to="/duesseldorf">ДЮССЕЛЬДОРФ</DropdownMenuLink>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <DropdownMenuLink to="/hamburg">ГАМБУРГ</DropdownMenuLink>
+                  </DropdownMenuItem>
+                </DropdownMenuList>
+              </DropdownMenuContainer>
+            )}
+          </ButtonContainer>
         </BackgroundImage>
-        <TitleContainer>{mainTitle}</TitleContainer>
-        <ButtonContainer $isGeneralPage = {isGeneralPage}>
-          <Button {...buttonProps} />
-        </ButtonContainer>
+        <RightWraper>
+          <RightTitle>НАШИ РЕКОМЕНДАЦИИ</RightTitle>
+          <RightLink href="#">ГАСТРОНОМИЯ</RightLink>
+          <RightLink href="#">АВТОПРОМ</RightLink>
+          <RightLink href="#">КИНО</RightLink>
+          <RightLink href="#">КУЛЬТУРА</RightLink>
+          <RightLink href="#">ТЕХНИКА</RightLink>
+        </RightWraper>
       </BackgroundImageContainer>
-      <BcgRightToImgContainer />
-      <RightToImgHeaderContainer />
-      <RightHeader>НАШИ РЕКОМЕНДАЦИИ</RightHeader>
-      <RightToImgGastroContainer />
-      <RightGastroHeader>ГАСТРОНОМИЯ</RightGastroHeader>
-      <RightGastroContentContainer>
-        {/* !!! TODO !!!  */}
-      </RightGastroContentContainer>
-      <RightToImgAutoContainer />
-      <RightAutoHeader>АВТОПРОМ</RightAutoHeader>
-      <RightAutoContentContainer>
-        {/* !!! TODO !!!  */}
-      </RightAutoContentContainer>
-      <RightToImgMovieContainer />
-      <RightMovieHeader>КИНО</RightMovieHeader>
-      <RightMovieContentContainer>
-        {/* !!! TODO !!!  */}
-      </RightMovieContentContainer>
-      <RightToImgCultureContainer />
-      <RightCultureHeader>КУЛЬТУРА</RightCultureHeader>
-      <RightCultureContentContainer>
-        {/* !!! TODO !!!  */}
-      </RightCultureContentContainer>
-      <RightToImgTechnoContainer />
-      <RightTechnoHeader>ТЕХНИКА</RightTechnoHeader>
-      <RightTechnoContainer>{/* !!! TODO !!!  */}</RightTechnoContainer>
+
     </BcgContainer>
   )
 }

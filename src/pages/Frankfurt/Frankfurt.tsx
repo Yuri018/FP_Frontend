@@ -11,12 +11,12 @@ import {
   University,
 } from "assets"
 
-import { FrankfurtPageWrapper } from "./styles"
+
 import Footer from "components/Footer"
 
 function Frankfurt() {
   return (
-    <FrankfurtPageWrapper>
+    <>
       <Header
         logoImgDescr={{ src: FrankfurtLogo, alt: "FrankfurtLogo" }}
         logoText="Франкфурт"
@@ -35,12 +35,12 @@ function Frankfurt() {
         fourthImgTitle="Высшее образование в Германии"
         buttonProps={{
           name: "Читать подробнее",
-          onClick: () => {},
+          onClick: () => { },
         }}
       />
       <MainLowerPart />
       <Footer />
-    </FrankfurtPageWrapper>
+    </>
   )
 }
 

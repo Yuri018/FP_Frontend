@@ -3,7 +3,7 @@ import LogoComponent from "components/LogoComponent"
 import WeatherComponent from "components/WeatherComponent"
 
 import {
-  HeaderMainContainer,
+  MainContainer,
   HeaderUpperContainer,
   HeaderMiddleContainer,
   HeaderLowerContainer,
@@ -11,15 +11,16 @@ import {
   LogoTextContainer,
   TitleContainer,
   HeaderSerchContainer,
-  HeaderSerchText,
+  ImageComponentWrap,
+  HeaderSearch,
   HeaderSignInContainer,
   HeaderSignInText,
-  BottomLine,
   NavListLeft,
   NavItem,
   NavigationLink,
   NavListRight,
   TitleLinkContainer,
+  ImageWrap,
 } from "./styles"
 
 import { MainTitle, SearchIcon, SignInIcon } from "assets"
@@ -32,17 +33,22 @@ interface HeaderProps {
 
 function Header({ logoText, logoImgDescr, city }: HeaderProps) {
   return (
-    <HeaderMainContainer>
+    <MainContainer>
       <HeaderUpperContainer>
         <HeaderSerchContainer>
-          <ImageComponent src={SearchIcon} />
-          <HeaderSerchText>Search</HeaderSerchText>
+          <ImageComponentWrap>
+            <ImageComponent src={SearchIcon} />
+          </ImageComponentWrap>
+          <HeaderSearch type="search" placeholder="search" name="Search" />
         </HeaderSerchContainer>
         <HeaderSignInContainer>
-          <ImageComponent src={SignInIcon} />
-          <HeaderSignInText>Sign In</HeaderSignInText>
+          <HeaderSignInText href="#">
+            <ImageWrap>
+              <ImageComponent src={SignInIcon} />
+            </ImageWrap>
+            Sign In
+          </HeaderSignInText>
         </HeaderSignInContainer>
-        <BottomLine />
       </HeaderUpperContainer>
       <HeaderMiddleContainer>
         <LogoContainer>
@@ -54,7 +60,7 @@ function Header({ logoText, logoImgDescr, city }: HeaderProps) {
             <ImageComponent src={MainTitle} alt="MainTitle" />
           </TitleLinkContainer>
         </TitleContainer>
-        <WeatherComponent city={city}/>
+        <WeatherComponent city={city} />
       </HeaderMiddleContainer>
       <HeaderLowerContainer>
         <NavListLeft>
@@ -86,7 +92,7 @@ function Header({ logoText, logoImgDescr, city }: HeaderProps) {
           </NavItem>
         </NavListRight>
       </HeaderLowerContainer>
-    </HeaderMainContainer>
+    </MainContainer>
   )
 }
 

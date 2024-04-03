@@ -1,11 +1,16 @@
-import { FooterMainContainer } from "./styles";
+import {
+  FooterMain,
+  FooterMainContainer
+} from "./styles";
 
 function Footer() {
-  return(
-    <FooterMainContainer>
-      it is footer
+  return (
+    <FooterMain>
+      <FooterMainContainer>
+        it is footer
 
-    </FooterMainContainer>
+      </FooterMainContainer>
+    </FooterMain>
   )
 }
 
