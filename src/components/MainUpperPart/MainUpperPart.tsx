@@ -1,4 +1,5 @@
 import { ReactNode } from "react"
+import { useState } from 'react';
 
 import Button from "components/Button"
 import ImageComponent from "components/ImageComponent"
@@ -16,7 +17,13 @@ import {
   ButtonContainer,
   PageTitle,
   RightWraper,
-  ImageWrap
+  ImageWrap,
+  DropdownMenuContainer,
+  DropdownMenuList,
+  DropdownMenuLink,
+  DropdownMenuItem,
+
+
 } from "./styles"
 
 import { MainUpperPartProps } from "./types"
@@ -34,12 +41,12 @@ function MainUpperPart({
   secondImgTitle,
   thirdImgTitle,
   fourthImgTitle,
-  buttonProps,
   isMainPage,
   isGeneralPage,
 }: MainUpperPartProps) {
-  const TitleContainer = isMainPage ? MainTitle : PageTitle
-
+  const TitleContainer = isMainPage ? MainTitle : PageTitle;
+  const [isShowCityMenu, setIsShowCityMenu] = useState(false);
+  const handleToggle = () => setIsShowCityMenu(!isShowCityMenu);
   return (
     <BcgContainer>
 
@@ -75,7 +82,28 @@ function MainUpperPart({
           <ImageComponent {...bcgImgDescr} />
           <TitleContainer>{mainTitle}</TitleContainer>
           <ButtonContainer $isGeneralPage={isGeneralPage}>
-            <Button {...buttonProps} />
+            <Button name={"Выбери свой город"} onClick={handleToggle} type={"button"} />
+            {isShowCityMenu && (
+              <DropdownMenuContainer>
+                <DropdownMenuList>
+                  <DropdownMenuItem>
+                    <DropdownMenuLink to="/berlin">БЕРЛИН</DropdownMenuLink>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <DropdownMenuLink to="/munich">МЮНХЕН</DropdownMenuLink>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <DropdownMenuLink to="/frankfurt">ФРАНКФУРТ</DropdownMenuLink>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <DropdownMenuLink to="/duesseldorf">ДЮССЕЛЬДОРФ</DropdownMenuLink>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <DropdownMenuLink to="/hamburg">ГАМБУРГ</DropdownMenuLink>
+                  </DropdownMenuItem>
+                </DropdownMenuList>
+              </DropdownMenuContainer>
+            )}
           </ButtonContainer>
         </BackgroundImage>
         <RightWraper>

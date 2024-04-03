@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { colors } from 'styles/colors';
 
@@ -15,7 +16,6 @@ export const BcgContainer = styled.section`
 export const BackgroundImageContainer = styled.div`
   position: relative;
   border-radius: 10px;
-  overflow: hidden;
   border: 2px solid ${colors.baseGrey80};
   display: flex;
   align-items: stretch;
@@ -23,7 +23,8 @@ export const BackgroundImageContainer = styled.div`
   margin-bottom: 20px;
 `;
 export const BackgroundImage = styled.div`
-width: 75%;
+  width: 75%;
+  max-height: 400px;
 `;
 
 export const BcgRightToImgContainer = styled.div`
@@ -93,7 +94,7 @@ export const RightLink = styled.a`
 export const ButtonContainer = styled.div<ButtonContainerProps>`
   position: absolute;  
   width: fit-content;
-  top: ${({ $isGeneralPage }) => $isGeneralPage ? '280px' : '420px'}; 
+  top: ${({ $isGeneralPage }) => $isGeneralPage ? '280px' : '250px'}; 
   left: ${({ $isGeneralPage }) => $isGeneralPage ? '80px' : '580px'}; 
   height: 50px; 
   z-index: 10;
@@ -173,4 +174,87 @@ export const NewsMainContainer = styled.div`
 export const ImageWrap = styled.div`
   max-width: 60px;
   flex: 0 0 auto;
+`;
+export const DropdownMenuContainer = styled.div`
+  position: absolute;
+  padding: 0px 20px;
+  top: -37px;
+  left: 180px;
+  width: 250px;
+  height: 270px;
+  border-radius: 10px;
+  z-index: 20;
+  border: 2px solid ${colors.baseGray50};
+  background-color: ${colors.white};
+  &::after{
+    content: '';
+    position: absolute;
+    top: 50px;
+    left: -12px;
+    height: 20px;
+    width: 20px;
+    border-bottom: 2px solid ${colors.baseGray50};
+    border-left: 2px solid ${colors.baseGray50};
+    background-color:  ${colors.white};
+    transform: rotate(45deg);    
+  }
+`;
+
+export const DropdownMenuList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  align-items: center;
+`;
+
+export const DropdownMenuLink = styled(NavLink)`  
+  font-size: 20px;
+  color: ${colors.baseGrey80};
+  text-decoration: none;
+  cursor: pointer;    
+  &:hover {
+    color: ${colors.white}; 
+  }
+  &:focus {
+    color: ${colors.white}; 
+  }
+  &:active {
+    color: ${colors.white}; 
+  }
+`;
+
+export const DropdownMenuItem = styled.li`
+  padding: 15px 20px;
+  position: relative; 
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%; 
+    border-bottom: 1px solid ${colors.baseGray30};
+  }
+ 
+  &:last-child:after {
+    border-bottom: none;
+  }
+
+  /* padding: 15px 20px;
+  border-bottom: 1px solid ${colors.baseGray30};
+  &:last-child {
+    border-bottom: none;
+  }  */
+  &:hover {
+    background-color: ${colors.baseGray30}; 
+  }
+  &:focus {
+    background-color: ${colors.baseGray30}; 
+  }
+  &:active {
+    background-color: ${colors.baseGray30}; 
+  }
+   &:hover ${DropdownMenuLink}, &:focus ${DropdownMenuLink}, &:active ${DropdownMenuLink} {
+    color: ${colors.white}; 
+  }
 `;
