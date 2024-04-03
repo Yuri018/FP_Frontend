@@ -20,9 +20,10 @@ export const BackgroundImageContainer = styled.div`
   display: flex;
   align-items: stretch;
   justify-content: space-between;
+  margin-bottom: 20px;
 `;
 export const BackgroundImage = styled.div`
-
+width: 75%;
 `;
 
 export const BcgRightToImgContainer = styled.div`
@@ -93,7 +94,7 @@ export const ButtonContainer = styled.div<ButtonContainerProps>`
   position: absolute;  
   width: fit-content;
   top: ${({ $isGeneralPage }) => $isGeneralPage ? '280px' : '420px'}; 
-  left: ${({ $isGeneralPage }) => $isGeneralPage ? '150px' : '580px'}; 
+  left: ${({ $isGeneralPage }) => $isGeneralPage ? '80px' : '580px'}; 
   height: 50px; 
   z-index: 10;
 `;
@@ -101,7 +102,7 @@ export const ButtonContainer = styled.div<ButtonContainerProps>`
 export const MainTitle = styled.h1`
   position: absolute;
   top: 80px;
-  left: 150px;
+  left: 80px;
   width: 600px;
   color: ${colors.white};
   font-family: 'Montserrat';
@@ -132,6 +133,7 @@ export const UpperNewsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 20px;
 `;
 
 export const NewsContainer = styled.div`
@@ -160,9 +162,15 @@ export const RightWraper = styled.div`
   justify-content: space-between;
   align-items: stretch;
   flex-direction: column;
+  width: 25%;
 `;
 
 export const NewsMainContainer = styled.div`
   width: 100%;
   min-height: 150px;
+`;
+
+export const ImageWrap = styled.div`
+  max-width: 60px;
+  flex: 0 0 auto;
 `;

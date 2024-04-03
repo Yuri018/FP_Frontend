@@ -124,14 +124,18 @@ export const NavItem = styled.li`
 
 export const NavigationLink = styled.a` 
 tra 
-  font-size: 14px;
-  color: ${colors.white};
-  text-decoration: none;  
-  border-bottom: 2px solid transparent;
-  transition: all 0.5s;
-  
-  &:hover {
-    // color: ${colors.linkHoverBlue};
-    border-bottom: 2px solid ${colors.linkHoverBlue};
-  }
+font-size: 14px;
+color: ${colors.white};
+text-decoration: none;  
+border-bottom: 2px solid transparent;
+transition: all 0.5s;
+
+&:hover {
+  // color: ${colors.linkHoverBlue};
+  border-bottom: 2px solid ${colors.linkHoverBlue};
+}
+`;
+
+export const ImageWrap = styled.div`  
+  max-width: 30px;
 `;

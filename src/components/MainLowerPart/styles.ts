@@ -5,8 +5,7 @@ export const MainLowerPartContainer = styled.section`
   width: 100%;
   max-width: 1400px;
   padding: 0 15px;
-  margin: 0 auto;
-  overflow: hidden;
+  margin: 0 auto 20px;
 `;
 
 export const MainLowerPartFlex = styled.div`
@@ -22,8 +21,12 @@ export const MainLowerPartItem = styled.div`
   width: calc(33.3333% - 10px);
   border-radius: 10px;
   border: 2px solid ${colors.baseGrey80};
+  min-height: 150px;
+  padding: 25px 20px;
 `;
 
 export const MainLowerPartTitle = styled.div`
-
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center
 `;

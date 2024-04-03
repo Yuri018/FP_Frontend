@@ -15,7 +15,8 @@ import {
   NewsTitleContainer,
   ButtonContainer,
   PageTitle,
-  RightWraper
+  RightWraper,
+  ImageWrap
 } from "./styles"
 
 import { MainUpperPartProps } from "./types"
@@ -41,23 +42,31 @@ function MainUpperPart({
 
   return (
     <BcgContainer>
-      {/* <UpperGrayBackground /> */}
+
       <UpperNewsContainer>
         <NewsContainer>
           <NewsTitleContainer>{firstImgTitle}</NewsTitleContainer>
-          <ImageComponent {...firstImgDescr} />
+          <ImageWrap>
+            <ImageComponent {...firstImgDescr} />
+          </ImageWrap>
         </NewsContainer>
         <NewsContainer>
           <NewsTitleContainer>{secondImgTitle}</NewsTitleContainer>
-          <ImageComponent {...secondImgDescr} />
+          <ImageWrap>
+            <ImageComponent {...secondImgDescr} />
+          </ImageWrap>
         </NewsContainer>
         <NewsContainer>
           <NewsTitleContainer>{thirdImgTitle}</NewsTitleContainer>
-          <ImageComponent {...thirdImgDescr} />
+          <ImageWrap>
+            <ImageComponent {...thirdImgDescr} />
+          </ImageWrap>
         </NewsContainer>
         <NewsContainer>
           <NewsTitleContainer>{fourthImgTitle}</NewsTitleContainer>
-          <ImageComponent {...fourthImgDescr} />
+          <ImageWrap>
+            <ImageComponent {...fourthImgDescr} />
+          </ImageWrap>
         </NewsContainer>
       </UpperNewsContainer>
 

@@ -10,13 +10,13 @@ function MainLowerPart() {
     <MainLowerPartContainer>
       <MainLowerPartFlex>
         <MainLowerPartItem>
-          <MainLowerPartTitle>MainLowerPartItem</MainLowerPartTitle>
+          <MainLowerPartTitle>Main Lower Part Item</MainLowerPartTitle>
         </MainLowerPartItem>
         <MainLowerPartItem>
-          <MainLowerPartTitle>MainLowerPartItem</MainLowerPartTitle>
+          <MainLowerPartTitle>Main Lower Part Item</MainLowerPartTitle>
         </MainLowerPartItem>
         <MainLowerPartItem>
-          <MainLowerPartTitle>MainLowerPartItem</MainLowerPartTitle>
+          <MainLowerPartTitle>Main Lower Part Item</MainLowerPartTitle>
         </MainLowerPartItem>
       </MainLowerPartFlex>
     </MainLowerPartContainer>

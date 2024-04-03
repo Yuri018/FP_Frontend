@@ -20,6 +20,7 @@ import {
   NavigationLink,
   NavListRight,
   TitleLinkContainer,
+  ImageWrap,
 } from "./styles"
 
 import { MainTitle, SearchIcon, SignInIcon } from "assets"
@@ -42,7 +43,9 @@ function Header({ logoText, logoImgDescr, city }: HeaderProps) {
         </HeaderSerchContainer>
         <HeaderSignInContainer>
           <HeaderSignInText href="#">
-            <ImageComponent src={SignInIcon} />
+            <ImageWrap>
+              <ImageComponent src={SignInIcon} />
+            </ImageWrap>
             Sign In
           </HeaderSignInText>
         </HeaderSignInContainer>
