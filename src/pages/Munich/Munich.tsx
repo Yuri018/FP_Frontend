@@ -11,12 +11,12 @@ import {
   University,
 } from "assets"
 
-import { MunichPageWrapper } from "./styles"
+
 import Footer from "components/Footer"
 
 function Munich() {
   return (
-    <MunichPageWrapper>
+    <>
       <Header
         logoImgDescr={{ src: MunichLogo, alt: "MunichLogo" }}
         logoText="Мюнхен и Бавария"
@@ -35,12 +35,12 @@ function Munich() {
         fourthImgTitle="Высшее образование в Германии"
         buttonProps={{
           name: "Читать подробнее",
-          onClick: () => {},
+          onClick: () => { },
         }}
       />
       <MainLowerPart />
       <Footer />
-    </MunichPageWrapper>
+    </>
   )
 }
 

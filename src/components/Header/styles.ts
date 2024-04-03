@@ -2,26 +2,19 @@ import { NavLink } from 'react-router-dom';
 import styled from "styled-components";
 import { colors } from 'styles/colors';
 
-export const HeaderMainContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; 
-  padding-right: 113px;  
-  width: 1366px;  
-  height: 225px;
-  /* outline: 1px solid red; */
+export const MainContainer = styled.header`
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 15px;
 `;
+
 
 export const HeaderUpperContainer = styled.div`
   display: flex;
-  flex-grow: 1;   
+  align-items: center;
   justify-content: space-between;
-  height: 55px;  
-  margin-left: 225px;
-  /* padding-left: 45px; */
-  padding-left: 110px;
-  position: relative;  
-  /* outline: 1px solid red;   */
+  padding: 5px 0;
 `;
 
 export const BottomLine = styled.div`
@@ -34,18 +27,28 @@ export const BottomLine = styled.div`
 `;
 
 export const HeaderSerchContainer = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 10px;
-  padding-left: 5px;
-  border-left: 2px solid ${colors.baseGray30};
+  position: relative;
 `;
 
-export const HeaderSerchText = styled.p`
+export const ImageComponentWrap = styled.i`
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translate(0, -50%);
+  cursor: pointer;
+`;
+
+export const HeaderSearch = styled.input`
+  padding: 8px 8px 8px 25px;
   font-family: 'Montserrat'; 
   font-size: 14px;
+  border: 1px solid ${colors.baseGray30};
+  border-radius: 5px;
   color: ${colors.baseGray30};
+  text-transform: capitalize;
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const HeaderSignInContainer = styled.div`
@@ -55,43 +58,41 @@ export const HeaderSignInContainer = styled.div`
   gap: 10px;  
 `;
 
-export const HeaderSignInText = styled.p`
+export const HeaderSignInText = styled.a`
   font-family: 'Montserrat';  
   font-size: 14px;
   font-weight: 500;
   color: ${colors.baseGray50};
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
 `;
 
 export const HeaderMiddleContainer = styled.div`
   display: flex;
-  flex-grow: 1;
-  justify-content: space-between;
   align-items: center;
-  padding-left: 65px;
-  /* outline: 1px solid red; */
+  justify-content: space-between;
 `;
 export const LogoContainer = styled.div`
   display: flex;
-  align-items: center; 
-  justify-content: center;
-  gap: 5px;
-  width: 365px;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const LogoTextContainer = styled.p`
   font-family: 'Montserrat'; 
   font-size: 14px;
   color: black;
+  padding-left: 15px;
 `;
 
 export const TitleContainer = styled.div`
-  width: 440px;
-  height: 50px;
+
 `;
 
 export const TitleLinkContainer = styled(NavLink)`
-  width: 100%;
-  height: 100%;
+  display: block;
 `;
 
 
@@ -99,12 +100,8 @@ export const HeaderLowerContainer = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-grow: 1;   
-  width: 1366px;
-  height: 55px;
-  padding-right: 113px;
-  padding-left: 113px;
   background-color: ${colors.baseGrey80};
+  padding: 18px;
 `;
 
 export const NavListLeft = styled.ul`
@@ -125,13 +122,20 @@ export const NavItem = styled.li`
   } 
 `;
 
-export const NavigationLink = styled.a`  
-  font-size: 14px;
-  color: ${colors.white};
-  text-decoration: none;  
-  border-bottom: 2px solid transparent;
-  
-  &:hover {
-    color: ${colors.linkHoverBlue}; 
-  }
+export const NavigationLink = styled.a` 
+tra 
+font-size: 14px;
+color: ${colors.white};
+text-decoration: none;  
+border-bottom: 2px solid transparent;
+transition: all 0.5s;
+
+&:hover {
+  // color: ${colors.linkHoverBlue};
+  border-bottom: 2px solid ${colors.linkHoverBlue};
+}
+`;
+
+export const ImageWrap = styled.div`  
+  max-width: 30px;
 `;

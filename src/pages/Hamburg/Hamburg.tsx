@@ -8,15 +8,14 @@ import {
   Guitars,
   Butterfly,
   TwoPeople,
-  University,  
+  University,
 } from "assets"
 
-import { HamburgtPageWrapper } from "./styles"
 import Footer from "components/Footer"
 
 function Hamburg() {
   return (
-    <HamburgtPageWrapper>
+    <>
       <Header
         logoImgDescr={{ src: HamburgLogo, alt: "HamburgLogo" }}
         logoText="Гамбург"
@@ -35,12 +34,12 @@ function Hamburg() {
         fourthImgTitle="Высшее образование в Германии"
         buttonProps={{
           name: "Читать подробнее",
-          onClick: () => {},
+          onClick: () => { },
         }}
       />
       <MainLowerPart />
       <Footer />
-    </HamburgtPageWrapper>
+    </>
   )
 }
 
