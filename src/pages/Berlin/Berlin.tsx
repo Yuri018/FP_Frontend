@@ -11,7 +11,6 @@ import {
   University,
 } from "assets"
 
-// import { BerlinPageWrapper } from "./styles"
 import Footer from "components/Footer";
 
 function Berlin() {
@@ -35,7 +34,9 @@ function Berlin() {
         fourthImgTitle="Высшее образование в Германии"
         buttonProps={{
           name: "Читать подробнее",
-          onClick: () => { },
+          onClick: () => {
+            console.log("Читать подробнее Berlin");
+          },
         }}
       />
       <MainLowerPart />

@@ -19,8 +19,6 @@ import Footer from 'components/Footer';
 
 function FrontalPage() {
 
-  const [isShowCityMenu, setIsShowCityMenu] = useState(false);
-
   return (
     <>
       <Header logoImgDescr={{ src: GermanMainLogo, alt: "GermanMainLogo" }} city="Берлин" />
@@ -37,6 +35,10 @@ function FrontalPage() {
         secondImgTitle="Загадки природы"
         thirdImgTitle="Жизнь рядом с нами"
         fourthImgTitle="Высшее образование в Германии"
+        buttonProps={{
+          name: "Выбери свой город",
+          type: "button"
+        }}
       />
       <MainLowerPart />
       <Footer />

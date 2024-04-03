@@ -15,4 +15,5 @@ export interface MainUpperPartProps {
   fourthImgTitle?: string
   isMainPage?: boolean
   isGeneralPage?: boolean
+  buttonProps?: ButtunProps
 }

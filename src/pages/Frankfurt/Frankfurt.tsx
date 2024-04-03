@@ -11,7 +11,6 @@ import {
   University,
 } from "assets"
 
-
 import Footer from "components/Footer"
 
 function Frankfurt() {
@@ -35,7 +34,9 @@ function Frankfurt() {
         fourthImgTitle="Высшее образование в Германии"
         buttonProps={{
           name: "Читать подробнее",
-          onClick: () => { },
+          onClick: () => {
+            console.log("Читать подробнее Frankfurt");
+          },
         }}
       />
       <MainLowerPart />

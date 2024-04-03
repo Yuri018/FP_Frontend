@@ -34,7 +34,9 @@ function Rheinland() {
         fourthImgTitle="Высшее образование в Германии"
         buttonProps={{
           name: "Читать подробнее",
-          onClick: () => { },
+          onClick: () => {
+            console.log("Читать подробнее Райнланда");
+          },
         }}
       />
       <MainLowerPart />

@@ -43,10 +43,13 @@ function MainUpperPart({
   fourthImgTitle,
   isMainPage,
   isGeneralPage,
+  buttonProps
 }: MainUpperPartProps) {
   const TitleContainer = isMainPage ? MainTitle : PageTitle;
   const [isShowCityMenu, setIsShowCityMenu] = useState(false);
-  const handleToggle = () => setIsShowCityMenu(!isShowCityMenu);
+  const handleToggle = () => {
+    setIsShowCityMenu(!isShowCityMenu);
+  }
   return (
     <BcgContainer>
 
@@ -82,7 +85,9 @@ function MainUpperPart({
           <ImageComponent {...bcgImgDescr} />
           <TitleContainer>{mainTitle}</TitleContainer>
           <ButtonContainer $isGeneralPage={isGeneralPage}>
-            <Button name={"Выбери свой город"} onClick={handleToggle} type={"button"} />
+            {isGeneralPage && (
+              <Button name={"Выбери свой город"} onClick={handleToggle} type={"button"} />
+            )}
             {isShowCityMenu && (
               <DropdownMenuContainer>
                 <DropdownMenuList>
@@ -104,6 +109,10 @@ function MainUpperPart({
                 </DropdownMenuList>
               </DropdownMenuContainer>
             )}
+            {!isGeneralPage && (
+              <Button {...buttonProps} />
+            )}
+
           </ButtonContainer>
         </BackgroundImage>
         <RightWraper>
