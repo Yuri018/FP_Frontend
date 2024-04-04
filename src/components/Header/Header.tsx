@@ -72,7 +72,7 @@ function Header({ logoText, logoImgDescr, city, HeaderDropDown, buttonProps }: H
         </LogoContainer>
         <TitleContainer>
           <TitleLinkContainer to="/">
-            <ImageComponent src={MainTitle} alt="MainTitle" />
+            Германия на лодонях
           </TitleLinkContainer>
         </TitleContainer>
         <WeatherComponent city={city} />

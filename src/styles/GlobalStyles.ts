@@ -2,6 +2,7 @@
 import { Interface } from 'readline';
 import { createGlobalStyle } from 'styled-components';
 import '../fonts/Montserrat/stylesheet.css';
+import '../fonts/TrueGothicCyr/stylesheet.css';
 
 const GlobalStyles = createGlobalStyle`
   * {

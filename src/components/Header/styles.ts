@@ -115,6 +115,10 @@ export const TitleContainer = styled.div`
 
 export const TitleLinkContainer = styled(NavLink)`
   display: block;
+  font-family: 'True Gothic Cyr';
+  text-decoration: none;
+  font-size: 80px;
+  color: ${colors.baseGrey80};
 `;
 
 
