@@ -20,6 +20,8 @@ function Berlin() {
         logoImgDescr={{ src: BerlinLogo, alt: "BerlinLogo" }}
         logoText="Берлин и Бранденбург"
         city="Берлин"
+        HeaderDropDown={true}
+
       />
       <MainUpperPart
         bcgImgDescr={{ src: BerlinImg, alt: "BerlinImg" }}

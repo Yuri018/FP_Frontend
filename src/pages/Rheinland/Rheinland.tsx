@@ -20,6 +20,7 @@ function Rheinland() {
         logoImgDescr={{ src: DuesseldorfLogo, alt: "DuesseldorfLogo" }}
         logoText="Дюссельдорф-Кёльн-Бонн"
         city="Дюссельдорф"
+        HeaderDropDown={true}
       />
       <MainUpperPart
         bcgImgDescr={{ src: DuesseldorfImg, alt: "DuesseldorfImg" }}

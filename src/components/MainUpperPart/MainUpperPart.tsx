@@ -27,6 +27,7 @@ import {
 } from "./styles"
 
 import { MainUpperPartProps } from "./types"
+import DropdownMenu from "components/DropdownMenu";
 
 
 
@@ -85,34 +86,7 @@ function MainUpperPart({
           <ImageComponent {...bcgImgDescr} />
           <TitleContainer>{mainTitle}</TitleContainer>
           <ButtonContainer $isGeneralPage={isGeneralPage}>
-            {isGeneralPage && (
-              <Button name={"Выбери свой город"} onClick={handleToggle} type={"button"} />
-            )}
-            {isShowCityMenu && (
-              <DropdownMenuContainer>
-                <DropdownMenuList>
-                  <DropdownMenuItem>
-                    <DropdownMenuLink to="/berlin">БЕРЛИН</DropdownMenuLink>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <DropdownMenuLink to="/munich">МЮНХЕН</DropdownMenuLink>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <DropdownMenuLink to="/frankfurt">ФРАНКФУРТ</DropdownMenuLink>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <DropdownMenuLink to="/duesseldorf">ДЮССЕЛЬДОРФ</DropdownMenuLink>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <DropdownMenuLink to="/hamburg">ГАМБУРГ</DropdownMenuLink>
-                  </DropdownMenuItem>
-                </DropdownMenuList>
-              </DropdownMenuContainer>
-            )}
-            {!isGeneralPage && (
-              <Button {...buttonProps} />
-            )}
-
+            <DropdownMenu isGeneralPage={isGeneralPage} buttonProps={buttonProps} />
           </ButtonContainer>
         </BackgroundImage>
         <RightWraper>
@@ -125,7 +99,7 @@ function MainUpperPart({
         </RightWraper>
       </BackgroundImageContainer>
 
-    </BcgContainer>
+    </BcgContainer >
   )
 }
 

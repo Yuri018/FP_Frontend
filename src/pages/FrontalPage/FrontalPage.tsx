@@ -15,13 +15,18 @@ import {
 } from "assets"
 import Footer from 'components/Footer';
 
-
-
 function FrontalPage() {
-
   return (
     <>
-      <Header logoImgDescr={{ src: GermanMainLogo, alt: "GermanMainLogo" }} city="Берлин" />
+      <Header
+        logoImgDescr={{ src: GermanMainLogo, alt: "GermanMainLogo" }}
+        city="Берлин"
+        HeaderDropDown={false}
+        buttonProps={{
+          name: "Выбери свой",
+          type: "button",
+        }}
+      />
       <MainUpperPart
         isGeneralPage={true}
         isMainPage={true}

@@ -2,13 +2,35 @@ import { NavLink } from 'react-router-dom';
 import styled from "styled-components";
 import { colors } from 'styles/colors';
 
+export const HeaderDropdownContainer = styled.div`
+  position: relative;
+  margin-left: auto;
+  margin-right: 10px;
+  &.header-dropdown {
+    .jZXYnT {
+      background: transparent;
+      border: 1px solid ${colors.baseGrey80};
+      color: ${colors.baseGrey80};
+      min-height: auto;
+      padding: 9px 30px;
+    }
+    .iMUODL {
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      &:after {
+        display: none;
+      }
+    }
+  }
+`;
+
 export const MainContainer = styled.header`
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 15px;
 `;
-
 
 export const HeaderUpperContainer = styled.div`
   display: flex;
@@ -123,17 +145,15 @@ export const NavItem = styled.li`
 `;
 
 export const NavigationLink = styled.a` 
-tra 
-font-size: 14px;
-color: ${colors.white};
-text-decoration: none;  
-border-bottom: 2px solid transparent;
-transition: all 0.5s;
-
-&:hover {
-  // color: ${colors.linkHoverBlue};
-  border-bottom: 2px solid ${colors.linkHoverBlue};
-}
+  font-size: 14px;
+  color: ${colors.white};
+  text-decoration: none;  
+  border-bottom: 2px solid transparent;
+  transition: all 0.5s;
+  &:hover {
+    // color: ${colors.linkHoverBlue};
+    border-bottom: 2px solid ${colors.linkHoverBlue};
+  }
 `;
 
 export const ImageWrap = styled.div`  

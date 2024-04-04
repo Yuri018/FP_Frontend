@@ -20,6 +20,7 @@ function Munich() {
         logoImgDescr={{ src: MunichLogo, alt: "MunichLogo" }}
         logoText="Мюнхен и Бавария"
         city="Мюнхен"
+        HeaderDropDown={true}
       />
       <MainUpperPart
         bcgImgDescr={{ src: MunichImg, alt: "MunichImg" }}
