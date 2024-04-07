@@ -26,7 +26,9 @@ import {
 
 import { MainTitle, SearchIcon, SignInIcon } from "assets"
 import DropdownMenu from "components/DropdownMenu"
-import { ButtunProps } from "components/Button/types"
+import type { ButtunProps } from "components/Button/types"
+import { Route, Routes } from "react-router-dom"
+import LoginPage from "components/auth/login"
 
 interface HeaderProps {
   logoText?: string
@@ -57,7 +59,7 @@ function Header({ logoText, logoImgDescr, city, HeaderDropDown, buttonProps }: H
         )}
 
         <HeaderSignInContainer>
-          <HeaderSignInText href="#">
+          <HeaderSignInText href="/login">
             <ImageWrap>
               <ImageComponent src={SignInIcon} />
             </ImageWrap>

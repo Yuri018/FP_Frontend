@@ -18,15 +18,9 @@ import {
   PageTitle,
   RightWraper,
   ImageWrap,
-  DropdownMenuContainer,
-  DropdownMenuList,
-  DropdownMenuLink,
-  DropdownMenuItem,
-
-
 } from "./styles"
 
-import { MainUpperPartProps } from "./types"
+import type { MainUpperPartProps } from "./types"
 import DropdownMenu from "components/DropdownMenu";
 
 

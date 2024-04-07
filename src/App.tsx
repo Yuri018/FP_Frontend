@@ -8,6 +8,8 @@ import Munich from "pages/Munich";
 import Rheinland from "pages/Rheinland";
 import Frankfurt from "pages/Frankfurt";
 import Hamburg from "pages/Hamburg";
+import AuthRootComponent from "components/auth";
+
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           <Route path="/frankfurt" element={<Frankfurt />} />
           <Route path="/duesseldorf" element={<Rheinland />} />
           <Route path="/hamburg" element={<Hamburg />} />
+          <Route path="/login" element={<AuthRootComponent />} />
+          <Route path="/register" element={<AuthRootComponent />} />
           <Route path="*" element="Page is not found" />
         </Routes>
       </Layout>
