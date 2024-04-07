@@ -21,7 +21,7 @@ function App() {
           <Route path="/berlin" element={<Berlin />} />
           <Route path="/munich" element={<Munich />} />
           <Route path="/frankfurt" element={<Frankfurt />} />
-          <Route path="/duesseldorf" element={<Rheinland />} />
+          <Route path="/dusseldorf" element={<Rheinland />} />
           <Route path="/hamburg" element={<Hamburg />} />
           <Route path="/login" element={<AuthRootComponent />} />
           <Route path="/register" element={<AuthRootComponent />} />

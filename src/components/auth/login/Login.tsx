@@ -1,8 +1,9 @@
 import { Button, Checkbox, TextField, Typography } from "@mui/material";
 import { InsitingText } from "./styles";
+import type { IPropsLogin } from "../types";
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
-const LoginPage = (props: any) => {
+const LoginPage: React.FC<IPropsLogin> = (props: IPropsLogin): JSX.Element => {
     const {setPassword, setEmail} = props
     return (
         <>
@@ -22,9 +23,7 @@ const LoginPage = (props: any) => {
                 Войти
             </Button>
             <Typography variant="body1" sx={{fontFamily:'Montserrat'}} fontWeight={400}>
-                  У вас нет аккаунта? <InsitingText onClick={() => {
-                    alert('Регистрация');
-                  }}>Регистрация</InsitingText>
+                  У вас нет аккаунта? <InsitingText href="/register">Регистрация</InsitingText>
             </Typography>
 
             {/* <Checkbox {...label} defaultChecked /> */}

@@ -7,7 +7,7 @@ import { Auth, Form } from './styles';
 import { useState } from 'react';
 import { instance } from '../../utils/axios';
 
-const AuthRootComponent = () => {
+const AuthRootComponent: React.FC = ():JSX.Element => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const InsitingText = styled.div`
+export const InsitingText = styled.a`
     color: blue;
     font-weight: 600;
     display: inline-block;
