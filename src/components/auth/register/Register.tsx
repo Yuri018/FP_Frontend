@@ -23,7 +23,7 @@ const RegisterPage = () => {
             </Button>
             <Typography variant="body2" sx={{fontFamily:'Montserrat'}} fontWeight={400}>
                   У вас есть аккаунта? 
-                  <IncitingText href="/login">Авторизация</IncitingText>
+                  <IncitingText to="/login">Авторизация</IncitingText>
             </Typography>
 
             {/* <Checkbox {...label} defaultChecked /> */}

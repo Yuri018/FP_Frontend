@@ -23,7 +23,8 @@ const LoginPage: React.FC<IPropsLogin> = (props: IPropsLogin): JSX.Element => {
                 Войти
             </Button>
             <Typography variant="body1" sx={{fontFamily:'Montserrat'}} fontWeight={400}>
-                  У вас нет аккаунта? <InsitingText href="/register">Регистрация</InsitingText>
+                  У вас нет аккаунта? <InsitingText to="/register">Регистрация</InsitingText>
+                  
             </Typography>
 
             {/* <Checkbox {...label} defaultChecked /> */}

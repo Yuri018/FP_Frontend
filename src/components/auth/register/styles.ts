@@ -1,6 +1,7 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-export const IncitingText = styled.a`
+export const IncitingText = styled(NavLink)`
     color: blue;
     font-weight: 600;
     display: inline-block;
