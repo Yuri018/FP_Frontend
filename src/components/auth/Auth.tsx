@@ -5,6 +5,7 @@ import RegisterPage from './register/Register';
 import { Box } from '@mui/material';
 import { Auth, Form } from './styles';
 import { useState } from 'react';
+import { instance } from '../../utils/axios';
 
 const AuthRootComponent = () => {
     const [email, setEmail] = useState('')
@@ -14,7 +15,12 @@ const AuthRootComponent = () => {
 
     const handleSubmit = async (e: { preventDefault: () => void; }) => {
         e.preventDefault()
-        console.log('email', email)
+        const userData = {
+            email,
+            password
+        }
+        const user = await instance.post('auth/login', userData)
+        console.log('user', user.data)
     }
     return (
         <Auth>
@@ -24,7 +30,7 @@ const AuthRootComponent = () => {
                     alignItems='center'
                     justifyContent='center'
                     flexDirection='column'
-                    maxWidth={700}
+                    maxWidth={560}
                     margin='auto'
                     padding={5}
                     borderRadius={5}

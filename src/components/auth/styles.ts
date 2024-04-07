@@ -9,6 +9,6 @@ export const Auth = styled.div`
 `
 
 export const Form = styled.form`
-    position: relative;
+    width: 100%;
     max-width: 80%;
 `
