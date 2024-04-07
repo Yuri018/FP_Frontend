@@ -28,7 +28,7 @@ import { MainTitle, SearchIcon, SignInIcon } from "assets"
 import DropdownMenu from "components/DropdownMenu"
 import type { ButtunProps } from "components/Button/types"
 import { Route, Routes } from "react-router-dom"
-import LoginPage from "components/auth/login"
+import LoginPage from "components/auth/login/Login"
 
 interface HeaderProps {
   logoText?: string

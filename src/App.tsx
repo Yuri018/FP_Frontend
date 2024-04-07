@@ -8,7 +8,7 @@ import Munich from "pages/Munich";
 import Rheinland from "pages/Rheinland";
 import Frankfurt from "pages/Frankfurt";
 import Hamburg from "pages/Hamburg";
-import AuthRootComponent from "components/auth";
+import AuthRootComponent from "components/auth/Auth";
 
 
 function App() {
