@@ -4,6 +4,7 @@ export const WeatherWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 330px;
 `
 
 export const WeatherTextContainer = styled.div`

@@ -20,6 +20,7 @@ function Hamburg() {
         logoImgDescr={{ src: HamburgLogo, alt: "HamburgLogo" }}
         logoText="Гамбург"
         city="Гамбург"
+        HeaderDropDown={true}
       />
       <MainUpperPart
         bcgImgDescr={{ src: HamburgImg, alt: "HamburgImg" }}
@@ -34,7 +35,9 @@ function Hamburg() {
         fourthImgTitle="Высшее образование в Германии"
         buttonProps={{
           name: "Читать подробнее",
-          onClick: () => { },
+          onClick: () => {
+            console.log("Читать подробнее Hamburg");
+          },
         }}
       />
       <MainLowerPart />

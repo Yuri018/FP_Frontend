@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
-import { ButtunProps } from "components/Button/types"
+import type { ButtunProps } from "components/Button/types"
 export interface MainUpperPartProps {
   children?: ReactNode
   mainTitle?: string
@@ -15,4 +15,5 @@ export interface MainUpperPartProps {
   fourthImgTitle?: string
   isMainPage?: boolean
   isGeneralPage?: boolean
+  buttonProps?: ButtunProps
 }

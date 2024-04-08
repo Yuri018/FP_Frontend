@@ -2,6 +2,7 @@
 import { Interface } from 'readline';
 import { createGlobalStyle } from 'styled-components';
 import '../fonts/Montserrat/stylesheet.css';
+import '../fonts/TrueGothicCyr/stylesheet.css';
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -12,6 +13,8 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Montserrat';
     margin: 0;
     padding: 0;
+    width: 100%;
+    height: 100%;
   }
 
   #root {

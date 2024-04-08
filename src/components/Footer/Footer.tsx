@@ -7,7 +7,7 @@ function Footer() {
   return (
     <FooterMain>
       <FooterMainContainer>
-        it is footer
+        FOOTER
 
       </FooterMainContainer>
     </FooterMain>

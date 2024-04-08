@@ -180,8 +180,8 @@ export const DropdownMenuContainer = styled.div`
   padding: 0px 20px;
   top: -37px;
   left: 180px;
-  width: 250px;
-  height: 270px;
+  width: 180px;
+  height: 234px;
   border-radius: 10px;
   z-index: 20;
   border: 2px solid ${colors.baseGray50};
@@ -208,7 +208,10 @@ export const DropdownMenuList = styled.ul`
 `;
 
 export const DropdownMenuLink = styled(NavLink)`  
-  font-size: 20px;
+  font-size: 13px;
+  padding: 15px;
+  display: block;
+  text-align: center;
   color: ${colors.baseGrey80};
   text-decoration: none;
   cursor: pointer;    
@@ -224,7 +227,7 @@ export const DropdownMenuLink = styled(NavLink)`
 `;
 
 export const DropdownMenuItem = styled.li`
-  padding: 15px 20px;
+  width: 100%;
   position: relative; 
 
   &:after {

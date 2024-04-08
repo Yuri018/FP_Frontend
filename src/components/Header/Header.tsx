@@ -21,17 +21,27 @@ import {
   NavListRight,
   TitleLinkContainer,
   ImageWrap,
+  HeaderDropdownContainer,
 } from "./styles"
 
 import { MainTitle, SearchIcon, SignInIcon } from "assets"
+import DropdownMenu from "components/DropdownMenu"
+import type { ButtunProps } from "components/Button/types"
+import { Route, Routes } from "react-router-dom"
+import LoginPage from "components/auth/login/Login"
 
 interface HeaderProps {
   logoText?: string
   logoImgDescr?: { src: string; alt: string }
   city: string
+  HeaderDropDown?: boolean
+  isGeneralPage?: boolean
+  buttonProps?: ButtunProps
+
 }
 
-function Header({ logoText, logoImgDescr, city }: HeaderProps) {
+function Header({ logoText, logoImgDescr, city, HeaderDropDown, buttonProps }: HeaderProps) {
+  console.log('Header :>> ', HeaderDropDown);
   return (
     <MainContainer>
       <HeaderUpperContainer>
@@ -41,8 +51,15 @@ function Header({ logoText, logoImgDescr, city }: HeaderProps) {
           </ImageComponentWrap>
           <HeaderSearch type="search" placeholder="search" name="Search" />
         </HeaderSerchContainer>
+
+        {HeaderDropDown && (
+          <HeaderDropdownContainer className="header-dropdown">
+            <DropdownMenu HeaderDropDown={HeaderDropDown} buttonProps={buttonProps} />
+          </HeaderDropdownContainer>
+        )}
+
         <HeaderSignInContainer>
-          <HeaderSignInText href="#">
+          <HeaderSignInText to="/login">
             <ImageWrap>
               <ImageComponent src={SignInIcon} />
             </ImageWrap>
@@ -57,7 +74,7 @@ function Header({ logoText, logoImgDescr, city }: HeaderProps) {
         </LogoContainer>
         <TitleContainer>
           <TitleLinkContainer to="/">
-            <ImageComponent src={MainTitle} alt="MainTitle" />
+            Германия в лодонях
           </TitleLinkContainer>
         </TitleContainer>
         <WeatherComponent city={city} />
