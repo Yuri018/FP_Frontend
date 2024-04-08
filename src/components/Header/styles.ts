@@ -80,7 +80,7 @@ export const HeaderSignInContainer = styled.div`
   gap: 10px;  
 `;
 
-export const HeaderSignInText = styled.a`
+export const HeaderSignInText = styled(NavLink)`
   font-family: 'Montserrat';  
   font-size: 14px;
   font-weight: 500;
@@ -99,7 +99,8 @@ export const HeaderMiddleContainer = styled.div`
 export const LogoContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  width: 340px;
 `;
 
 export const LogoTextContainer = styled.p`
@@ -117,7 +118,9 @@ export const TitleLinkContainer = styled(NavLink)`
   display: block;
   font-family: 'True Gothic Cyr';
   text-decoration: none;
+  text-align: center;
   font-size: 80px;
+  line-height: 0.75em;
   color: ${colors.baseGrey80};
 `;
 

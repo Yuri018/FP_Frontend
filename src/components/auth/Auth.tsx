@@ -6,6 +6,9 @@ import { Box } from '@mui/material';
 import { Auth, Form } from './styles';
 import { useState } from 'react';
 import { instance } from '../../utils/axios';
+import Header from 'components/Header';
+import Footer from 'components/Footer';
+import { GermanMainLogo } from 'assets';
 
 const AuthRootComponent: React.FC = ():JSX.Element => {
     const [email, setEmail] = useState('')
@@ -23,23 +26,34 @@ const AuthRootComponent: React.FC = ():JSX.Element => {
         console.log('user', user.data)
     }
     return (
-        <Auth>
-            <Form onSubmit={handleSubmit}>
-                <Box
-                    display='flex'
-                    alignItems='center'
-                    justifyContent='center'
-                    flexDirection='column'
-                    maxWidth={560}
-                    margin='auto'
-                    padding={5}
-                    borderRadius={5}
-                    boxShadow={`5px 5px 10px ${colors.baseGray50}`}
-                >
-                    {location.pathname === '/login' ? <LoginPage setEmail={setEmail} setPassword={setPassword}/> : location.pathname === '/register' ? <RegisterPage />: null}
-                </Box>    
-            </Form>   
-        </Auth>
+        <>
+        <Header
+            logoImgDescr={{ src: GermanMainLogo, alt: "GermanMainLogo" }}
+            city="Берлин"
+            HeaderDropDown={false}
+            buttonProps={{
+                name: "Выбери свой",
+                type: "button",
+            }} />
+            <Auth>
+                <Form onSubmit={handleSubmit}>
+                    <Box
+                        display='flex'
+                        alignItems='center'
+                        justifyContent='center'
+                        flexDirection='column'
+                        maxWidth={560}
+                        margin='auto'
+                        padding={5}
+                        borderRadius={5}
+                        boxShadow={`5px 5px 10px ${colors.baseGray50}`}
+                    >
+                        {location.pathname === '/login' ? <LoginPage setEmail={setEmail} setPassword={setPassword} /> : location.pathname === '/register' ? <RegisterPage /> : null}
+                    </Box>
+                </Form>
+            </Auth>
+        <Footer />
+        </>
     );
 
         

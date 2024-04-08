@@ -38,7 +38,7 @@ function DropdownMenu({
                             <DropdownMenuLink to="/frankfurt">ФРАНКФУРТ</DropdownMenuLink>
                         </DropdownMenuItem>
                         <DropdownMenuItem>
-                            <DropdownMenuLink to="/duesseldorf">ДЮССЕЛЬДОРФ</DropdownMenuLink>
+                            <DropdownMenuLink to="/dusseldorf">ДЮССЕЛЬДОРФ</DropdownMenuLink>
                         </DropdownMenuItem>
                         <DropdownMenuItem>
                             <DropdownMenuLink to="/hamburg">ГАМБУРГ</DropdownMenuLink>

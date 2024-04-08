@@ -6,6 +6,7 @@ export const FooterMain = styled.footer`
   width: 100%;  
   background-color: ${colors.baseGrey80};
   color: ${colors.white};
+  margin-top: auto;
 `;
 export const FooterMainContainer = styled.footer`
   width: 100%;

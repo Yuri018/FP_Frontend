@@ -59,7 +59,7 @@ function Header({ logoText, logoImgDescr, city, HeaderDropDown, buttonProps }: H
         )}
 
         <HeaderSignInContainer>
-          <HeaderSignInText href="/login">
+          <HeaderSignInText to="/login">
             <ImageWrap>
               <ImageComponent src={SignInIcon} />
             </ImageWrap>
