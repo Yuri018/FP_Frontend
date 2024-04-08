@@ -11,7 +11,6 @@ import {
   University,
 } from "assets"
 
-
 import Footer from "components/Footer"
 
 function Munich() {
@@ -21,6 +20,7 @@ function Munich() {
         logoImgDescr={{ src: MunichLogo, alt: "MunichLogo" }}
         logoText="Мюнхен и Бавария"
         city="Мюнхен"
+        HeaderDropDown={true}
       />
       <MainUpperPart
         bcgImgDescr={{ src: MunichImg, alt: "MunichImg" }}
@@ -35,7 +35,9 @@ function Munich() {
         fourthImgTitle="Высшее образование в Германии"
         buttonProps={{
           name: "Читать подробнее",
-          onClick: () => { },
+          onClick: () => {
+            console.log("Читать подробнее Munich");
+          },
         }}
       />
       <MainLowerPart />

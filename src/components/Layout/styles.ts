@@ -5,6 +5,3 @@ export const LayoutContainer = styled.div`
   max-width: 1366px;
   margin: 0 auto;
 `;
-
-
-

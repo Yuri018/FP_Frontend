@@ -20,6 +20,7 @@ function Rheinland() {
         logoImgDescr={{ src: DuesseldorfLogo, alt: "DuesseldorfLogo" }}
         logoText="Дюссельдорф-Кёльн-Бонн"
         city="Дюссельдорф"
+        HeaderDropDown={true}
       />
       <MainUpperPart
         bcgImgDescr={{ src: DuesseldorfImg, alt: "DuesseldorfImg" }}
@@ -34,7 +35,9 @@ function Rheinland() {
         fourthImgTitle="Высшее образование в Германии"
         buttonProps={{
           name: "Читать подробнее",
-          onClick: () => { },
+          onClick: () => {
+            console.log("Читать подробнее Райнланда");
+          },
         }}
       />
       <MainLowerPart />
