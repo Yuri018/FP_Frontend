@@ -16,9 +16,6 @@ const LoginPage: React.FC<IPropsLogin> = (props: IPropsLogin): JSX.Element => {
                 size="large" 
                 variant="contained"
                 sx={{fontFamily:'Montserrat', marginTop: 2, marginBottom: 2, width:'80%', padding: 2}}
-                // onClick={() => {
-                //     alert('submit');
-                //   }}
             >
                 Войти
             </Button>
