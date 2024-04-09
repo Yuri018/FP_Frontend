@@ -85,12 +85,11 @@ function Header({ logoText, logoImgDescr, city, HeaderDropDown, buttonProps }: H
             <NavigationLink href="#">Новости</NavigationLink>
           </NavItem>
           <NavItem>
-            <NavigationLink href="#">Культурная жизнь</NavigationLink>
+            <NavigationLink href="#">Общая информация</NavigationLink>
           </NavItem>
         </NavListLeft>
         <NavListRight>
           <NavItem>
-            <NavigationLink href="#">Общая информация</NavigationLink>
           </NavItem>
           <NavItem>
             <NavigationLink href="#">Здоровье</NavigationLink>
