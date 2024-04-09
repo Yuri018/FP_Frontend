@@ -33,34 +33,79 @@ function formatRussianDate(responseDt: number): string {
 }
 
 
+// const weatherSlice = createSlice({
+//   name: "WEATHER",
+//   initialState: weatherInitialState,
+//   reducers: {},
+//   extraReducers: builder => {
+//     builder
+//     .addCase(getWeather.pending, (state: WeatherState) => {
+//       state.isLoading = true
+//       state.weatherCard = undefined
+//       state.error = undefined
+//     })
+//     .addCase(getWeather.fulfilled, (state: WeatherState, {payload}: PayloadAction<any>) => {
+//       state.isLoading = false
+//       state.weatherCard = {
+//         temp: `${Math.round(payload.main.temp - 273.15)}°`,
+//         weatherLogo: `http://openweathermap.org/img/w/${payload.weather[0].icon}.png`,
+//         date: formatRussianDate(payload.dt),
+//         id: v4()
+//       }
+//     })
+//     .addCase(getWeather.rejected, (state: WeatherState, {payload}: PayloadAction<any>) => {
+//       state.isLoading = false
+//       state.error = {
+//         cod: payload.cod, 
+//         message: payload.message
+//       }
+//     })
+//   }
+// })
+
 const weatherSlice = createSlice({
   name: "WEATHER",
   initialState: weatherInitialState,
   reducers: {},
   extraReducers: builder => {
     builder
-    .addCase(getWeather.pending, (state: WeatherState) => {
-      state.isLoading = true
-      state.weatherCard = undefined
-      state.error = undefined
-    })
-    .addCase(getWeather.fulfilled, (state: WeatherState, {payload}: PayloadAction<any>) => {
-      state.isLoading = false
-      state.weatherCard = {
-        temp: `${Math.round(payload.main.temp - 273.15)}°`,
-        weatherLogo: `http://openweathermap.org/img/w/${payload.weather[0].icon}.png`,
-        date: formatRussianDate(payload.dt),
-        id: v4()
-      }
-    })
-    .addCase(getWeather.rejected, (state: WeatherState, {payload}: PayloadAction<any>) => {
-      state.isLoading = false
-      state.error = {
-        cod: payload.cod, 
-        message: payload.message
-      }
-    })
-  }
+      .addCase(getWeather.pending, state => {
+        return {
+          ...state,
+          isLoading: true,
+          weatherCard: undefined,
+          error: undefined,
+        }
+      })
+      .addCase(
+        getWeather.fulfilled,
+        (state, { payload }: PayloadAction<any>) => {
+          return {
+            ...state,
+            isLoading: false,
+            weatherCard: {
+              temp: `${Math.round(payload.main.temp - 273.15)}°`,
+              weatherLogo: `http://openweathermap.org/img/w/${payload.weather[0].icon}.png`,
+              date: formatRussianDate(payload.dt),
+              id: v4(),
+            },
+          }
+        },
+      )
+      .addCase(
+        getWeather.rejected,
+        (state, { payload }: PayloadAction<any>) => {
+          return {
+            ...state,
+            isLoading: false,
+            error: {
+              cod: payload.cod,
+              message: payload.message,
+            },
+          }
+        },
+      )
+  },
 })
 
 export const weatherActions = weatherSlice.actions

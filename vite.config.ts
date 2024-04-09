@@ -27,10 +27,10 @@ export default defineConfig({
   },  
   build: {
     outDir: "build",
-    sourcemap: true,
+    sourcemap: false,
   },
   test: {
-    globals: true,
+    globals: true,    
     environment: "jsdom",
     setupFiles: "src/setupTests",
     mockReset: true,

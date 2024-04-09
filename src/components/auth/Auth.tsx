@@ -11,7 +11,7 @@ import Footer from 'components/Footer';
 import { GermanMainLogo } from 'assets';
 
 const AuthRootComponent: React.FC = ():JSX.Element => {
-    const [email, setEmail] = useState('')
+    const [username, setUsername] = useState("")
     const [password, setPassword] = useState('')
 
     const location = useLocation()
@@ -19,10 +19,12 @@ const AuthRootComponent: React.FC = ():JSX.Element => {
     const handleSubmit = async (e: { preventDefault: () => void; }) => {
         e.preventDefault()
         const userData = {
-            email,
+            username,
             password
         }
-        const user = await instance.post('auth/login', userData)
+        const user = await instance.post("/auth/login", userData, {
+          headers: { accept: "*/*", "Content-Type": "application/json" },
+        })
         console.log('user', user.data)
     }
     return (
@@ -48,7 +50,7 @@ const AuthRootComponent: React.FC = ():JSX.Element => {
                         borderRadius={5}
                         boxShadow={`5px 5px 10px ${colors.baseGray50}`}
                     >
-                        {location.pathname === '/login' ? <LoginPage setEmail={setEmail} setPassword={setPassword} /> : location.pathname === '/register' ? <RegisterPage /> : null}
+                        {location.pathname === '/login' ? <LoginPage setUsername={setUsername} setPassword={setPassword} /> : location.pathname === '/register' ? <RegisterPage /> : null}
                     </Box>
                 </Form>
             </Auth>
