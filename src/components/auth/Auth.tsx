@@ -50,7 +50,7 @@ const AuthRootComponent: React.FC = ():JSX.Element => {
                         borderRadius={5}
                         boxShadow={`5px 5px 10px ${colors.baseGray50}`}
                     >
-                        {location.pathname === '/login' ? <LoginPage setUsername={setUsername} setPassword={setPassword} /> : location.pathname === '/register' ? <RegisterPage /> : null}
+                        {location.pathname === '/login' ? <LoginPage setUsername={setUsername} setPassword={setPassword} /> : location.pathname === '/user_login/register' ? <RegisterPage setUsername={setUsername} setPassword={setPassword} /> : null}
                     </Box>
                 </Form>
             </Auth>

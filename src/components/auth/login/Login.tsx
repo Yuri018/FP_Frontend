@@ -54,9 +54,6 @@ const LoginPage: React.FC<IPropsLogin> = (props: IPropsLogin): JSX.Element => {
             width: "80%",
             padding: 2,
           }}
-          // onClick={() => {
-          //     alert('submit');
-          //   }}
         >
           Войти
         </Button>
@@ -66,7 +63,7 @@ const LoginPage: React.FC<IPropsLogin> = (props: IPropsLogin): JSX.Element => {
           fontWeight={400}
         >
           У вас нет аккаунта?{" "}
-          <InsitingText to="/register">Регистрация</InsitingText>
+          <InsitingText to="/user_login/register">Регистрация</InsitingText>
         </Typography>
 
         {/* <Checkbox {...label} defaultChecked /> */}

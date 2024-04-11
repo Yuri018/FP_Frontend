@@ -24,7 +24,7 @@ function App() {
           <Route path="/dusseldorf" element={<Rheinland />} />
           <Route path="/hamburg" element={<Hamburg />} />
           <Route path="/login" element={<AuthRootComponent />} />
-          <Route path="/register" element={<AuthRootComponent />} />
+          <Route path="/user_login/register" element={<AuthRootComponent />} />
           <Route path="*" element="Page is not found" />
         </Routes>
       </Layout>
