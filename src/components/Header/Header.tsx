@@ -41,7 +41,6 @@ interface HeaderProps {
 }
 
 function Header({ logoText, logoImgDescr, city, HeaderDropDown, buttonProps }: HeaderProps) {
-  console.log('Header :>> ', HeaderDropDown);
   return (
     <MainContainer>
       <HeaderUpperContainer>

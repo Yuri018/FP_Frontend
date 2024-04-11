@@ -1,8 +1,10 @@
 export interface IPropsLogin {
-    setPassword: (value: string) => void
-    setUsername: (value: string) => void
+    setEmailLog: (value: string) => void
+    setPasswordLog: (value: string) => void
+    
 }
 export interface IPropsRegistr {
-    setPassword: (value: string) => void
-    setUsername: (value: string) => void
+    setEmailLog: (value: string) => void
+    setPasswordLog: (value: string) => void
+
 }
