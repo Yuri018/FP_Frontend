@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { colors } from "styles/colors"
 import { Box, Checkbox, TextField, Typography, Button } from "@mui/material"
 import { Subscriptions, Form } from "./styles"
@@ -30,8 +30,9 @@ function UserAccount() {
     frankfurt: false,
   });
 
-  const location = useLocation();
+  // const location = useLocation();
   const cookies = new Cookies();
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchUserData() {
@@ -82,6 +83,39 @@ function UserAccount() {
     }
   };
 
+  const handleLogout = async () => {
+    try {
+      const response = await instance.get("/auth/logout");
+      console.log("Logout successful:", response.data);
+      // Удаление куки при выходе из аккаунта
+      cookies.remove("accessToken");
+
+      // setUserData == null;
+      setUserData((prevUserData) => ({
+        ...prevUserData,
+        id: null,
+        firstname: "",
+        lastname: "",
+        children_info: false,
+        doctors_info: false,
+        hair_beauty_info: false,
+        legal_services_info: false,
+        restaurants_info: false,
+        shops_info: false,
+        translators_info: false,
+        news_info: false,
+        berlin: false,
+        muenchen: false,
+        dusseldorf: false,
+        hamburg: false,
+        frankfurt: false,
+      }));
+      // Перенаправление на главную страницу
+      navigate("/");
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
+  };
   return (
     <>
       <Header
@@ -268,8 +302,7 @@ function UserAccount() {
             </Box>
 
 
-
-            {/* Добавьте другие чекбоксы с аналогичной структурой здесь */}            <Button
+            <Button
               type="submit"
               size="large"
               variant="contained"
@@ -282,6 +315,22 @@ function UserAccount() {
               }}
             >
               Сохранить
+            </Button>
+
+            <Button
+              onClick={handleLogout}
+              size="large"
+              variant="contained"
+              color="error"
+              sx={{
+                fontFamily: "Montserrat",
+                marginTop: 2,
+                marginBottom: 2,
+                width: "80%",
+                padding: 2,
+              }}
+            >
+              Выйти из аккаунта
             </Button>
           </Box>
         </Form>

@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { colors } from "styles/colors";
 import LoginPage from "./login/Login";
 import RegisterPage from "./register/Register";
@@ -14,7 +14,7 @@ import { Cookies } from "react-cookie";
 function AuthRootComponent() {
   const [username, setEmailLog] = useState("");
   const [password, setPasswordLog] = useState("");
-
+  const navigate = useNavigate();
   const location = useLocation();
   const cookies = new Cookies();
 
@@ -49,6 +49,16 @@ function AuthRootComponent() {
           headers: { accept: "*/*", "Content-Type": "application/json" },
         });
         console.log("user", newUser.data);
+        // После успешной регистрации автоматически выполняем вход
+        const response = await instance.post("/auth/login", userDataReg, {
+          headers: { accept: "*/*", "Content-Type": "application/json" },
+        });
+        const { accessToken } = response.data;
+        // Сохраняем токен доступа в куки
+        cookies.set("accessToken", accessToken, { path: "/" });
+        console.log("User logged in successfully:", response.data);
+        // Перенаправляем пользователя на другую страницу
+        navigate("/user_login/user_account");
       } catch (error) {
         console.error("Error registering user:", error);
       }
