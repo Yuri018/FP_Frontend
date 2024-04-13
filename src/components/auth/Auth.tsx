@@ -9,7 +9,6 @@ import { instance } from "../../utils/axios"
 import Header from "components/Header"
 import Footer from "components/Footer"
 import { GermanMainLogo } from "assets"
-import {IPropsLogin} from "components/auth/types"
 
 function AuthRootComponent() {
   const [username, setEmailLog] = useState("")
@@ -36,10 +35,6 @@ function AuthRootComponent() {
       } catch (error) {
         console.error("Error logging in:", error);
       }
-      // const user = await instance.post<IPropsLogin>("/auth/login", userDataLog, {
-      //   headers: { accept: "*/*", "Content-Type": "application/json" },
-      // })
-      // console.log("usera", user.data)
     } else if (location.pathname === "/user_login/register") {
       console.log("location.pathname =>", location.pathname)
       const userDataReg = {
