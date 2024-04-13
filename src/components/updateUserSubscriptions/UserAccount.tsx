@@ -8,6 +8,7 @@ import Header from "components/Header"
 import Footer from "components/Footer"
 import { GermanMainLogo } from "assets"
 import { UserDataProps } from "components/updateUserSubscriptions/types"
+import { Cookies } from "react-cookie";
 
 function UserAccount() {
   const [userData, setUserData] = useState<UserDataProps>({
@@ -29,19 +30,19 @@ function UserAccount() {
     frankfurt: false,
   });
 
+  const location = useLocation();
+  const cookies = new Cookies();
+
   useEffect(() => {
     async function fetchUserData() {
       try {
-        // Получение токена доступа из локального хранилища браузера
-        const accessToken = localStorage.getItem("accessToken");
-
-        // Проверка наличия токена доступа
+        const accessToken = cookies.get("accessToken");
         if (accessToken) {
           const response = await instance.get<UserDataProps>(
             "/user_login/user_account",
             {
               headers: {
-                Authorization: `Bearer ${accessToken}`, // Включение токена доступа в заголовке запроса
+                Authorization: `Bearer ${accessToken}`,
               },
             }
           );
@@ -53,7 +54,7 @@ function UserAccount() {
     }
     fetchUserData();
   }, []);
-
+  
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
     const newValue = type === "checkbox" ? checked : value;
@@ -61,17 +62,17 @@ function UserAccount() {
       ...prevData,
       [name]: newValue,
     }));
-  };
+  };  
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const accessToken = localStorage.getItem("accessToken");
+      const accessToken = cookies.get("accessToken");
       if (accessToken) {
         await instance.put("/user_login", userData, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
-            "Content-Type": "application/json", // добавлено для указания типа контента
+            "Content-Type": "application/json",
           },
         });
         console.log("User data updated successfully:", userData);
@@ -80,6 +81,7 @@ function UserAccount() {
       console.error("Error updating user data:", error);
     }
   };
+
   return (
     <>
       <Header

@@ -7,6 +7,9 @@
 //   });
 
 import axios from "axios";
+import { Cookies } from "react-cookie";
+
+const cookies = new Cookies();
 
 export const instance = axios.create({
   baseURL: 'http://localhost:8080',
@@ -20,7 +23,7 @@ export const instance = axios.create({
 // Добавляем перехватчик запросов, чтобы включить токен доступа в заголовки
 instance.interceptors.request.use(
   (config) => {
-    const accessToken = localStorage.getItem('accessToken'); // Получаем токен доступа из локального хранилища
+    const accessToken = cookies.get('accessToken'); // Получаем токен доступа из кук
     if (accessToken) {
       config.headers.Authorization = `Bearer ${accessToken}`; // Включаем токен доступа в заголовок Authorization
     }

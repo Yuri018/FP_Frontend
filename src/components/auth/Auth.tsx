@@ -9,12 +9,14 @@ import { instance } from "../../utils/axios";
 import Header from "components/Header";
 import Footer from "components/Footer";
 import { GermanMainLogo } from "assets";
+import { Cookies } from "react-cookie";
 
 function AuthRootComponent() {
   const [username, setEmailLog] = useState("");
   const [password, setPasswordLog] = useState("");
 
   const location = useLocation();
+  const cookies = new Cookies();
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -30,7 +32,8 @@ function AuthRootComponent() {
           headers: { accept: "*/*", "Content-Type": "application/json" },
         });
         const { accessToken } = response.data;
-        localStorage.setItem("accessToken", accessToken); // Сохраняем токен доступа в локальном хранилище
+        // Сохраняем токен доступа в куки
+        cookies.set("accessToken", accessToken, { path: "/" });
         console.log("user data:", response.data);
       } catch (error) {
         console.error("Error logging in:", error);
