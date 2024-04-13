@@ -9,8 +9,9 @@ import { instance } from "../../utils/axios"
 import Header from "components/Header"
 import Footer from "components/Footer"
 import { GermanMainLogo } from "assets"
+import {IPropsLogin} from "components/auth/types"
 
-const AuthRootComponent: React.FC = (): JSX.Element => {
+function AuthRootComponent() {
   const [username, setEmailLog] = useState("")
   const [password, setPasswordLog] = useState("")
 
@@ -25,10 +26,20 @@ const AuthRootComponent: React.FC = (): JSX.Element => {
         username,
         password,
       }
-      const user = await instance.post("/auth/login", userDataLog, {
-        headers: { accept: "*/*", "Content-Type": "application/json" },
-      })
-      console.log("usera", user.data)
+      try {
+        const response = await instance.post("/auth/login", userDataLog, {
+          headers: { accept: "*/*", "Content-Type": "application/json" },
+        });
+        const { accessToken } = response.data;
+        localStorage.setItem("accessToken", accessToken); // Сохраняем токен доступа в локальном хранилище
+        console.log("user data:", response.data);
+      } catch (error) {
+        console.error("Error logging in:", error);
+      }
+      // const user = await instance.post<IPropsLogin>("/auth/login", userDataLog, {
+      //   headers: { accept: "*/*", "Content-Type": "application/json" },
+      // })
+      // console.log("usera", user.data)
     } else if (location.pathname === "/user_login/register") {
       console.log("location.pathname =>", location.pathname)
       const userDataReg = {
