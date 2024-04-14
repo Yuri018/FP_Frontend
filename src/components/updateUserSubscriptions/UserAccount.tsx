@@ -83,14 +83,18 @@ function UserAccount() {
     }
   };
 
+  
   const handleLogout = async () => {
     try {
-      const response = await instance.get("/auth/logout");
+      const response = await instance.get("/auth/logout", {
+        headers: { accept: "*/*" },
+      });
       console.log("Logout successful:", response.data);
+      
       // Удаление куки при выходе из аккаунта
       cookies.remove("accessToken");
-
-      // setUserData == null;
+  
+      // Обновление состояния пользователя
       setUserData((prevUserData) => ({
         ...prevUserData,
         id: null,
@@ -110,13 +114,15 @@ function UserAccount() {
         hamburg: false,
         frankfurt: false,
       }));
+  
       // Перенаправление на главную страницу
       navigate("/");
     } catch (error) {
       console.error("Error logging out:", error);
     }
   };
-  return (
+  
+    return (
     <>
       <Header
         logoImgDescr={{ src: GermanMainLogo, alt: "GermanMainLogo" }}
