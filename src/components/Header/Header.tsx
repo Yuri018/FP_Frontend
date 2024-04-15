@@ -57,9 +57,9 @@ function Header({ logoText, logoImgDescr, city, HeaderDropDown, buttonProps }: H
           </HeaderSignInText>
         </HeaderSignInContainer>
 
-        <MuiButton onClick={handleLogout} variant="contained" color="error">
+        {/* <MuiButton onClick={handleLogout} variant="contained" color="error">
           Выйти из аккаунта
-        </MuiButton>
+        </MuiButton> */}
         
       </HeaderUpperContainer>
       <HeaderMiddleContainer>
