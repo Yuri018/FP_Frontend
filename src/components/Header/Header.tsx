@@ -20,22 +20,17 @@ interface HeaderProps {
 }
 
 function Header({ logoText, logoImgDescr, city, HeaderDropDown, buttonProps }: HeaderProps) {
-  const cookies = new Cookies();
   const navigate = useNavigate();
 
   const handleLogout = async () => {
     try {
       const response = await instance.get("/auth/logout");
       console.log("Logout successful:", response.data);
-      // Удаление куки при выходе из аккаунта
-      cookies.remove("accessToken");
-
-      // Перенаправление на главную страницу
-      navigate("/");
     } catch (error) {
       console.error("Error logging out:", error);
     }
   };
+
 
   return (
     <MainContainer>
