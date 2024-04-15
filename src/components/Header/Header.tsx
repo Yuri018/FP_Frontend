@@ -4,11 +4,15 @@ import WeatherComponent from "components/WeatherComponent"
 import DropdownMenu from "components/DropdownMenu"
 import { MainContainer, HeaderUpperContainer, HeaderMiddleContainer, HeaderLowerContainer, LogoContainer, LogoTextContainer, TitleContainer, HeaderSerchContainer, ImageComponentWrap, HeaderSearch, HeaderSignInContainer, HeaderSignInText, NavListLeft, NavItem, NavigationLink, NavListRight, TitleLinkContainer, ImageWrap, HeaderDropdownContainer } from "./styles"
 import { MainTitle, SearchIcon, SignInIcon } from "assets"
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useNavigate, useLocation } from "react-router-dom"
 import { useState, useEffect, MouseEvent } from "react"
 import { instance } from "../../utils/axios"
 import { Button, Menu, MenuItem } from "@mui/material";
 import { AccountCircle } from "@mui/icons-material";
+import { useDispatch, useSelector } from "react-redux";
+import { userActions } from "../../store/user/userSlice";
+import { userSelectors } from "../../store/user/selectors";
+
 
 
 interface HeaderProps {
@@ -22,18 +26,26 @@ interface HeaderProps {
 
 function Header({ logoText, logoImgDescr, city, HeaderDropDown, buttonProps }: HeaderProps) {
   const navigate = useNavigate();
-  const [authenticated, setAuthenticated] = useState<boolean>(false);
+  const dispatch = useDispatch();
+  const location = useLocation();
+
+  const {authenticated, name, authorities} = useSelector(userSelectors);
+  // const [authenticated, setAuthenticated] = useState<boolean>(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
-  const handleLogin = () => {
-    setAuthenticated(true);
-  };
+  // const handleLogin = () => {
+  //   setAuthenticated(true);
+  // };
 
   const handleLogout = async () => {
     try {
       const response = await instance.get("/auth/logout");
       console.log("Logout successful:", response.data);
-      setAuthenticated(false);
+      dispatch(userActions.clearUserInfo());
+      if (location.pathname === "/user_login/user_account"){
+        navigate("/")
+      }
+      // setAuthenticated(false);
     } catch (error) {
       console.error("Error logging out:", error);
     }
@@ -84,7 +96,7 @@ function Header({ logoText, logoImgDescr, city, HeaderDropDown, buttonProps }: H
           </div>
         ) : (
           <HeaderSignInContainer>
-            <HeaderSignInText to="/login" onClick={handleLogin}>
+            <HeaderSignInText to="/login">
               Sign In
             </HeaderSignInText>
           </HeaderSignInContainer>

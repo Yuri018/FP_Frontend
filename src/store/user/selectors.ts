@@ -6,7 +6,7 @@ import { createSelector } from "@reduxjs/toolkit"
 const globalState = (state: RootState) => state;
 
 // Селектор для получения признака аутентификации пользователя
-export const userState = createSelector(
+export const userSelectors = createSelector(
   globalState,
   (state) => state.userData
 );

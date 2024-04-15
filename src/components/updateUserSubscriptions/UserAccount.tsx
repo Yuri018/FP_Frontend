@@ -4,13 +4,13 @@ import { Box, Checkbox, TextField, Typography, Button } from "@mui/material"
 import { Subscriptions, Form } from "./styles"
 import { useState, useEffect, ChangeEvent, FormEvent } from "react"
 import { instance } from "../../utils/axios"
-// import { instance } from "utils/axios"
-
 import Header from "components/Header"
 import Footer from "components/Footer"
 import { GermanMainLogo } from "assets"
 import { UserDataProps } from "components/updateUserSubscriptions/types"
-import { Cookies } from "react-cookie";
+import { useDispatch } from "react-redux";
+import { userActions } from "../../store/user/userSlice";
+
 
 function UserAccount() {
   const [userData, setUserData] = useState<UserDataProps>({
@@ -33,6 +33,7 @@ function UserAccount() {
   });
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     async function fetchUserData() {
@@ -98,6 +99,7 @@ function UserAccount() {
         frankfurt: false,
       }));
   
+      dispatch(userActions.clearUserInfo())
       // Перенаправление на главную страницу
       navigate("/");
     } catch (error) {
