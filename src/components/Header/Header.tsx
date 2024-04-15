@@ -40,29 +40,19 @@ interface HeaderProps {
   buttonProps?: any
 }
 
-function Header({
-  logoText,
-  logoImgDescr,
-  city,
-  HeaderDropDown,
-  buttonProps,
-}: HeaderProps) {
-  const cookies = new Cookies()
-  const navigate = useNavigate()
+
+function Header({ logoText, logoImgDescr, city, HeaderDropDown, buttonProps }: HeaderProps) {
+  const navigate = useNavigate();
 
   const handleLogout = async () => {
     try {
-      const response = await instance.get("/auth/logout")
-      console.log("Logout successful:", response.data)
-      // Удаление куки при выходе из аккаунта
-      cookies.remove("accessToken")
-
-      // Перенаправление на главную страницу
-      navigate("/")
+      const response = await instance.get("/auth/logout");
+      console.log("Logout successful:", response.data);
     } catch (error) {
       console.error("Error logging out:", error)
     }
   }
+
 
   return (
     <MainContainer>
@@ -92,10 +82,10 @@ function Header({
           </HeaderSignInText>
         </HeaderSignInContainer>
 
-        {/* Кнопка "Выход из аккаунта" */}
         {/* <MuiButton onClick={handleLogout} variant="contained" color="error">
           Выйти из аккаунта
         </MuiButton> */}
+
       </HeaderUpperContainer>
       <HeaderMiddleContainer>
         <LogoContainer>

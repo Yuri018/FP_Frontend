@@ -30,25 +30,21 @@ function UserAccount() {
     frankfurt: false,
   });
 
-  // const location = useLocation();
   const cookies = new Cookies();
   const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchUserData() {
       try {
-        const accessToken = cookies.get("accessToken");
-        if (accessToken) {
-          const response = await instance.get<UserDataProps>(
-            "/user_login/user_account",
-            {
-              headers: {
-                Authorization: `Bearer ${accessToken}`,
-              },
-            }
-          );
-          setUserData(response.data);
-        }
+          const response = await instance.get<UserDataProps>("/user_login/user_account");
+      // Проверяем, если значение равно null, устанавливаем пустую строку
+      const { firstname, lastname, ...rest } = response.data;
+      setUserData({
+        firstname: firstname || "",
+        lastname: lastname || "",
+        ...rest,
+      });
+        
       } catch (error) {
         console.error("Error fetching user data:", error);
       }
@@ -68,16 +64,8 @@ function UserAccount() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const accessToken = cookies.get("accessToken");
-      if (accessToken) {
-        await instance.put("/user_login", userData, {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-            "Content-Type": "application/json",
-          },
-        });
+        await instance.put("/user_login", userData);
         console.log("User data updated successfully:", userData);
-      }
     } catch (error) {
       console.error("Error updating user data:", error);
     }
@@ -86,14 +74,9 @@ function UserAccount() {
   
   const handleLogout = async () => {
     try {
-      const response = await instance.get("/auth/logout", {
-        headers: { accept: "*/*" },
-      });
+      const response = await instance.get("/auth/logout");
       console.log("Logout successful:", response.data);
-      
-      // Удаление куки при выходе из аккаунта
-      cookies.remove("accessToken");
-  
+        
       // Обновление состояния пользователя
       setUserData((prevUserData) => ({
         ...prevUserData,
@@ -107,7 +90,6 @@ function UserAccount() {
         restaurants_info: false,
         shops_info: false,
         translators_info: false,
-        news_info: false,
         berlin: false,
         muenchen: false,
         dusseldorf: false,
@@ -297,16 +279,6 @@ function UserAccount() {
               />
               <label htmlFor="translators_info">Переводчики</label>
             </Box>
-
-            <Box display="flex" alignItems="center">
-              <Checkbox
-                name="news_info"
-                checked={userData.news_info}
-                onChange={handleInputChange}
-              />
-              <label htmlFor="news_info">Новости</label>
-            </Box>
-
 
             <Button
               type="submit"
