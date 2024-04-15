@@ -2,6 +2,7 @@ import ImageComponent from "components/ImageComponent"
 import LogoComponent from "components/LogoComponent"
 import WeatherComponent from "components/WeatherComponent"
 
+
 import {
   MainContainer,
   HeaderUpperContainer,
@@ -41,6 +42,9 @@ interface HeaderProps {
 }
 
 function Header({ logoText, logoImgDescr, city, HeaderDropDown, buttonProps }: HeaderProps) {
+
+
+
   return (
     <MainContainer>
       <HeaderUpperContainer>
@@ -65,6 +69,11 @@ function Header({ logoText, logoImgDescr, city, HeaderDropDown, buttonProps }: H
             Sign In
           </HeaderSignInText>
         </HeaderSignInContainer>
+
+        {/* <MuiButton onClick={handleLogout} variant="contained" color="error">
+          Выйти из аккаунта
+        </MuiButton> */}
+        
       </HeaderUpperContainer>
       <HeaderMiddleContainer>
         <LogoContainer>

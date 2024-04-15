@@ -16,7 +16,6 @@ function AuthRootComponent() {
   const [password, setPasswordLog] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
-  const cookies = new Cookies();
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -29,12 +28,14 @@ function AuthRootComponent() {
       };
       try {
         const response = await instance.post("/auth/login", userDataLog, {
-          headers: { accept: "*/*", "Content-Type": "application/json" },
+          headers: { accept: "*/*", "Content-Type": "application/json" }
+          // withCredentials: true,
         });
         const { accessToken } = response.data;
-        // Сохраняем токен доступа в куки
-        cookies.set("accessToken", accessToken, { path: "/" });
         console.log("user data:", response.data);
+        // Перенаправляем пользователя на другую страницу
+        navigate("/user_login/user_account");
+
       } catch (error) {
         console.error("Error logging in:", error);
       }
@@ -46,7 +47,8 @@ function AuthRootComponent() {
       };
       try {
         const newUser = await instance.post("/user_login/register", userDataReg, {
-          headers: { accept: "*/*", "Content-Type": "application/json" },
+          headers: { accept: "*/*", "Content-Type": "application/json" }
+          // withCredentials: true,
         });
         console.log("user", newUser.data);
         // После успешной регистрации автоматически выполняем вход
@@ -54,8 +56,6 @@ function AuthRootComponent() {
           headers: { accept: "*/*", "Content-Type": "application/json" },
         });
         const { accessToken } = response.data;
-        // Сохраняем токен доступа в куки
-        cookies.set("accessToken", accessToken, { path: "/" });
         console.log("User logged in successfully:", response.data);
         // Перенаправляем пользователя на другую страницу
         navigate("/user_login/user_account");
