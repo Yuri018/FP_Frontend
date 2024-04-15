@@ -1,11 +1,12 @@
-import { ButtunProps } from './types';
-import { ButtonComponent } from './styles';
+import { ButtunProps } from "./types"
+import { ButtonComponent } from "./styles"
 
 function Button({ name, onClick, type }: ButtunProps) {
   return (
-    <ButtonComponent type='submit' onClick={onClick}>
+    <ButtonComponent type="submit" onClick={onClick}>
       {name}
-    </ButtonComponent>)
+    </ButtonComponent>
+  )
 }
 
-export default Button;
+export default Button

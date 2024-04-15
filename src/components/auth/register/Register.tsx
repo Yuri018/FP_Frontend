@@ -1,34 +1,63 @@
 import { Button, TextField, Typography } from "@mui/material";
+import type { IPropsRegistr } from "../types";
 import { IncitingText } from "./styles";
 
-const RegisterPage = () => {
-    return (
-        <>
-            <Typography variant="h4" padding={1} mb={0} fontFamily='Montserrat' fontWeight={500} textAlign='center'>Регистрация</Typography>
-            <Typography variant="body2" padding={1} mb={0} fontFamily='Montserrat' fontWeight={400} textAlign='center'>Введите данные для Регистрации</Typography>
-            <TextField fullWidth={true}  margin="dense" label="Имя" variant="outlined" placeholder="Введите ваш Имя"  size="small"/>
-            <TextField fullWidth={true}  margin="dense" label="Username" variant="outlined" placeholder="Введите ваш username"  size="small" />
-            <TextField fullWidth={true}  margin="dense" label="Email" variant="outlined" placeholder="Введите ваш Email"  size="small" />
-            <TextField type="password" fullWidth={true} margin="dense" label="Password" variant="outlined" placeholder="Введите ваш password"  size="small"/>
-            <TextField type="password" fullWidth={true} margin="dense" label="Password" variant="outlined" placeholder="Повторите ваш password"  size="small"/>
-            <Button 
-                size="small" 
-                variant="contained"
-                sx={{fontFamily:'Montserrat', marginTop: 2, marginBottom: 2, width:'80%', padding: 2}}
-                onClick={() => {
-                    alert('submit');
-                  }}
-            >
-                Регистрация
-            </Button>
-            <Typography variant="body2" sx={{fontFamily:'Montserrat'}} fontWeight={400}>
-                  У вас есть аккаунта? 
-                  <IncitingText to="/login">Авторизация</IncitingText>
-            </Typography>
-
-            {/* <Checkbox {...label} defaultChecked /> */}
-        </>
-    )
-}
+const RegisterPage: React.FC<IPropsRegistr> = (
+  props: IPropsRegistr
+): JSX.Element => {
+  const { setEmailLog, setPasswordLog } = props;
+  return (
+    <>
+      <Typography
+        variant="h4"
+        sx={{ mb: 0, fontFamily: "Montserrat", fontWeight: 500, textAlign: "center" }}
+      >
+        Регистрация
+      </Typography>
+      <Typography
+        variant="body2"
+        sx={{ mb: 0, fontFamily: "Montserrat", fontWeight: 400, textAlign: "center" }}
+      >
+        Введите данные для регистрации
+      </Typography>
+      <TextField
+        fullWidth
+        margin="dense"
+        label="Email"
+        variant="outlined"
+        placeholder="Введите ваш Email"
+        size="small"
+        onChange={(e) => setEmailLog(e.target.value)}
+      />
+      <TextField
+        fullWidth
+        margin="dense"
+        label="Password"
+        variant="outlined"
+        placeholder="Введите ваш пароль"
+        size="small"
+        type="password"
+        onChange={(e) => setPasswordLog(e.target.value)}
+      />
+      <Button
+        type="submit"
+        variant="contained"
+        size="small"
+        sx={{
+          width: "80%",
+          mt: 2,
+          mb: 2,
+          fontFamily: "Montserrat",
+          padding: 2,
+        }}
+      >
+        Регистрация
+      </Button>
+      <Typography variant="body2" sx={{ fontFamily: "Montserrat", fontWeight: 400 }}>
+        У вас уже есть аккаунт? <IncitingText to="/login">Авторизация</IncitingText>
+      </Typography>
+    </>
+  );
+};
 
 export default RegisterPage;

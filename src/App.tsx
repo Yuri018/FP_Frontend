@@ -9,6 +9,8 @@ import Rheinland from "pages/Rheinland";
 import Frankfurt from "pages/Frankfurt";
 import Hamburg from "pages/Hamburg";
 import AuthRootComponent from "components/auth/Auth";
+import UserAccount from "components/updateUserSubscriptions";
+import FrontalPage_GenInfo from "pages/FrontalPage_GenInfo";
 
 
 function App() {
@@ -18,13 +20,15 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<FrontalPage />} />
+          <Route path="/general-info" element={<FrontalPage_GenInfo />} />
           <Route path="/berlin" element={<Berlin />} />
           <Route path="/munich" element={<Munich />} />
           <Route path="/frankfurt" element={<Frankfurt />} />
           <Route path="/dusseldorf" element={<Rheinland />} />
           <Route path="/hamburg" element={<Hamburg />} />
           <Route path="/login" element={<AuthRootComponent />} />
-          <Route path="/register" element={<AuthRootComponent />} />
+          <Route path="/user_login/register" element={<AuthRootComponent />} />
+          <Route path="/user_login/user_account" element={<UserAccount />} />
           <Route path="*" element="Page is not found" />
         </Routes>
       </Layout>

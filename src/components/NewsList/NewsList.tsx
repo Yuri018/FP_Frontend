@@ -1,4 +1,3 @@
-import React, { Key } from 'react';
 import NewsCard from 'components/NewsCard';
 import { v4 as uuidv4 } from "uuid"
 
@@ -8,14 +7,15 @@ import {
   } from "./styles";
 
 
-interface News {
-    imgUrl: string;
-    title: string;
-    content: string;
+export interface NewsProps {
+  title: string
+  shortDescription: string
+  imgUrl: string
+  content: string  
 }
 
-interface NewsListProps {
-  newsList: News[];
+export interface NewsListProps {
+  newsList: NewsProps[];
 }
 
 const NewsList: React.FC<NewsListProps> = ({ newsList }) => {
