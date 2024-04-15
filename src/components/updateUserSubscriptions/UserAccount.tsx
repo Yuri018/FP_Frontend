@@ -4,6 +4,8 @@ import { Box, Checkbox, TextField, Typography, Button } from "@mui/material"
 import { Subscriptions, Form } from "./styles"
 import { useState, useEffect, ChangeEvent, FormEvent } from "react"
 import { instance } from "../../utils/axios"
+// import { instance } from "utils/axios"
+
 import Header from "components/Header"
 import Footer from "components/Footer"
 import { GermanMainLogo } from "assets"
