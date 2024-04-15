@@ -62,7 +62,7 @@ function MainLowerPart() {
         if (location.pathname === "/") {
           endpoint = "/general_news/except/GENERAL_INFO"
         } else if (location.pathname === "/general-info") {
-          endpoint = "/general_news/gen_info_by/GENERAL_INFO"
+          endpoint = "/general_news/get_info_by/GENERAL_INFO"
         } else if (location.pathname === "/other_path3") {
           endpoint = "/other_endpoint3"
         }
