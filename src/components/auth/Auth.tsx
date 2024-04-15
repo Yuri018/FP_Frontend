@@ -9,12 +9,15 @@ import { instance } from "../../utils/axios";
 import Header from "components/Header";
 import Footer from "components/Footer";
 import { GermanMainLogo } from "assets";
+import { useDispatch } from "react-redux";
+import { userActions } from "../../store/user/userSlice";
 
 function AuthRootComponent() {
   const [username, setEmailLog] = useState("");
   const [password, setPasswordLog] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -30,6 +33,10 @@ function AuthRootComponent() {
           headers: { accept: "*/*", "Content-Type": "application/json" }
         });
         const { accessToken } = response.data;
+        // Получаем информацию о пользователе после успешной аутентификации
+        const userInfoResponse = await instance.get("/auth/get_auth_info");
+        // Сохраняем информацию о пользователе в Redux
+        dispatch(userActions.setUserInfo(userInfoResponse.data));
         console.log("user data:", response.data);
         // Перенаправляем пользователя на другую страницу
         navigate("/user_login/user_account");
@@ -53,6 +60,10 @@ function AuthRootComponent() {
           headers: { accept: "*/*", "Content-Type": "application/json" },
         });
         const { accessToken } = response.data;
+         // Получаем информацию о пользователе после успешной аутентификации
+         const userInfoResponse = await instance.get("/auth/get_auth_info");
+         // Сохраняем информацию о пользователе в Redux
+         dispatch(userActions.setUserInfo(userInfoResponse.data));
         console.log("User logged in successfully:", response.data);
         // Перенаправляем пользователя на другую страницу
         navigate("/user_login/user_account");
