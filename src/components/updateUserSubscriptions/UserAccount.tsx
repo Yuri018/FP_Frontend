@@ -95,6 +95,7 @@ function UserAccount() {
       cookies.remove("accessToken");
   
       // Обновление состояния пользователя
+      // setUserData(null);
       setUserData((prevUserData) => ({
         ...prevUserData,
         id: null,

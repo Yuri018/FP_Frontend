@@ -62,10 +62,10 @@ function Header({ logoText, logoImgDescr, city, HeaderDropDown, buttonProps }: H
           </HeaderSignInText>
         </HeaderSignInContainer>
 
-        {/* Кнопка "Выход из аккаунта" */}
         <MuiButton onClick={handleLogout} variant="contained" color="error">
           Выйти из аккаунта
         </MuiButton>
+        
       </HeaderUpperContainer>
       <HeaderMiddleContainer>
         <LogoContainer>
