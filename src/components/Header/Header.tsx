@@ -5,32 +5,51 @@ import DropdownMenu from "components/DropdownMenu"
 import { MainContainer, HeaderUpperContainer, HeaderMiddleContainer, HeaderLowerContainer, LogoContainer, LogoTextContainer, TitleContainer, HeaderSerchContainer, ImageComponentWrap, HeaderSearch, HeaderSignInContainer, HeaderSignInText, NavListLeft, NavItem, NavigationLink, NavListRight, TitleLinkContainer, ImageWrap, HeaderDropdownContainer } from "./styles"
 import { MainTitle, SearchIcon, SignInIcon } from "assets"
 import { Link, useNavigate } from "react-router-dom"
-import { useState, useEffect } from "react"
+import { useState, useEffect, MouseEvent } from "react"
 import { instance } from "../../utils/axios"
-import { Cookies } from "react-cookie";
-import { Button as MuiButton } from "@mui/material";
+import { Button, Menu, MenuItem } from "@mui/material";
+import { AccountCircle } from "@mui/icons-material";
+
 
 interface HeaderProps {
-  logoText?: string
-  logoImgDescr?: { src: string; alt: string }
-  city: string
-  HeaderDropDown?: boolean
-  isGeneralPage?: boolean
-  buttonProps?: any
+  logoText?: string;
+  logoImgDescr?: { src: string; alt: string };
+  city: string;
+  HeaderDropDown?: boolean;
+  isGeneralPage?: boolean;
+  buttonProps?: any;
 }
 
 function Header({ logoText, logoImgDescr, city, HeaderDropDown, buttonProps }: HeaderProps) {
   const navigate = useNavigate();
+  const [authenticated, setAuthenticated] = useState<boolean>(false);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
+  const handleLogin = () => {
+    setAuthenticated(true);
+  };
 
   const handleLogout = async () => {
     try {
       const response = await instance.get("/auth/logout");
       console.log("Logout successful:", response.data);
+      setAuthenticated(false);
     } catch (error) {
       console.error("Error logging out:", error);
     }
   };
 
+  const handleUserAccount = () => {
+    navigate("/user_login/user_account");
+  };
+
+  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <MainContainer>
@@ -48,19 +67,28 @@ function Header({ logoText, logoImgDescr, city, HeaderDropDown, buttonProps }: H
           </HeaderDropdownContainer>
         )}
 
-        <HeaderSignInContainer>
-          <HeaderSignInText to="/login">
-            <ImageWrap>
-              <ImageComponent src={SignInIcon} />
-            </ImageWrap>
-            Sign In
-          </HeaderSignInText>
-        </HeaderSignInContainer>
-
-        {/* <MuiButton onClick={handleLogout} variant="contained" color="error">
-          Выйти из аккаунта
-        </MuiButton> */}
-        
+        {authenticated ? (
+          <div>
+            <Button onClick={handleClick} startIcon={<AccountCircle />}>
+              Профиль
+            </Button>
+            <Menu
+              id="profile-menu"
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+              <MenuItem onClick={handleUserAccount}>Личный кабинет</MenuItem>
+              <MenuItem onClick={handleLogout}>Выйти из аккаунта</MenuItem>
+            </Menu>
+          </div>
+        ) : (
+          <HeaderSignInContainer>
+            <HeaderSignInText to="/login" onClick={handleLogin}>
+              Sign In
+            </HeaderSignInText>
+          </HeaderSignInContainer>
+        )}
       </HeaderUpperContainer>
       <HeaderMiddleContainer>
         <LogoContainer>
@@ -102,7 +130,7 @@ function Header({ logoText, logoImgDescr, city, HeaderDropDown, buttonProps }: H
         </NavListRight>
       </HeaderLowerContainer>
     </MainContainer>
-  )
+  );
 }
 
-export default Header
+export default Header;

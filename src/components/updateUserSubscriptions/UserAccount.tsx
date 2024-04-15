@@ -32,7 +32,6 @@ function UserAccount() {
     frankfurt: false,
   });
 
-  const cookies = new Cookies();
   const navigate = useNavigate();
 
   useEffect(() => {

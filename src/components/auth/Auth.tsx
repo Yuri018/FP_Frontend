@@ -9,7 +9,6 @@ import { instance } from "../../utils/axios";
 import Header from "components/Header";
 import Footer from "components/Footer";
 import { GermanMainLogo } from "assets";
-import { Cookies } from "react-cookie";
 
 function AuthRootComponent() {
   const [username, setEmailLog] = useState("");
@@ -29,7 +28,6 @@ function AuthRootComponent() {
       try {
         const response = await instance.post("/auth/login", userDataLog, {
           headers: { accept: "*/*", "Content-Type": "application/json" }
-          // withCredentials: true,
         });
         const { accessToken } = response.data;
         console.log("user data:", response.data);
@@ -48,7 +46,6 @@ function AuthRootComponent() {
       try {
         const newUser = await instance.post("/user_login/register", userDataReg, {
           headers: { accept: "*/*", "Content-Type": "application/json" }
-          // withCredentials: true,
         });
         console.log("user", newUser.data);
         // После успешной регистрации автоматически выполняем вход
