@@ -90,7 +90,6 @@ function UserAccount() {
         restaurants_info: false,
         shops_info: false,
         translators_info: false,
-        news_info: false,
         berlin: false,
         muenchen: false,
         dusseldorf: false,
@@ -280,16 +279,6 @@ function UserAccount() {
               />
               <label htmlFor="translators_info">Переводчики</label>
             </Box>
-
-            <Box display="flex" alignItems="center">
-              <Checkbox
-                name="news_info"
-                checked={userData.news_info}
-                onChange={handleInputChange}
-              />
-              <label htmlFor="news_info">Новости</label>
-            </Box>
-
 
             <Button
               type="submit"
