@@ -13,7 +13,7 @@ const cookies = new Cookies();
 
 export const instance = axios.create({
   baseURL: 'http://localhost:8080',
-  timeout: 1000,
+  timeout: 10000,
   headers: {
     'X-Custom-Header': 'foobar',
     'Content-Type': 'application/json' // Устанавливаем заголовок Content-Type для всех запросов

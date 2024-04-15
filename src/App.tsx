@@ -10,6 +10,7 @@ import Frankfurt from "pages/Frankfurt";
 import Hamburg from "pages/Hamburg";
 import AuthRootComponent from "components/auth/Auth";
 import UserAccount from "components/updateUserSubscriptions";
+import FrontalPage_GenInfo from "pages/FrontalPage_GenInfo";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<FrontalPage />} />
+          <Route path="/general-info" element={<FrontalPage_GenInfo />} />
           <Route path="/berlin" element={<Berlin />} />
           <Route path="/munich" element={<Munich />} />
           <Route path="/frankfurt" element={<Frankfurt />} />
