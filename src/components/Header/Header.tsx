@@ -1,14 +1,34 @@
 import ImageComponent from "components/ImageComponent"
 import LogoComponent from "components/LogoComponent"
 import WeatherComponent from "components/WeatherComponent"
-import DropdownMenu from "components/DropdownMenu"
-import { MainContainer, HeaderUpperContainer, HeaderMiddleContainer, HeaderLowerContainer, LogoContainer, LogoTextContainer, TitleContainer, HeaderSerchContainer, ImageComponentWrap, HeaderSearch, HeaderSignInContainer, HeaderSignInText, NavListLeft, NavItem, NavigationLink, NavListRight, TitleLinkContainer, ImageWrap, HeaderDropdownContainer } from "./styles"
+
+import {
+  MainContainer,
+  HeaderUpperContainer,
+  HeaderMiddleContainer,
+  HeaderLowerContainer,
+  LogoContainer,
+  LogoTextContainer,
+  TitleContainer,
+  HeaderSerchContainer,
+  ImageComponentWrap,
+  HeaderSearch,
+  HeaderSignInContainer,
+  HeaderSignInText,
+  NavListLeft,
+  NavItem,
+  NavigationLink,
+  NavListRight,
+  TitleLinkContainer,
+  ImageWrap,
+  HeaderDropdownContainer,
+} from "./styles"
+
 import { MainTitle, SearchIcon, SignInIcon } from "assets"
-import { Link, useNavigate } from "react-router-dom"
-import { useState, useEffect } from "react"
-import { instance } from "../../utils/axios"
-import { Cookies } from "react-cookie";
-import { Button as MuiButton } from "@mui/material";
+import DropdownMenu from "components/DropdownMenu"
+import type { ButtunProps } from "components/Button/types"
+import { Route, Routes } from "react-router-dom"
+import LoginPage from "components/auth/login/Login"
 
 interface HeaderProps {
   logoText?: string
@@ -16,27 +36,11 @@ interface HeaderProps {
   city: string
   HeaderDropDown?: boolean
   isGeneralPage?: boolean
-  buttonProps?: any
+  buttonProps?: ButtunProps
+
 }
 
 function Header({ logoText, logoImgDescr, city, HeaderDropDown, buttonProps }: HeaderProps) {
-  const cookies = new Cookies();
-  const navigate = useNavigate();
-
-  const handleLogout = async () => {
-    try {
-      const response = await instance.get("/auth/logout");
-      console.log("Logout successful:", response.data);
-      // Удаление куки при выходе из аккаунта
-      cookies.remove("accessToken");
-
-      // Перенаправление на главную страницу
-      navigate("/");
-    } catch (error) {
-      console.error("Error logging out:", error);
-    }
-  };
-
   return (
     <MainContainer>
       <HeaderUpperContainer>
@@ -61,11 +65,6 @@ function Header({ logoText, logoImgDescr, city, HeaderDropDown, buttonProps }: H
             Sign In
           </HeaderSignInText>
         </HeaderSignInContainer>
-
-        {/* Кнопка "Выход из аккаунта" */}
-        <MuiButton onClick={handleLogout} variant="contained" color="error">
-          Выйти из аккаунта
-        </MuiButton>
       </HeaderUpperContainer>
       <HeaderMiddleContainer>
         <LogoContainer>
@@ -89,6 +88,8 @@ function Header({ logoText, logoImgDescr, city, HeaderDropDown, buttonProps }: H
           </NavItem>
         </NavListLeft>
         <NavListRight>
+          <NavItem>
+          </NavItem>
           <NavItem>
             <NavigationLink href="#">Здоровье</NavigationLink>
           </NavItem>
