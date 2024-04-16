@@ -1,15 +1,22 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import {UserState} from "./types"
+import { instance } from "../../utils/axios";
 
 
-// Начальное состояние пользователя
 const initialState: UserState = {
   authenticated: false,
   name: "",
   authorities: [],
 };
 
-// Создаем срез для пользовательских данных
+export const fetchUserInfo = createAsyncThunk(
+  "user/fetchUserInfo",
+  async () => {
+    const response = await instance.get("/auth/get_auth_info");
+    return response.data;
+  }
+);
+
 export const userSlice = createSlice({
   name: "user",
   initialState,
@@ -20,8 +27,16 @@ export const userSlice = createSlice({
     clearUserInfo: (state: UserState) => {
       return initialState;
     },
-  },
+  }
+  // extraReducers: (builder) => {
+  //   builder.addCase(fetchUserInfo.fulfilled, (state, action) => {
+  //     state.authenticated = true;
+  //     state.name = action.payload.name;
+  //     state.authorities = action.payload.authorities;
+  //   });
+  // },
 });
+
 
 // Действия для установки и удаления информации о пользователе
 export const userActions = userSlice.actions;

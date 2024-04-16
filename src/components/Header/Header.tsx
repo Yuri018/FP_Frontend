@@ -12,7 +12,7 @@ import { AccountCircle } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { userActions } from "../../store/user/userSlice";
 import { userSelectors } from "../../store/user/selectors";
-
+import { Cookies } from "react-cookie";
 
 
 interface HeaderProps {
@@ -28,24 +28,34 @@ function Header({ logoText, logoImgDescr, city, HeaderDropDown, buttonProps }: H
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
+  const cookies = new Cookies();
 
-  const {authenticated, name, authorities} = useSelector(userSelectors);
-  // const [authenticated, setAuthenticated] = useState<boolean>(false);
+  const { authenticated, name, authorities } = useSelector(userSelectors);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
-  // const handleLogin = () => {
-  //   setAuthenticated(true);
-  // };
-
+//--------------------------------
+  useEffect(() => {
+    async function fetchUserData() {
+      try {
+        // Получаем информацию о пользователе после успешной аутентификации
+        const userInfoResponse = await instance.get("/auth/get_auth_info");
+        // Сохраняем информацию о пользователе в Redux
+        dispatch(userActions.setUserInfo(userInfoResponse.data));
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    }
+    fetchUserData();
+  }, []);
+//-------------------------------------
   const handleLogout = async () => {
     try {
       const response = await instance.get("/auth/logout");
       console.log("Logout successful:", response.data);
       dispatch(userActions.clearUserInfo());
-      if (location.pathname === "/user_login/user_account"){
+      if (location.pathname === "/user_login/user_account") {
         navigate("/")
       }
-      // setAuthenticated(false);
     } catch (error) {
       console.error("Error logging out:", error);
     }
@@ -90,7 +100,8 @@ function Header({ logoText, logoImgDescr, city, HeaderDropDown, buttonProps }: H
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
-              <MenuItem onClick={handleUserAccount}>Личный кабинет</MenuItem>
+               {!authorities.some(authority => authority.authority === "ROLE_ADMIN") && <MenuItem onClick={handleUserAccount}>Личный кабинет</MenuItem>}
+              
               <MenuItem onClick={handleLogout}>Выйти из аккаунта</MenuItem>
             </Menu>
           </div>
