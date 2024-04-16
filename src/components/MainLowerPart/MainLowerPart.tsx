@@ -56,7 +56,7 @@ function MainLowerPart() {
   useEffect(() => {
     async function fetchInfoData() {
       try {
-        let endpoint = "/berlin"
+        let endpoint = "/berlin/restaurants_info"
         if (location.pathname === "/berlin/cafes-restaurants") {
           endpoint = "/berlin/restaurants_info"
         } else if (location.pathname === "/berlin/children") {
