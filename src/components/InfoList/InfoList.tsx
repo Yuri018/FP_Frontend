@@ -9,24 +9,28 @@ import {
 
 export interface InfoProps {
   id: number;
-  link: string
-  title: string
-  description: string
-  address: string
-  tel: string
+  title: string;
+  description: string;
+  address: string;
+  tel: string;
+  link: string;
   status: number;
-}
+  city: {
+    id: number;
+    name: string;
+  };}
 
 export interface InfoListProps {
   infoList: InfoProps[];
+  category: string
 }
 
-const InfoList: React.FC<InfoListProps> = ({ infoList }) => {
+const InfoList: React.FC<InfoListProps> = ({ infoList, category }) => {
   return (
     <MainLowerPartFlex>
       {infoList.map(info => (       
         <MainLowerPartItem key={uuidv4()}>
-          <InfoCard info={info} />
+          <InfoCard info={info} category={category}/>
         </MainLowerPartItem>
         
       ))}

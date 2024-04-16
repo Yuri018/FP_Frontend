@@ -14,13 +14,16 @@ interface NewsProps {
 }
 interface InfoProps {
   id: number;
-  link: string
-  title: string
-  description: string
-  address: string
-  tel: string
+  title: string;
+  description: string;
+  address: string;
+  tel: string;
+  link: string;
   status: number;
-}
+  city: {
+    id: number;
+    name: string;
+  };}
 
 export interface NewsListProps {
   newsList: NewsProps[]
@@ -93,13 +96,13 @@ function MainLowerPart() {
           ))}
         {location.pathname === "/berlin/cafes-restaurants" &&
           (infoData.length > 0 ? (
-            <InfoList infoList={infoData} />
+            <InfoList infoList={infoData} category={"restaurants_info"} />
           ) : (
             <div>Loading...</div>
           ))}
         {location.pathname === "/berlin/children" &&
           (infoData.length > 0 ? (
-            <InfoList infoList={infoData} />
+            <InfoList infoList={infoData} category={"children_info"}/>
           ) : (
             <div>Loading...</div>
           ))}

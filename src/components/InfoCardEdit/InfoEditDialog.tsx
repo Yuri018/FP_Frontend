@@ -4,21 +4,26 @@ import { instance } from '../../utils/axios';
 
 interface Info {
   id: number;
-  link: string
-  title: string
-  description: string
-  address: string
-  tel: string
+  title: string;
+  description: string;
+  address: string;
+  tel: string;
+  link: string;
   status: number;
+  city: {
+    id: number;
+    name: string;
+  }
 }
 
 interface InfoEditDialogProps {
   open: boolean;
   onClose: () => void;
   info: Info;
+  category: string
 }
 
-function InfoEditDialog({ open, onClose, info }: InfoEditDialogProps) {
+function InfoEditDialog({ open, onClose, info, category }: InfoEditDialogProps) {
   const [editedInfo, setEditedInfo] = useState<Info>({
     id: info.id,
     link: info.link,
@@ -26,7 +31,8 @@ function InfoEditDialog({ open, onClose, info }: InfoEditDialogProps) {
     description: info.description,
     address: info.address,
     tel: info.tel,
-    status: info.status
+    status: info.status,
+    city: info.city
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -40,7 +46,7 @@ function InfoEditDialog({ open, onClose, info }: InfoEditDialogProps) {
   const handleSubmit = async (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     try {
-      await instance.put("/berlin/restaurants_info/admin", editedInfo);
+      await instance.put(`/${editedInfo.city.name}/${category}/admin`, editedInfo);
       console.log("User data updated successfully:", editedInfo);
       onClose()
       window.location.reload(); // Перезагрузка страницы
@@ -51,7 +57,7 @@ function InfoEditDialog({ open, onClose, info }: InfoEditDialogProps) {
 
   const handleDelete = async () => {
     try {
-      await instance.delete(`/berlin/restaurants_info/admin/${editedInfo.id}`);
+      await instance.delete(`/${editedInfo.city.name}/${category}/admin/${editedInfo.id}`);
       console.log("User data deleted successfully:", editedInfo.id);
       onClose()
       window.location.reload(); // Перезагрузка страницы

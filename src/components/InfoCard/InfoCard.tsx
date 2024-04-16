@@ -5,19 +5,23 @@ import { MyButton, MyCardMedia, MyCard } from './styles';
 
 interface Info {
   id: number;
-  link: string
-  title: string
-  description: string
-  address: string
-  tel: string
+  title: string;
+  description: string;
+  address: string;
+  tel: string;
+  link: string;
   status: number;
-}
+  city: {
+    id: number;
+    name: string;
+  };}
 
 interface InfoCardProps {
   info: Info;
+  category: string;
 }
 
-const InfoCard: React.FC<InfoCardProps> = ({ info }: InfoCardProps) => {
+const InfoCard: React.FC<InfoCardProps> = ({ info, category }: InfoCardProps) => {
   const [editDialogOpen, setEditDialogOpen] = useState(false);
 
   const handleEditDialogOpen = () => {
@@ -61,7 +65,7 @@ const InfoCard: React.FC<InfoCardProps> = ({ info }: InfoCardProps) => {
       </MyCard>
 
       {/* Диалоговое окно редактирования */}
-      <InfoEditDialog open={editDialogOpen} onClose={handleEditDialogClose} info={info} />
+      <InfoEditDialog open={editDialogOpen} onClose={handleEditDialogClose} info={info} category={category} />
     </>
   )
 };
