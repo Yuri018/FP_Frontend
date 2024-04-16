@@ -1,19 +1,33 @@
+import React, { useState } from 'react';
+import InfoEditDialog from 'components/InfoCardEdit'; // Импортируем компонент InfoEditDialog
 import { CardActionArea, CardContent, Typography, CardActions } from '@mui/material';
 import { MyButton, MyCardMedia, MyCard } from './styles';
 
 interface Info {
+  id: number;
   link: string
   title: string
   description: string
   address: string
-  tel: string  
+  tel: string
+  status: number;
 }
 
 interface InfoCardProps {
   info: Info;
 }
 
-const InfoCard: React.FC<InfoCardProps> = ({ info }) => {
+const InfoCard: React.FC<InfoCardProps> = ({ info }: InfoCardProps) => {
+  const [editDialogOpen, setEditDialogOpen] = useState(false);
+
+  const handleEditDialogOpen = () => {
+    setEditDialogOpen(true);
+  };
+
+  const handleEditDialogClose = () => {
+    setEditDialogOpen(false);
+  };
+
   return (
     <>
       <MyCard>
@@ -40,11 +54,14 @@ const InfoCard: React.FC<InfoCardProps> = ({ info }) => {
           </CardContent>
         </CardActionArea>
         <CardActions sx={{ padding: 2 }}>
-          <MyButton size="small" variant="contained" color="primary">
+          <MyButton size="small" variant="contained" color="primary" onClick={handleEditDialogOpen}>
             Редактировать
           </MyButton>
         </CardActions>
       </MyCard>
+
+      {/* Диалоговое окно редактирования */}
+      <InfoEditDialog open={editDialogOpen} onClose={handleEditDialogClose} info={info} />
     </>
   )
 };

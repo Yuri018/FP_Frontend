@@ -13,11 +13,13 @@ interface NewsProps {
   content: string
 }
 interface InfoProps {
+  id: number;
   link: string
   title: string
   description: string
   address: string
   tel: string
+  status: number;
 }
 
 export interface NewsListProps {
