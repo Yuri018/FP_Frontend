@@ -1,8 +1,11 @@
-import { Link, useNavigate } from "react-router-dom"
-import { useState, useEffect } from "react"
+import { Link, useNavigate, useLocation } from "react-router-dom"
+import { useState, useEffect, MouseEvent } from "react"
 import { instance } from "../../utils/axios"
 import { Cookies } from "react-cookie"
 import { Button as MuiButton } from "@mui/material"
+import { Button, Menu, MenuItem } from "@mui/material"
+import { AccountCircle } from "@mui/icons-material"
+import { useDispatch, useSelector } from "react-redux"
 
 import ImageComponent from "components/ImageComponent"
 import LogoComponent from "components/LogoComponent"
@@ -29,16 +32,10 @@ import {
   ImageWrap,
   HeaderDropdownContainer,
 } from "./styles"
-import { MainTitle, SearchIcon, SignInIcon } from "assets"
-import { Link, useNavigate, useLocation } from "react-router-dom"
-import { useState, useEffect, MouseEvent } from "react"
-import { instance } from "../../utils/axios"
-import { Button, Menu, MenuItem } from "@mui/material";
-import { AccountCircle } from "@mui/icons-material";
-import { useDispatch, useSelector } from "react-redux";
+import { MainTitle, SearchIcon, SignInIcon } from "assets";
 import { userActions } from "../../store/user/userSlice";
 import { userSelectors } from "../../store/user/selectors";
-import { Cookies } from "react-cookie";
+
 
 
 interface HeaderProps {
