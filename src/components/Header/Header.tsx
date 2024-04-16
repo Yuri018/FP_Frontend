@@ -184,7 +184,8 @@ function Header({
                 </NavigationLink>
               </NavItem>
             ))}
-          {/* <NavItem>
+          {/* <NavListRight>    
+          <NavItem>
             <NavigationLink href="#">Врачи</NavigationLink>
           </NavItem>
           <NavItem>
@@ -198,7 +199,8 @@ function Header({
           </NavItem>
           <NavItem>
             <NavigationLink href="#">Услуги</NavigationLink>
-          </NavItem> */}
+          </NavItem>
+        </NavListRight> */}
         </NavListRight>
       </HeaderLowerContainer>
     </MainContainer>
