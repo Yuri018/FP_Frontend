@@ -30,29 +30,75 @@ import {
   HeaderDropdownContainer,
 } from "./styles"
 import { MainTitle, SearchIcon, SignInIcon } from "assets"
+import { Link, useNavigate, useLocation } from "react-router-dom"
+import { useState, useEffect, MouseEvent } from "react"
+import { instance } from "../../utils/axios"
+import { Button, Menu, MenuItem } from "@mui/material";
+import { AccountCircle } from "@mui/icons-material";
+import { useDispatch, useSelector } from "react-redux";
+import { userActions } from "../../store/user/userSlice";
+import { userSelectors } from "../../store/user/selectors";
+import { Cookies } from "react-cookie";
+
 
 interface HeaderProps {
-  logoText?: string
-  logoImgDescr?: { src: string; alt: string }
-  city: string
-  HeaderDropDown?: boolean
-  isGeneralPage?: boolean
-  buttonProps?: any
+  logoText?: string;
+  logoImgDescr?: { src: string; alt: string };
+  city: string;
+  HeaderDropDown?: boolean;
+  isGeneralPage?: boolean;
+  buttonProps?: any;
 }
 
 
 function Header({ logoText, logoImgDescr, city, HeaderDropDown, buttonProps }: HeaderProps) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const cookies = new Cookies();
 
+  const { authenticated, name, authorities } = useSelector(userSelectors);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
+//--------------------------------
+  useEffect(() => {
+    async function fetchUserData() {
+      try {
+        // Получаем информацию о пользователе после успешной аутентификации
+        const userInfoResponse = await instance.get("/auth/get_auth_info");
+        // Сохраняем информацию о пользователе в Redux
+        dispatch(userActions.setUserInfo(userInfoResponse.data));
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    }
+    fetchUserData();
+  }, []);
+//-------------------------------------
   const handleLogout = async () => {
     try {
       const response = await instance.get("/auth/logout");
       console.log("Logout successful:", response.data);
+      dispatch(userActions.clearUserInfo());
+      if (location.pathname === "/user_login/user_account") {
+        navigate("/")
+      }
     } catch (error) {
       console.error("Error logging out:", error)
     }
   }
 
+  const handleUserAccount = () => {
+    navigate("/user_login/user_account");
+  };
+
+  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <MainContainer>
@@ -73,19 +119,30 @@ function Header({ logoText, logoImgDescr, city, HeaderDropDown, buttonProps }: H
           </HeaderDropdownContainer>
         )}
 
-        <HeaderSignInContainer>
-          <HeaderSignInText to="/login">
-            <ImageWrap>
-              <ImageComponent src={SignInIcon} />
-            </ImageWrap>
-            Sign In
-          </HeaderSignInText>
-        </HeaderSignInContainer>
-
-        {/* <MuiButton onClick={handleLogout} variant="contained" color="error">
-          Выйти из аккаунта
-        </MuiButton> */}
-
+        {authenticated ? (
+          <div>
+            <Button onClick={handleClick} startIcon={<AccountCircle />}>
+              Профиль
+            </Button>
+            <Menu
+              id="profile-menu"
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+               {!authorities.some(authority => authority.authority === "ROLE_ADMIN") && <MenuItem onClick={handleUserAccount}>Личный кабинет</MenuItem>}
+              
+              <MenuItem onClick={handleLogout}>Выйти из аккаунта</MenuItem>
+            </Menu>
+          </div>
+        ) : (
+          <HeaderSignInContainer>
+            <HeaderSignInText to="/login">
+              Sign In
+            </HeaderSignInText>
+          </HeaderSignInContainer>
+        )}
+        
       </HeaderUpperContainer>
       <HeaderMiddleContainer>
         <LogoContainer>
@@ -131,7 +188,7 @@ function Header({ logoText, logoImgDescr, city, HeaderDropDown, buttonProps }: H
         </NavListRight>
       </HeaderLowerContainer>
     </MainContainer>
-  )
+  );
 }
 
-export default Header
+export default Header;

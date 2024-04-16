@@ -2,10 +2,13 @@ import {configureStore, Action, ThunkAction, Reducer } from "@reduxjs/toolkit"
 
 import {weatherReducers} from "./weather/weatherSlice"
 import { WeatherState } from "./weather/types"
+import { userReducers } from "./user/userSlice";
+import { UserState } from "./user/types";
 
 export const store = configureStore({
     reducer: {  
-      weatherData: weatherReducers as Reducer<WeatherState>
+      weatherData: weatherReducers as Reducer<WeatherState>,
+      userData: userReducers as Reducer<UserState>
     },    
   }) 
 

@@ -8,7 +8,9 @@ import Header from "components/Header"
 import Footer from "components/Footer"
 import { GermanMainLogo } from "assets"
 import { UserDataProps } from "components/updateUserSubscriptions/types"
-import { Cookies } from "react-cookie";
+import { useDispatch } from "react-redux";
+import { userActions } from "../../store/user/userSlice";
+
 
 function UserAccount() {
   const [userData, setUserData] = useState<UserDataProps>({
@@ -30,8 +32,8 @@ function UserAccount() {
     frankfurt: false,
   });
 
-  const cookies = new Cookies();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     async function fetchUserData() {
@@ -97,6 +99,7 @@ function UserAccount() {
         frankfurt: false,
       }));
   
+      dispatch(userActions.clearUserInfo())
       // Перенаправление на главную страницу
       navigate("/");
     } catch (error) {
