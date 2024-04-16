@@ -18,10 +18,10 @@ export interface NewsListProps {
   newsList: NewsProps[];
 }
 
-const NewsList: React.FC<NewsListProps> = ({ newsList }) => {
+function NewsList({ newsList }: NewsListProps) {
   return (
     <MainLowerPartFlex>
-      {newsList.map(news => (       
+      {newsList.map((news: NewsProps) => (       
         <MainLowerPartItem key={uuidv4()}>
           <NewsCard news={news} />
         </MainLowerPartItem>
