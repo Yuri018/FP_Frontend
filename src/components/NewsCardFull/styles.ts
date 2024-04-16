@@ -12,8 +12,9 @@ export const MyButton = styled(Button)`
 
 export const MyCardMedia = styled(CardMedia)`
     && {
-        min-height: 300px;
-    }
+        min-height: 500px;
+        object-fit: contain;
+         }
 `;
 export const MyCard = styled(Card)`
     && {

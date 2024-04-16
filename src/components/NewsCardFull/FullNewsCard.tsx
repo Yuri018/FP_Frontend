@@ -6,7 +6,7 @@ interface News {
   imgUrl: string
   title: string
   shortDescription: string
-  content: string
+  content: string  
 }
 
 interface FullNewsCardProps {
@@ -15,15 +15,17 @@ interface FullNewsCardProps {
   news: News;
 }
 
-function FullNewsCard({ open, onClose, news }: FullNewsCardProps) {
+function FullNewsCard ({ open, onClose, news }: FullNewsCardProps) {
   return (
-    <Dialog open={open} onClose={onClose} maxWidth="lg">
-      <MyCardMedia
-        image={news.imgUrl}
-        title="test" />
-
-      <DialogTitle gutterBottom variant="h5" component="h2">{news.title}</DialogTitle>
+<Dialog open={open} onClose={onClose} maxWidth="lg">
+      <DialogTitle gutterBottom variant="h5" component="h2">
+        {news.title}
+      </DialogTitle>
       <DialogContent>
+        <MyCardMedia
+          image={news.imgUrl}
+          title="test"
+        />
         <Typography variant="body1">{news.shortDescription}</Typography>
         <Typography variant="body1">{news.content}</Typography>
       </DialogContent>
@@ -32,6 +34,4 @@ function FullNewsCard({ open, onClose, news }: FullNewsCardProps) {
       </DialogActions>
     </Dialog>
   );
-};
-
-export default FullNewsCard;
+};export default FullNewsCard;
