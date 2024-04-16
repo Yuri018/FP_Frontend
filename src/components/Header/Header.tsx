@@ -36,47 +36,57 @@ import { MainTitle, SearchIcon, SignInIcon } from "assets";
 import { userActions } from "../../store/user/userSlice";
 import { userSelectors } from "../../store/user/selectors";
 
-
-
-interface HeaderProps {
-  logoText?: string;
-  logoImgDescr?: { src: string; alt: string };
-  city: string;
-  HeaderDropDown?: boolean;
-  isGeneralPage?: boolean;
-  buttonProps?: any;
+interface NavLink {
+  to: string
+  text: string
 }
 
+interface HeaderProps {
+  logoText?: string
+  logoImgDescr?: { src: string; alt: string }
+  city: string
+  HeaderDropDown?: boolean
+  isGeneralPage?: boolean
+  buttonProps?: any
+  rightNavLinks?: NavLink[]
+}
 
-function Header({ logoText, logoImgDescr, city, HeaderDropDown, buttonProps }: HeaderProps) {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const location = useLocation();
-  const cookies = new Cookies();
+function Header({
+  logoText,
+  logoImgDescr,
+  city,
+  HeaderDropDown,
+  buttonProps,
+  rightNavLinks,
+}: HeaderProps) {
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const location = useLocation()
+  const cookies = new Cookies()
 
-  const { authenticated, name, authorities } = useSelector(userSelectors);
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const { authenticated, name, authorities } = useSelector(userSelectors)
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
 
-//--------------------------------
+  //--------------------------------
   useEffect(() => {
     async function fetchUserData() {
       try {
         // Получаем информацию о пользователе после успешной аутентификации
-        const userInfoResponse = await instance.get("/auth/get_auth_info");
+        const userInfoResponse = await instance.get("/auth/get_auth_info")
         // Сохраняем информацию о пользователе в Redux
-        dispatch(userActions.setUserInfo(userInfoResponse.data));
+        dispatch(userActions.setUserInfo(userInfoResponse.data))
       } catch (error) {
-        console.error("Error fetching user data:", error);
+        console.error("Error fetching user data:", error)
       }
     }
-    fetchUserData();
-  }, []);
-//-------------------------------------
+    fetchUserData()
+  }, [])
+  //-------------------------------------
   const handleLogout = async () => {
     try {
-      const response = await instance.get("/auth/logout");
-      console.log("Logout successful:", response.data);
-      dispatch(userActions.clearUserInfo());
+      const response = await instance.get("/auth/logout")
+      console.log("Logout successful:", response.data)
+      dispatch(userActions.clearUserInfo())
       if (location.pathname === "/user_login/user_account") {
         navigate("/")
       }
@@ -86,16 +96,16 @@ function Header({ logoText, logoImgDescr, city, HeaderDropDown, buttonProps }: H
   }
 
   const handleUserAccount = () => {
-    navigate("/user_login/user_account");
-  };
+    navigate("/user_login/user_account")
+  }
 
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
+    setAnchorEl(event.currentTarget)
+  }
 
   const handleClose = () => {
-    setAnchorEl(null);
-  };
+    setAnchorEl(null)
+  }
 
   return (
     <MainContainer>
@@ -127,19 +137,20 @@ function Header({ logoText, logoImgDescr, city, HeaderDropDown, buttonProps }: H
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
-               {!authorities.some(authority => authority.authority === "ROLE_ADMIN") && <MenuItem onClick={handleUserAccount}>Личный кабинет</MenuItem>}
-              
+              {!authorities.some(
+                authority => authority.authority === "ROLE_ADMIN",
+              ) && (
+                <MenuItem onClick={handleUserAccount}>Личный кабинет</MenuItem>
+              )}
+
               <MenuItem onClick={handleLogout}>Выйти из аккаунта</MenuItem>
             </Menu>
           </div>
         ) : (
           <HeaderSignInContainer>
-            <HeaderSignInText to="/login">
-              Sign In
-            </HeaderSignInText>
+            <HeaderSignInText to="/login">Sign In</HeaderSignInText>
           </HeaderSignInContainer>
         )}
-        
       </HeaderUpperContainer>
       <HeaderMiddleContainer>
         <LogoContainer>
@@ -154,20 +165,26 @@ function Header({ logoText, logoImgDescr, city, HeaderDropDown, buttonProps }: H
       <HeaderLowerContainer>
         <NavListLeft>
           <NavItem>
-            {/* <NavigationLink href="#">Новости</NavigationLink> */}
             <NavigationLink as={Link} to="/">
               Новости
             </NavigationLink>
           </NavItem>
           <NavItem>
-            {/* <NavigationLink href="#">Общая информация</NavigationLink> */}
             <NavigationLink as={Link} to="/general-info">
               Общая информация
             </NavigationLink>
           </NavItem>
         </NavListLeft>
         <NavListRight>
-          <NavItem>
+          {rightNavLinks &&
+            rightNavLinks.map((link, index) => (
+              <NavItem key={index}>
+                <NavigationLink as={Link} to={link.to}>
+                  {link.text}
+                </NavigationLink>
+              </NavItem>
+            ))}
+          {/* <NavItem>
             <NavigationLink href="#">Врачи</NavigationLink>
           </NavItem>
           <NavItem>
@@ -181,11 +198,11 @@ function Header({ logoText, logoImgDescr, city, HeaderDropDown, buttonProps }: H
           </NavItem>
           <NavItem>
             <NavigationLink href="#">Услуги</NavigationLink>
-          </NavItem>
+          </NavItem> */}
         </NavListRight>
       </HeaderLowerContainer>
     </MainContainer>
-  );
+  )
 }
 
 export default Header;

@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router-dom"
 import GlobalStyles from "styles/GlobalStyles"
 import Layout from "components/Layout"
 import FrontalPage from "pages/FrontalPage"
-import Berlin from "pages/Berlin";
 import Munich from "pages/Munich";
 import Rheinland from "pages/Rheinland";
 import Frankfurt from "pages/Frankfurt";
@@ -11,6 +10,9 @@ import Hamburg from "pages/Hamburg";
 import AuthRootComponent from "components/auth/Auth";
 import UserAccount from "components/updateUserSubscriptions";
 import FrontalPage_GenInfo from "pages/FrontalPage_GenInfo";
+import Berlin_Restaurants from "pages/Berlin/Berlin_Restaurants";
+import Berlin_Main from "pages/Berlin";
+import Berlin_Children from "pages/Berlin/Berlin_Children";
 
 
 function App() {
@@ -21,7 +23,12 @@ function App() {
         <Routes>
           <Route path="/" element={<FrontalPage />} />
           <Route path="/general-info" element={<FrontalPage_GenInfo />} />
-          <Route path="/berlin" element={<Berlin />} />
+          <Route path="/berlin" element={<Berlin_Main />} />
+          <Route
+            path="/berlin/cafes-restaurants"
+            element={<Berlin_Restaurants />}
+          />
+          <Route path="/berlin/children" element={<Berlin_Children />} />
           <Route path="/munich" element={<Munich />} />
           <Route path="/frankfurt" element={<Frankfurt />} />
           <Route path="/dusseldorf" element={<Rheinland />} />
