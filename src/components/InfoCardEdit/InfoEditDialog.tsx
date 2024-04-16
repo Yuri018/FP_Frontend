@@ -33,9 +33,9 @@ function InfoEditDialog({ open, onClose, info }: InfoEditDialogProps) {
     const { name, value } = e.target;
     setEditedInfo(prevState => ({
       ...prevState,
-      [name]: value
+      [name]: value !== null && value !== undefined ? value : ''
     }));
-  };
+  };  
 
   const handleSubmit = async (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -43,10 +43,23 @@ function InfoEditDialog({ open, onClose, info }: InfoEditDialogProps) {
       await instance.put("/berlin/restaurants_info/admin", editedInfo);
       console.log("User data updated successfully:", editedInfo);
       onClose()
+      window.location.reload(); // Перезагрузка страницы
     } catch (error) {
       console.error("Error updating user data:", error);
     }
   };
+
+  const handleDelete = async () => {
+    try {
+      await instance.delete(`/berlin/restaurants_info/admin/${editedInfo.id}`);
+      console.log("User data deleted successfully:", editedInfo.id);
+      onClose()
+      window.location.reload(); // Перезагрузка страницы
+    } catch (error) {
+      console.error("Error deleting user data:", error);
+    }
+  };
+
   return (
     <Dialog open={open} onClose={onClose} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <DialogTitle>Редактировать информацию</DialogTitle>
@@ -64,7 +77,7 @@ function InfoEditDialog({ open, onClose, info }: InfoEditDialogProps) {
           fullWidth
           label="Заголовок"
           name="title"
-          value={editedInfo.title}
+          value={editedInfo.title || ''}
           onChange={handleInputChange}
           sx={{ marginBottom: '15px', marginTop: '15px' }}
         />
@@ -72,17 +85,22 @@ function InfoEditDialog({ open, onClose, info }: InfoEditDialogProps) {
           fullWidth
           label="Описание"
           name="description"
-          value={editedInfo.description}
+          value={editedInfo.description || ''}
           onChange={handleInputChange}
           multiline
           rows={4}
+          InputProps={{
+            style: {
+              overflowY: 'auto' // Добавление вертикальной прокрутки
+            }
+          }}
           sx={{ marginBottom: '15px' }}
         />
         <TextField
           fullWidth
           label="Адрес"
           name="address"
-          value={editedInfo.address}
+          value={editedInfo.address || ''}
           onChange={handleInputChange}
           sx={{ marginBottom: '15px' }}
         />
@@ -90,7 +108,7 @@ function InfoEditDialog({ open, onClose, info }: InfoEditDialogProps) {
           fullWidth
           label="Телефон"
           name="tel"
-          value={editedInfo.tel}
+          value={editedInfo.tel || ''}
           onChange={handleInputChange}
           sx={{ marginBottom: '15px' }}
         />
@@ -98,7 +116,7 @@ function InfoEditDialog({ open, onClose, info }: InfoEditDialogProps) {
           fullWidth
           label="Ссылка"
           name="link"
-          value={editedInfo.link}
+          value={editedInfo.link || ''}
           onChange={handleInputChange}
           sx={{ marginBottom: '10px' }}
         />
@@ -115,6 +133,9 @@ function InfoEditDialog({ open, onClose, info }: InfoEditDialogProps) {
       <DialogActions>
         <Button onClick={handleSubmit} variant="contained" color="primary">
           Сохранить
+        </Button>
+        <Button onClick={handleDelete} variant="contained" color="error">
+          Удалить
         </Button>
         <Button onClick={onClose} variant="contained" color="secondary">
           Отмена
