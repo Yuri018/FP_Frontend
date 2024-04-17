@@ -28,13 +28,6 @@ export const userSlice = createSlice({
       return initialState;
     },
   }
-  // extraReducers: (builder) => {
-  //   builder.addCase(fetchUserInfo.fulfilled, (state, action) => {
-  //     state.authenticated = true;
-  //     state.name = action.payload.name;
-  //     state.authorities = action.payload.authorities;
-  //   });
-  // },
 });
 
 
