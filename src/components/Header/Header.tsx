@@ -179,6 +179,21 @@ function Header({
     navigate("/berlin/doctors/dermatologists")
     handleClose1()
   }
+
+  const handleLegalServices = () => {
+    navigate("/berlin/services/legal_services")
+    handleClose2()
+  }
+
+  const handleTranslators = () => {
+    navigate("/berlin/services/translators")
+    handleClose2()
+  }
+
+  const handleHairBeauty = () => {
+    navigate("/berlin/services/hair_beauty")
+    handleClose2()
+  }
   
   return (
     <MainContainer>
@@ -306,9 +321,9 @@ function Header({
                 open={Boolean(anchorEl2)}
                 onClose={handleClose2}
               >
-                <MenuItem onClick={handleClose2}>Юристы</MenuItem>
-                <MenuItem onClick={handleClose2}>Переводчики</MenuItem>
-                <MenuItem onClick={handleClose2}>
+                <MenuItem onClick={handleLegalServices}>Юристы</MenuItem>
+                <MenuItem onClick={handleTranslators}>Переводчики</MenuItem>
+                <MenuItem onClick={handleHairBeauty}>
                   Парикмахеры и косметические салоны
                 </MenuItem>
               </Menu>

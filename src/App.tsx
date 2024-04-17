@@ -21,38 +21,19 @@ function App() {
         <Routes>
           <Route path="/" element={<FrontalPage />} />
           <Route path="/general-info" element={<FrontalPage_GenInfo />} />
-          <Route path="/berlin" element={<Berlin />} />
-          <Route
-            path="/berlin/cafes-restaurants"
-            element={<Berlin />}
-          />
+          <Route path="/berlin" element={<Berlin />} />          
+          <Route path="/berlin/cafes-restaurants" element={<Berlin />} />
           <Route path="/berlin/children" element={<Berlin />} />
           <Route path="/berlin/shops" element={<Berlin />} />
-          <Route path="/berlin/services" element={<Berlin />} />
-          <Route
-            path="/berlin/doctors/physicians"
-            element={<Berlin />}
-          />
-          <Route
-            path="berlin/doctors/stomatologists"
-            element={<Berlin />}
-          />
-          <Route
-            path="/berlin/doctors/pediatrists"
-            element={<Berlin />}
-          />
-          <Route
-            path="/berlin/doctors/orthopedists"
-            element={<Berlin />}
-          />
-          <Route
-            path="/berlin/doctors/cardiologists"
-            element={<Berlin />}
-          />
-          <Route
-            path="/berlin/doctors/dermatologists"
-            element={<Berlin />}
-          />
+          <Route path="/berlin/services/legal_services" element={<Berlin />} />
+          <Route path="/berlin/services/translators" element={<Berlin />} />
+          <Route path="/berlin/services/hair_beauty" element={<Berlin />} />
+          <Route path="/berlin/doctors/physicians" element={<Berlin />} />
+          <Route path="berlin/doctors/stomatologists" element={<Berlin />} />
+          <Route path="/berlin/doctors/pediatrists" element={<Berlin />} />
+          <Route path="/berlin/doctors/orthopedists" element={<Berlin />} />
+          <Route path="/berlin/doctors/cardiologists" element={<Berlin />} />
+          <Route path="/berlin/doctors/dermatologists" element={<Berlin />} />
           <Route path="/munich" element={<Munich />} />
           <Route path="/frankfurt" element={<Frankfurt />} />
           <Route path="/dusseldorf" element={<Rheinland />} />
