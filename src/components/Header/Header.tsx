@@ -150,11 +150,11 @@ function Header({
     setAnchorElCity(event.currentTarget)
   }
 
-  const handleClick1 = (event: MouseEvent<HTMLButtonElement>) => {
+  const handleClick1 = (event: any) => {
     setAnchorEl1(event.currentTarget)
   }
 
-  const handleClick2 = (event: MouseEvent<HTMLButtonElement>) => {
+  const handleClick2 = (event: any) => {
     setAnchorEl2(event.currentTarget)
   }
 
