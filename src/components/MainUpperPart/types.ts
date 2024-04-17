@@ -16,4 +16,5 @@ export interface MainUpperPartProps {
   isMainPage?: boolean
   isGeneralPage?: boolean
   buttonProps?: ButtunProps
+  rightWrapperText?: string;
 }

@@ -66,21 +66,22 @@ function Header({
 
   const { authenticated, name, authorities } = useSelector(userSelectors)
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
-
-  //--------------------------------
-  useEffect(() => {
-    async function fetchUserData() {
-      try {
-        // Получаем информацию о пользователе после успешной аутентификации
-        const userInfoResponse = await instance.get("/auth/get_auth_info")
-        // Сохраняем информацию о пользователе в Redux
-        dispatch(userActions.setUserInfo(userInfoResponse.data))
-      } catch (error) {
-        console.error("Error fetching user data:", error)
+  const [anchorEl1, setAnchorEl1] = useState<null | HTMLElement>(null)
+  const [anchorEl2, setAnchorEl2] = useState<null | HTMLElement>(null)
+    //--------------------------------
+    useEffect(() => {
+      async function fetchUserData() {
+        try {
+          // Получаем информацию о пользователе после успешной аутентификации
+          const userInfoResponse = await instance.get("/auth/get_auth_info")
+          // Сохраняем информацию о пользователе в Redux
+          dispatch(userActions.setUserInfo(userInfoResponse.data))
+        } catch (error) {
+          console.error("Error fetching user data:", error)
+        }
       }
-    }
-    fetchUserData()
-  }, [])
+      fetchUserData()
+    }, [])
   //-------------------------------------
   const handleLogout = async () => {
     try {
@@ -103,10 +104,50 @@ function Header({
     setAnchorEl(event.currentTarget)
   }
 
+  const handleClick1 = (event: MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl1(event.currentTarget)
+  }
+
+  const handleClick2 = (event: MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl2(event.currentTarget)
+  }
+
   const handleClose = () => {
     setAnchorEl(null)
   }
 
+  const handleClose1 = () => {
+    setAnchorEl1(null)
+  }
+
+  const handleClose2 = () => {
+    setAnchorEl2(null)
+  }
+
+  const handlePhysicians = () => {
+    navigate("/berlin/doctors/physicians")
+  }
+
+  const handleStomatologists = () => {
+    navigate("/berlin/doctors/stomatologists")
+  }
+
+  const handlePediatrists = () => {
+    navigate("/berlin/doctors/pediatrists")
+  }
+
+  const handleOrthopedists = () => {
+    navigate("/berlin/doctors/orthopedists")
+  }
+  
+  const handleCardiologists = () => {
+    navigate("/berlin/doctors/cardiologists")
+  }
+
+  const handleDermatologists = () => {
+    navigate("/berlin/doctors/dermatologists")
+  }
+  
   return (
     <MainContainer>
       <HeaderUpperContainer>
@@ -175,33 +216,55 @@ function Header({
             </NavigationLink>
           </NavItem>
         </NavListLeft>
-        <NavListRight>
-          {rightNavLinks &&
-            rightNavLinks.map((link, index) => (
-              <NavItem key={index}>
-                <NavigationLink as={Link} to={link.to}>
-                  {link.text}
-                </NavigationLink>
-              </NavItem>
-            ))}
-          {/* <NavListRight>    
-          <NavItem>
-            <NavigationLink href="#">Врачи</NavigationLink>
-          </NavItem>
-          <NavItem>
-            <NavigationLink href="#">Дети</NavigationLink>
-          </NavItem>
-          <NavItem>
-            <NavigationLink href="#">Магазины</NavigationLink>
-          </NavItem>
-          <NavItem>
-            <NavigationLink href="#">Кафе и рестораны</NavigationLink>
-          </NavItem>
-          <NavItem>
-            <NavigationLink href="#">Услуги</NavigationLink>
-          </NavItem>
-        </NavListRight> */}
-        </NavListRight>
+        {rightNavLinks && (
+          <NavListRight>
+            <NavItem>
+              {/* <Button onClick={handleClick}>Врачи</Button> */}
+              <NavigationLink onClick={handleClick1}>Врачи</NavigationLink>
+              <Menu
+                anchorEl={anchorEl1}
+                open={Boolean(anchorEl1)}
+                onClose={handleClose1}
+              >
+                <MenuItem onClick={handlePhysicians}>Терапевты</MenuItem>
+                <MenuItem onClick={handlePediatrists}>Педиатры</MenuItem>
+                <MenuItem onClick={handleStomatologists}>Стоматологи</MenuItem>
+                <MenuItem onClick={handleCardiologists}>Кардиологи</MenuItem>
+                <MenuItem onClick={handleOrthopedists}>Ортопеды</MenuItem>
+                <MenuItem onClick={handleDermatologists}>Дерматологи</MenuItem>
+              </Menu>
+            </NavItem>
+            <NavItem>
+              <NavigationLink as={Link} to="/berlin/children">
+                Дети
+              </NavigationLink>
+            </NavItem>
+            <NavItem>
+              <NavigationLink as={Link} to="/berlin/shops">
+                Магазины
+              </NavigationLink>
+            </NavItem>
+            <NavItem>
+              <NavigationLink as={Link} to="/berlin/cafes-restaurants">
+                Кафе и рестораны
+              </NavigationLink>
+            </NavItem>
+            <NavItem>
+              <NavigationLink onClick={handleClick2}>Услуги</NavigationLink>
+              <Menu
+                anchorEl={anchorEl2}
+                open={Boolean(anchorEl2)}
+                onClose={handleClose2}
+              >
+                <MenuItem onClick={handleClose2}>Юристы</MenuItem>
+                <MenuItem onClick={handleClose2}>Переводчики</MenuItem>
+                <MenuItem onClick={handleClose2}>
+                  Парикмахеры и косметические салоны
+                </MenuItem>
+              </Menu>
+            </NavItem>
+          </NavListRight>
+        )}
       </HeaderLowerContainer>
     </MainContainer>
   )

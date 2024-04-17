@@ -49,6 +49,7 @@ function Berlin_LegalServices() {
             console.log("Читать подробнее")
           },
         }}
+        rightWrapperText="Адвокаты берлина"
       />
       <MainLowerPart />
       <Footer />

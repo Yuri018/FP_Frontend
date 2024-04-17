@@ -63,10 +63,21 @@ function MainLowerPart() {
           endpoint = "/berlin/shops_info"
         } else if (location.pathname === "/berlin/services") {
           endpoint = "/berlin/legal_services_info"
-        } else if (location.pathname === "/berlin/doctors") {
+        } else if (location.pathname === "/berlin/doctors/physicians") {
+          endpoint = "/berlin/doctors_info/physician"
+        } else if (location.pathname === "/berlin/doctors/stomatologists") {
           endpoint = "/berlin/doctors_info/stomatologist"
+        } else if (location.pathname === "/berlin/doctors/pediatrists") {
+          endpoint = "/berlin/doctors_info/pediatrist"
+        } else if (location.pathname === "/berlin/doctors/orthopedists") {
+          endpoint = "/berlin/doctors_info/orthopedist"
+        } else if (location.pathname === "/berlin/doctors/cardiologists") {
+          endpoint = "/berlin/doctors_info/cardiologist"
+        } else if (location.pathname === "/berlin/doctors/dermatologists") {
+          endpoint = "/berlin/doctors_info/dermatologist"
         }
 
+        
         const response = await instance.get<InfoProps[]>(endpoint)
         setinfoData(response.data)
       } catch (error) {
@@ -115,7 +126,37 @@ function MainLowerPart() {
           ) : (
             <div>Loading...</div>
           ))}
-        {location.pathname === "/berlin/doctors" &&
+        {location.pathname === "/berlin/doctors/physicians" &&
+          (infoData.length > 0 ? (
+            <InfoList infoList={infoData} />
+          ) : (
+            <div>Loading...</div>
+          ))}
+        {location.pathname === "/berlin/doctors/stomatologists" &&
+          (infoData.length > 0 ? (
+            <InfoList infoList={infoData} />
+          ) : (
+            <div>Loading...</div>
+          ))}
+        {location.pathname === "/berlin/doctors/pediatrists" &&
+          (infoData.length > 0 ? (
+            <InfoList infoList={infoData} />
+          ) : (
+            <div>Loading...</div>
+          ))}
+        {location.pathname === "/berlin/doctors/orthopedists" &&
+          (infoData.length > 0 ? (
+            <InfoList infoList={infoData} />
+          ) : (
+            <div>Loading...</div>
+          ))}
+        {location.pathname === "/berlin/doctors/cardiologists" &&
+          (infoData.length > 0 ? (
+            <InfoList infoList={infoData} />
+          ) : (
+            <div>Loading...</div>
+          ))}
+        {location.pathname === "/berlin/doctors/dermatologists" &&
           (infoData.length > 0 ? (
             <InfoList infoList={infoData} />
           ) : (

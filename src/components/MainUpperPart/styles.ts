@@ -168,18 +168,21 @@ export const RightWraper = styled.div`
   flex-direction: column;    
 `;
 
-export const RightWraper1 = styled.div`
-  padding: 20px;
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  flex-direction: column;
-  font-size: 30px;
-  font-weight: 700;
-  background-color: ${colors.baseGray50};
-`;
+// export const RightWraper1 = styled.div`
+//   padding: 20px;
+//   flex: 1;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   text-align: center;
+//   flex-direction: column;
+//   font-size: 35px;
+//   font-weight: 800;
+//   font-style: italic;
+//   color: ${colors.white};
+//   /* background-color: ${colors.baseGray50}; */
+//   background: linear-gradient(to right, ${colors.baseGray50}, ${colors.baseGrey80});
+// `;
 
 export const NewsMainContainer = styled.div`
   width: 100%;

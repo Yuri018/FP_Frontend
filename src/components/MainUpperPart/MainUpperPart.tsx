@@ -18,7 +18,7 @@ import {
   PageTitle,
   RightWraper,
   ImageWrap,
-  RightWraper1,
+  // RightWraper1,
 } from "./styles"
 
 import type { MainUpperPartProps } from "./types"
@@ -39,7 +39,8 @@ function MainUpperPart({
   fourthImgTitle,
   isMainPage,
   isGeneralPage,
-  buttonProps
+  buttonProps,
+  rightWrapperText
 }: MainUpperPartProps) {
   const TitleContainer = isMainPage ? MainTitle : PageTitle;
   const [isShowCityMenu, setIsShowCityMenu] = useState(false);
@@ -96,7 +97,7 @@ function MainUpperPart({
             <RightLink href="#">УСЛУГИ</RightLink>
           </RightWraper>
         )}
-        <RightWraper1> Адвокаты Берлина </RightWraper1>
+        {/* {!isGeneralPage && <RightWraper1>{rightWrapperText}</RightWraper1>} */}
       </BackgroundImageContainer>
     </BcgContainer>
   )
