@@ -98,7 +98,6 @@ export const RightLink = styled.a`
   }
 `;
 
-
 export const ButtonContainer = styled.div<ButtonContainerProps>`
   position: absolute;  
   width: fit-content;
@@ -168,7 +167,8 @@ export const NewsTitleContainer = styled.h4`
 export const RightWraper = styled.div`
   flex: 1;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  justify-content: center;
   align-items: stretch;
   flex-direction: column;    
 `;
@@ -191,30 +191,30 @@ export const ImageWrap = styled.div`
   max-width: 60px;
   flex: 0 0 auto;
 `;
-export const DropdownMenuContainer = styled.div`
-  position: absolute;
-  padding: 0px 20px;
-  top: -37px;
-  left: 180px;
-  width: 180px;
-  height: 234px;
-  border-radius: 10px;
-  z-index: 20;
-  border: 2px solid ${colors.baseGray50};
-  background-color: ${colors.white};
-  &::after{
-    content: '';
-    position: absolute;
-    top: 50px;
-    left: -12px;
-    height: 20px;
-    width: 20px;
-    border-bottom: 2px solid ${colors.baseGray50};
-    border-left: 2px solid ${colors.baseGray50};
-    background-color:  ${colors.white};
-    transform: rotate(45deg);    
-  }
-`;
+// export const DropdownMenuContainer = styled.div`
+//   position: absolute;
+//   padding: 0px 20px;
+//   top: -37px;
+//   left: 180px;
+//   width: 180px;
+//   height: 234px;
+//   border-radius: 10px;
+//   z-index: 20;
+//   border: 2px solid ${colors.baseGray50};
+//   background-color: ${colors.white};
+//   &::after{
+//     content: '';
+//     position: absolute;
+//     top: 50px;
+//     left: -12px;
+//     height: 20px;
+//     width: 20px;
+//     border-bottom: 2px solid ${colors.baseGray50};
+//     border-left: 2px solid ${colors.baseGray50};
+//     background-color:  ${colors.white};
+//     transform: rotate(45deg);    
+//   }
+// `;
 
 export const DropdownMenuList = styled.ul`
   display: flex;

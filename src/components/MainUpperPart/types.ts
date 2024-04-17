@@ -9,10 +9,12 @@ export interface MainUpperPartProps {
   secondImgDescr?: { src: string; alt: string }
   thirdImgDescr?: { src: string; alt: string }
   fourthImgDescr?: { src: string; alt: string }
+  fifthImgDescr?: { src: string; alt: string }
   firstImgTitle?: string
   secondImgTitle?: string
   thirdImgTitle?: string
   fourthImgTitle?: string
+  fifthImgTitle?: string
   isMainPage?: boolean
   isGeneralPage?: boolean
   buttonProps?: ButtunProps
