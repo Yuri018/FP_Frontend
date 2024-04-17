@@ -106,18 +106,23 @@ function Header({
 
   const handleBerlin = () => {
     navigate("/berlin")
+    handleCloseCity()
   }
   const handleMunchen = () => {
     navigate("/munich")
+    handleCloseCity()
   }
   const handleFran = () => {
     navigate("/frankfurt")
+    handleCloseCity()
   }
   const handleDusel = () => {
     navigate("/dusseldorf")
+    handleCloseCity()
   }
   const handleHamburg = () => {
     navigate("/hamburg")
+    handleCloseCity()
   }
 
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
