@@ -4,11 +4,11 @@ import MainLowerPart from "components/MainLowerPart"
 
 import {
   DuesseldorfImg,
+  BerlinLogo,
+  MunichLogo,
+  FrankfurtLogo,
   DuesseldorfLogo,
-  Guitars,
-  Butterfly,
-  TwoPeople,
-  University,
+  HamburgLogo,
 } from "assets"
 
 import Footer from "components/Footer"
@@ -25,18 +25,20 @@ function Rheinland() {
       <MainUpperPart
         bcgImgDescr={{ src: DuesseldorfImg, alt: "DuesseldorfImg" }}
         mainTitle="Новости Райнланда: Дюссельдорф, Кёльн, Бонн"
-        firstImgDescr={{ src: Guitars, alt: "Guitars" }}
-        secondImgDescr={{ src: Butterfly, alt: "Butterfly" }}
-        thirdImgDescr={{ src: TwoPeople, alt: "Two people" }}
-        fourthImgDescr={{ src: University, alt: "University" }}
-        firstImgTitle="Музыкальные истории"
-        secondImgTitle="Загадки природы"
-        thirdImgTitle="Жизнь рядом с нами"
-        fourthImgTitle="Высшее образование в Германии"
+        firstImgDescr={{ src: BerlinLogo, alt: "BerlinLogo" }}
+        secondImgDescr={{ src: MunichLogo, alt: "MunichLogo" }}
+        thirdImgDescr={{ src: FrankfurtLogo, alt: "FrankfurtLogo" }}
+        fourthImgDescr={{ src: DuesseldorfLogo, alt: "DuesseldorfLogo" }}
+        fifthImgDescr={{ src: HamburgLogo, alt: "HamburgLogo" }}
+        firstImgTitle="Берлин"
+        secondImgTitle="Мюнхен"
+        thirdImgTitle="Франкфурт"
+        fourthImgTitle="Дюссельдорф"
+        fifthImgTitle="Гамбург"
         buttonProps={{
           name: "Читать подробнее",
           onClick: () => {
-            console.log("Читать подробнее Райнланда");
+            console.log("Читать подробнее Райнланда")
           },
         }}
       />

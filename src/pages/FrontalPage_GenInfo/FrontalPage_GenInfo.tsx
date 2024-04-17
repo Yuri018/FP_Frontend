@@ -8,10 +8,11 @@ import MainLowerPart from "components/MainLowerPart"
 import {
   GermanMainImg,
   GermanMainLogo,
-  Guitars,
-  Butterfly,
-  TwoPeople,
-  University,
+  BerlinLogo,
+  MunichLogo,
+  FrankfurtLogo,
+  DuesseldorfLogo,
+  HamburgLogo,
 } from "assets"
 import Footer from 'components/Footer';
 
@@ -32,17 +33,19 @@ function FrontalPage() {
         isMainPage={true}
         bcgImgDescr={{ src: GermanMainImg, alt: "GermanMainImg" }}
         mainTitle="Здесь вы сможете найти полезную для себя информацию по разделам"
-        firstImgDescr={{ src: Guitars, alt: "Guitars" }}
-        secondImgDescr={{ src: Butterfly, alt: "Butterfly" }}
-        thirdImgDescr={{ src: TwoPeople, alt: "Two people" }}
-        fourthImgDescr={{ src: University, alt: "University" }}
-        firstImgTitle="Музыкальные истории"
-        secondImgTitle="Загадки природы"
-        thirdImgTitle="Жизнь рядом с нами"
-        fourthImgTitle="Высшее образование в Германии"
+        firstImgDescr={{ src: BerlinLogo, alt: "BerlinLogo" }}
+        secondImgDescr={{ src: MunichLogo, alt: "MunichLogo" }}
+        thirdImgDescr={{ src: FrankfurtLogo, alt: "FrankfurtLogo" }}
+        fourthImgDescr={{ src: DuesseldorfLogo, alt: "DuesseldorfLogo" }}
+        fifthImgDescr={{ src: HamburgLogo, alt: "HamburgLogo" }}
+        firstImgTitle="Берлин"
+        secondImgTitle="Мюнхен"
+        thirdImgTitle="Франкфурт"
+        fourthImgTitle="Дюссельдорф"
+        fifthImgTitle="Гамбург"
         buttonProps={{
           name: "Выбери свой город",
-          type: "button"
+          type: "button",
         }}
       />
       <MainLowerPart />

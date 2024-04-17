@@ -148,7 +148,7 @@ export const NewsContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px;
+  padding: 35px;
   border-right: 2px solid ${colors.baseGray50};
   width: 25%;
   &:last-child{
@@ -160,7 +160,7 @@ export const NewsTitleContainer = styled.h4`
   color: ${colors.white};
   font-family: 'Montserrat';
   font-weight: bold;
-  font-size: 14px;
+  font-size: 17px;
   line-height: 1.5rem;
   padding-right: 15px;
 `;
