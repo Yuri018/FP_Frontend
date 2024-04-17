@@ -137,67 +137,88 @@ function MainLowerPart() {
           ))}
         {location.pathname === "/berlin/shops" &&
           (infoData.length > 0 ? (
-            <InfoList infoList={infoData} endpoint={""} />
+            <InfoList infoList={infoData} endpoint={"/berlin/shops_info"} />
           ) : (
             <div>Loading...</div>
-          ))}
-        {location.pathname === "/berlin/services" &&
-          (infoData.length > 0 ? (
-            <InfoList infoList={infoData} endpoint={""} />
-          ) : (
-            <div>Loading...</div>
-          ))}
+          ))}        
         {location.pathname === "/berlin/doctors/physicians" &&
           (infoData.length > 0 ? (
-            <InfoList infoList={infoData} endpoint={""} />
+            <InfoList
+              infoList={infoData}
+              endpoint={"/berlin/doctors_info/physician"}
+            />
           ) : (
             <div>Loading...</div>
           ))}
         {location.pathname === "/berlin/doctors/stomatologists" &&
           (infoData.length > 0 ? (
-            <InfoList infoList={infoData} endpoint={""} />
+            <InfoList
+              infoList={infoData}
+              endpoint={"/berlin/doctors_info/stomatologist"}
+            />
           ) : (
             <div>Loading...</div>
           ))}
         {location.pathname === "/berlin/doctors/pediatrists" &&
           (infoData.length > 0 ? (
-            <InfoList infoList={infoData} endpoint={""} />
+            <InfoList
+              infoList={infoData}
+              endpoint={"/berlin/doctors_info/pediatrist"}
+            />
           ) : (
             <div>Loading...</div>
           ))}
         {location.pathname === "/berlin/doctors/orthopedists" &&
           (infoData.length > 0 ? (
-            <InfoList infoList={infoData} endpoint={""} />
+            <InfoList
+              infoList={infoData}
+              endpoint={"/berlin/doctors_info/orthopedist"}
+            />
           ) : (
             <div>Loading...</div>
           ))}
         {location.pathname === "/berlin/doctors/cardiologists" &&
           (infoData.length > 0 ? (
-            <InfoList infoList={infoData} endpoint={""} />
+            <InfoList
+              infoList={infoData}
+              endpoint={"/berlin/doctors_info/cardiologist"}
+            />
           ) : (
             <div>Loading...</div>
           ))}
         {location.pathname === "/berlin/doctors/dermatologists" &&
           (infoData.length > 0 ? (
-            <InfoList infoList={infoData} endpoint={""} />
+            <InfoList
+              infoList={infoData}
+              endpoint={"/berlin/doctors_info/dermatologist"}
+            />
           ) : (
             <div>Loading...</div>
           ))}
         {location.pathname === "/berlin/services/legal_services" &&
           (infoData.length > 0 ? (
-            <InfoList infoList={infoData} endpoint={""} />
+            <InfoList
+              infoList={infoData}
+              endpoint={"/berlin/legal_services_info"}
+            />
           ) : (
             <div>Loading...</div>
           ))}
         {location.pathname === "/berlin/services/translators" &&
           (infoData.length > 0 ? (
-            <InfoList infoList={infoData} endpoint={""} />
+            <InfoList
+              infoList={infoData}
+              endpoint={"/berlin/translators_info"}
+            />
           ) : (
             <div>Loading...</div>
           ))}
         {location.pathname === "/berlin/services/hair_beauty" &&
           (infoData.length > 0 ? (
-            <InfoList infoList={infoData} endpoint={""} />
+            <InfoList
+              infoList={infoData}
+              endpoint={"/berlin/hair_beauty_info"}
+            />
           ) : (
             <div>Loading...</div>
           ))}
