@@ -10,7 +10,7 @@ export const MainLowerPartContainer = styled.section`
 
 export const MainLowerPartFlex = styled.div`
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   justify-content: space-between;
   flex-wrap: wrap;
 `;
@@ -18,6 +18,7 @@ export const MainLowerPartFlex = styled.div`
 export const MainLowerPartItem = styled.div`
   width: calc(33.3333% - 10px);
   padding-bottom: 20px;
+  min-height: 100%;
 `;
 
 export const MainLowerPartTitle = styled.div`

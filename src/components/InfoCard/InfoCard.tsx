@@ -1,19 +1,46 @@
+import React, { useState } from 'react';
+import InfoCardEdit from 'components/InfoCardEdit';
 import { CardActionArea, CardContent, Typography, CardActions } from '@mui/material';
-import { MyButton, MyCardMedia, MyCard } from './styles';
+import { MyButton, MyCard, MyCardActions } from './styles';
+import { useSelector } from "react-redux"
+import { userSelectors } from "../../store/user/selectors";
+
+
 
 interface Info {
-  link: string
-  title: string
-  description: string
-  address: string
-  tel: string  
+  id: number;
+  title: string;
+  description: string;
+  address: string;
+  tel: string;
+  link: string;
+  status: number;
+  city: {
+    id: number;
+    name: string;
+  };
 }
 
 interface InfoCardProps {
   info: Info;
+  endpoint: string;
 }
 
-const InfoCard: React.FC<InfoCardProps> = ({ info }) => {
+
+
+const InfoCard: React.FC<InfoCardProps> = ({ info, endpoint }: InfoCardProps) => {
+  const [editDialogOpen, setEditDialogOpen] = useState(false);
+  const { authorities } = useSelector(userSelectors)
+
+
+  const handleEditDialogOpen = () => {
+    setEditDialogOpen(true);
+  };
+
+  const handleEditDialogClose = () => {
+    setEditDialogOpen(false);
+  };
+
   return (
     <>
       <MyCard>
@@ -39,12 +66,21 @@ const InfoCard: React.FC<InfoCardProps> = ({ info }) => {
             )}
           </CardContent>
         </CardActionArea>
-        <CardActions sx={{ padding: 2 }}>
-          <MyButton size="small" variant="contained" color="primary">
-            Редактировать
-          </MyButton>
-        </CardActions>
+        <MyCardActions sx={{ padding: 2 }}>
+
+          {authorities.some(
+            authority => authority.authority === "ROLE_ADMIN",
+          ) && (
+              <MyButton size="small" variant="contained" color="primary" onClick={handleEditDialogOpen}>
+                Редактировать
+              </MyButton>
+            )}
+
+        </MyCardActions>
       </MyCard>
+
+      {/* Диалоговое окно редактирования */}
+      <InfoCardEdit open={editDialogOpen} onClose={handleEditDialogClose} info={info} endpoint={endpoint} />
     </>
   )
 };
