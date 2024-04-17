@@ -20,6 +20,7 @@ import {
   ImageWrap,
   BackgroundImage100,
   ButtonRead
+
 } from "./styles"
 
 import type { MainUpperPartProps } from "./types"

@@ -14,8 +14,8 @@ import Berlin_Restaurants from "pages/Berlin/Berlin_Restaurants";
 import Berlin_Main from "pages/Berlin";
 import Berlin_Children from "pages/Berlin/Berlin_Children";
 import Berlin_Shops from "pages/Berlin/Berlin_Shops";
-import Berlin_Stomatologists from "pages/Berlin/Berlin_Stomatologists";
 import Berlin_LegalServices from "pages/Berlin/Berlin_LegalServices";
+import Berlin_Doctors from "pages/Berlin/Berlin_Doctors";
 
 
 function App() {
@@ -35,8 +35,28 @@ function App() {
           <Route path="/berlin/shops" element={<Berlin_Shops />} />
           <Route path="/berlin/services" element={<Berlin_LegalServices />} />
           <Route
-            path="/berlin/doctors"
-            element={<Berlin_Stomatologists />}
+            path="/berlin/doctors/physicians"
+            element={<Berlin_Doctors />}
+          />
+          <Route
+            path="berlin/doctors/stomatologists"
+            element={<Berlin_Doctors />}
+          />
+          <Route
+            path="/berlin/doctors/pediatrists"
+            element={<Berlin_Doctors />}
+          />
+          <Route
+            path="/berlin/doctors/orthopedists"
+            element={<Berlin_Doctors />}
+          />
+          <Route
+            path="/berlin/doctors/cardiologists"
+            element={<Berlin_Doctors />}
+          />
+          <Route
+            path="/berlin/doctors/dermatologists"
+            element={<Berlin_Doctors />}
           />
           <Route path="/munich" element={<Munich />} />
           <Route path="/frankfurt" element={<Frankfurt />} />
