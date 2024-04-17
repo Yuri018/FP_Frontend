@@ -1,26 +1,26 @@
+import { Button } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import styled from "styled-components";
 import { colors } from 'styles/colors';
 
 export const HeaderDropdownContainer = styled.div`
-  position: relative;
   margin-left: auto;
   margin-right: 10px;
-  &.header-dropdown {
-    .jZXYnT {
-      background: transparent;
-      border: 1px solid ${colors.baseGrey80};
-      color: ${colors.baseGrey80};
-      min-height: auto;
-      padding: 9px 30px;
-    }
-    .iMUODL {
-      top: 100%;
-      left: 50%;
-      transform: translate(-50%, 0);
-      &:after {
-        display: none;
-      }
+`;
+export const ButtonProf = styled(Button)`
+  &&{
+    color: ${colors.baseGrey75};
+    font-weight: 600;
+  }
+`;
+export const ButtonCity = styled(Button)`
+  &&{
+    color: ${colors.baseGrey75};
+    border-color: ${colors.baseGrey75};
+    font-weight: 600;
+    &:hover,
+    &:focus{
+      border-color: ${colors.baseGrey75};
     }
   }
 `;

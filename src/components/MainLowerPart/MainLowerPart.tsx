@@ -13,12 +13,17 @@ interface NewsProps {
   content: string
 }
 interface InfoProps {
-  link: string
-  title: string
-  description: string
-  address: string
-  tel: string
-}
+  id: number;
+  title: string;
+  description: string;
+  address: string;
+  tel: string;
+  link: string;
+  status: number;
+  city: {
+    id: number;
+    name: string;
+  };}
 
 export interface NewsListProps {
   newsList: NewsProps[]
@@ -54,7 +59,8 @@ function MainLowerPart() {
   useEffect(() => {
     async function fetchInfoData() {
       try {
-        let endpoint = "/berlin/cafes-restaurants"
+
+        let endpoint = "/berlin/restaurants_info"
         if (location.pathname === "/berlin/cafes-restaurants") {
           endpoint = "/berlin/restaurants_info"
         } else if (location.pathname === "/berlin/children") {
@@ -104,13 +110,13 @@ function MainLowerPart() {
           ))}
         {location.pathname === "/berlin/cafes-restaurants" &&
           (infoData.length > 0 ? (
-            <InfoList infoList={infoData} />
+            <InfoList infoList={infoData} endpoint={"/berlin/restaurants_info"} />
           ) : (
             <div>Loading...</div>
           ))}
         {location.pathname === "/berlin/children" &&
           (infoData.length > 0 ? (
-            <InfoList infoList={infoData} />
+            <InfoList infoList={infoData} endpoint={"/berlin/children_info"}/>
           ) : (
             <div>Loading...</div>
           ))}

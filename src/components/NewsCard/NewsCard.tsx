@@ -1,5 +1,5 @@
 import { CardActionArea, CardContent, Typography, CardActions } from '@mui/material';
-import { MyButton, MyCardMedia, MyCard } from './styles';
+import { MyButton, MyCardMedia, MyCard, MyCardActions } from './styles';
 import { useState } from 'react';
 import FullNewsCard from 'components/NewsCardFull';
 
@@ -42,11 +42,11 @@ function NewsCard ({ news } : NewsCardProps) {
             </Typography>
           </CardContent>
         </CardActionArea>
-        <CardActions sx={{padding: 2}}>
-          <MyButton size="small" variant="contained" color="primary" onClick={handleOpen}>
+        <MyCardActions sx={{padding: 2}}>
+          <MyButton size="large" variant="contained" color="primary" onClick={handleOpen}>
             Читать подробнее
           </MyButton>
-        </CardActions>
+        </MyCardActions>
       </MyCard>
       <FullNewsCard open={open} onClose={handleClose} news={news} />
     </>
