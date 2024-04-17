@@ -46,7 +46,12 @@ function InfoList({ infoList, endpoint }: InfoListProps) {
         authority => authority.authority === "ROLE_ADMIN",
       ) && (
 
-          <Button onClick={handleAddDialogOpen} variant="contained" color="primary">
+          <Button
+            onClick={handleAddDialogOpen}
+            variant="contained"
+            color="primary"
+            sx={{ marginBottom: '15px' }} // Добавляем отступ снизу
+          >
             Добавить
           </Button>
         )}
