@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { colors } from 'styles/colors';
@@ -27,6 +28,10 @@ export const BackgroundImageContainer = styled.div`
 `;
 export const BackgroundImage = styled.div`
   width: 75%;
+  max-height: 400px;
+`;
+export const BackgroundImage100 = styled.div`
+  width: 100%;
   max-height: 400px;
 `;
 
@@ -168,17 +173,13 @@ export const RightWraper = styled.div`
   flex-direction: column;    
 `;
 
-export const RightWraper1 = styled.div`
-  padding: 20px;
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  flex-direction: column;
-  font-size: 30px;
-  font-weight: 700;
-  background-color: ${colors.baseGray50};
+export const ButtonRead = styled(Button)`
+  &&{
+    border-radius: 50em;
+    padding: 12px 60px;
+    font-weight: 800;
+    margin-left: 30px;
+  }
 `;
 
 export const NewsMainContainer = styled.div`
