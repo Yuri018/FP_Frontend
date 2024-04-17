@@ -30,6 +30,8 @@ import {
   TitleLinkContainer,
   ImageWrap,
   HeaderDropdownContainer,
+  ButtonProf,
+  ButtonCity,
 } from "./styles"
 import { MainTitle, SearchIcon, SignInIcon } from "assets";
 import { userActions } from "../../store/user/userSlice";
@@ -65,6 +67,7 @@ function Header({
 
   const { authenticated, name, authorities } = useSelector(userSelectors)
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
+  const [anchorElCity, setAnchorElCity] = useState<null | HTMLElement>(null)
 
   //--------------------------------
   useEffect(() => {
@@ -98,12 +101,34 @@ function Header({
     navigate("/user_login/user_account")
   }
 
+  const handleBerlin = () => {
+    navigate("/berlin")
+  }
+  const handleMunchen = () => {
+    navigate("/munich")
+  }
+  const handleFran = () => {
+    navigate("/frankfurt")
+  }
+  const handleDusel = () => {
+    navigate("/dusseldorf")
+  }
+  const handleHamburg = () => {
+    navigate("/hamburg")
+  }
+
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget)
+  }
+  const handleClickCity = (event: MouseEvent<HTMLButtonElement>) => {
+    setAnchorElCity(event.currentTarget)
   }
 
   const handleClose = () => {
     setAnchorEl(null)
+  }
+  const handleCloseCity = () => {
+    setAnchorElCity(null)
   }
 
   return (
@@ -116,20 +141,37 @@ function Header({
           <HeaderSearch type="search" placeholder="search" name="Search" />
         </HeaderSerchContainer>
 
-        {HeaderDropDown && (
+
           <HeaderDropdownContainer className="header-dropdown">
-            <DropdownMenu
+            {/* <DropdownMenu
               HeaderDropDown={HeaderDropDown}
               buttonProps={buttonProps}
-            />
+            /> */}
+          <div>
+            <ButtonCity variant="outlined" onClick={handleClickCity} >
+              Выбери свой город
+            </ButtonCity>
+            <Menu
+              id="city-menu"
+              anchorEl={anchorElCity}
+              open={Boolean(anchorElCity)}
+              onClose={handleCloseCity}
+              >
+              <MenuItem onClick={handleBerlin}>БЕРЛИН</MenuItem>
+              <MenuItem onClick={handleMunchen}>МЮНХЕН</MenuItem>
+              <MenuItem onClick={handleFran}>ФРАНКФУРТ</MenuItem>
+              <MenuItem onClick={handleDusel}>ДЮССЕЛЬДОРФ</MenuItem>
+              <MenuItem onClick={handleHamburg}>ГАМБУРГ</MenuItem>
+            </Menu>
+          </div>
           </HeaderDropdownContainer>
-        )}
+
 
         {authenticated ? (
           <div>
-            <Button onClick={handleClick} startIcon={<AccountCircle />}>
+            <ButtonProf onClick={handleClick} startIcon={<AccountCircle />}>
               Профиль
-            </Button>
+            </ButtonProf>
             <Menu
               id="profile-menu"
               anchorEl={anchorEl}
@@ -147,7 +189,11 @@ function Header({
           </div>
         ) : (
           <HeaderSignInContainer>
-            <HeaderSignInText to="/login">Sign In</HeaderSignInText>
+            <HeaderSignInText to="/login">
+            <ButtonProf>
+              Авторизация
+            </ButtonProf>
+            </HeaderSignInText>
           </HeaderSignInContainer>
         )}
       </HeaderUpperContainer>
