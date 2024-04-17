@@ -152,26 +152,32 @@ function Header({
 
   const handlePhysicians = () => {
     navigate("/berlin/doctors/physicians")
+    handleClose1()
   }
 
   const handleStomatologists = () => {
     navigate("/berlin/doctors/stomatologists")
+    handleClose1()
   }
 
   const handlePediatrists = () => {
     navigate("/berlin/doctors/pediatrists")
+    handleClose1()
   }
 
   const handleOrthopedists = () => {
     navigate("/berlin/doctors/orthopedists")
+    handleClose1()
   }
   
   const handleCardiologists = () => {
     navigate("/berlin/doctors/cardiologists")
+    handleClose1()
   }
 
   const handleDermatologists = () => {
     navigate("/berlin/doctors/dermatologists")
+    handleClose1()
   }
   
   return (
@@ -184,14 +190,13 @@ function Header({
           <HeaderSearch type="search" placeholder="search" name="Search" />
         </HeaderSerchContainer>
 
-
-          <HeaderDropdownContainer className="header-dropdown">
-            {/* <DropdownMenu
+        <HeaderDropdownContainer className="header-dropdown">
+          {/* <DropdownMenu
               HeaderDropDown={HeaderDropDown}
               buttonProps={buttonProps}
             /> */}
           <div>
-            <ButtonCity variant="outlined" onClick={handleClickCity} >
+            <ButtonCity variant="outlined" onClick={handleClickCity}>
               Выбери свой город
             </ButtonCity>
             <Menu
@@ -199,7 +204,7 @@ function Header({
               anchorEl={anchorElCity}
               open={Boolean(anchorElCity)}
               onClose={handleCloseCity}
-              >
+            >
               <MenuItem onClick={handleBerlin}>БЕРЛИН</MenuItem>
               <MenuItem onClick={handleMunchen}>МЮНХЕН</MenuItem>
               <MenuItem onClick={handleFran}>ФРАНКФУРТ</MenuItem>
@@ -207,8 +212,7 @@ function Header({
               <MenuItem onClick={handleHamburg}>ГАМБУРГ</MenuItem>
             </Menu>
           </div>
-          </HeaderDropdownContainer>
-
+        </HeaderDropdownContainer>
 
         {authenticated ? (
           <div>
@@ -233,9 +237,7 @@ function Header({
         ) : (
           <HeaderSignInContainer>
             <HeaderSignInText to="/login">
-            <ButtonProf>
-              Авторизация
-            </ButtonProf>
+              <ButtonProf>Авторизация</ButtonProf>
             </HeaderSignInText>
           </HeaderSignInContainer>
         )}
@@ -269,6 +271,7 @@ function Header({
               {/* <Button onClick={handleClick}>Врачи</Button> */}
               <NavigationLink onClick={handleClick1}>Врачи</NavigationLink>
               <Menu
+                id="doctors-menu"
                 anchorEl={anchorEl1}
                 open={Boolean(anchorEl1)}
                 onClose={handleClose1}

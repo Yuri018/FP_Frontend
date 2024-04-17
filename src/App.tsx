@@ -10,12 +10,7 @@ import Hamburg from "pages/Hamburg";
 import AuthRootComponent from "components/auth/Auth";
 import UserAccount from "components/updateUserSubscriptions";
 import FrontalPage_GenInfo from "pages/FrontalPage_GenInfo";
-import Berlin_Restaurants from "pages/Berlin/Berlin_Restaurants";
-import Berlin_Main from "pages/Berlin";
-import Berlin_Children from "pages/Berlin/Berlin_Children";
-import Berlin_Shops from "pages/Berlin/Berlin_Shops";
-import Berlin_LegalServices from "pages/Berlin/Berlin_LegalServices";
-import Berlin_Doctors from "pages/Berlin/Berlin_Doctors";
+import Berlin from "pages/Berlin";
 
 
 function App() {
@@ -26,37 +21,37 @@ function App() {
         <Routes>
           <Route path="/" element={<FrontalPage />} />
           <Route path="/general-info" element={<FrontalPage_GenInfo />} />
-          <Route path="/berlin" element={<Berlin_Main />} />
+          <Route path="/berlin" element={<Berlin />} />
           <Route
             path="/berlin/cafes-restaurants"
-            element={<Berlin_Restaurants />}
+            element={<Berlin />}
           />
-          <Route path="/berlin/children" element={<Berlin_Children />} />
-          <Route path="/berlin/shops" element={<Berlin_Shops />} />
-          <Route path="/berlin/services" element={<Berlin_LegalServices />} />
+          <Route path="/berlin/children" element={<Berlin />} />
+          <Route path="/berlin/shops" element={<Berlin />} />
+          <Route path="/berlin/services" element={<Berlin />} />
           <Route
             path="/berlin/doctors/physicians"
-            element={<Berlin_Doctors />}
+            element={<Berlin />}
           />
           <Route
             path="berlin/doctors/stomatologists"
-            element={<Berlin_Doctors />}
+            element={<Berlin />}
           />
           <Route
             path="/berlin/doctors/pediatrists"
-            element={<Berlin_Doctors />}
+            element={<Berlin />}
           />
           <Route
             path="/berlin/doctors/orthopedists"
-            element={<Berlin_Doctors />}
+            element={<Berlin />}
           />
           <Route
             path="/berlin/doctors/cardiologists"
-            element={<Berlin_Doctors />}
+            element={<Berlin />}
           />
           <Route
             path="/berlin/doctors/dermatologists"
-            element={<Berlin_Doctors />}
+            element={<Berlin />}
           />
           <Route path="/munich" element={<Munich />} />
           <Route path="/frankfurt" element={<Frankfurt />} />
