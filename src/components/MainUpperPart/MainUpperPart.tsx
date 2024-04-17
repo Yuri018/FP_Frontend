@@ -1,7 +1,7 @@
 import { ReactNode } from "react"
+import { Link, useNavigate, useLocation } from "react-router-dom"
 import { useState } from 'react';
-
-import Button from '@mui/material/Button';
+import { Menu, MenuItem } from "@mui/material"
 import ImageComponent from "components/ImageComponent"
 
 import {
@@ -20,7 +20,6 @@ import {
   ImageWrap,
   BackgroundImage100,
   ButtonRead
-
 } from "./styles"
 
 import type { MainUpperPartProps } from "./types"
@@ -28,48 +27,57 @@ import DropdownMenu from "components/DropdownMenu";
 
 
 
-function MainUpperPart({
-  bcgImgDescr,
-  mainTitle,
-  firstImgDescr,
-  secondImgDescr,
-  thirdImgDescr,
-  fourthImgDescr,
-  firstImgTitle,
-  secondImgTitle,
-  thirdImgTitle,
-  fourthImgTitle,
-  isMainPage,
-  isGeneralPage,
-  buttonProps,
-  rightWrapperText
-}: MainUpperPartProps) {
-  const TitleContainer = isMainPage ? MainTitle : PageTitle;
-  const [isShowCityMenu, setIsShowCityMenu] = useState(false);
-  const handleToggle = () => {
-    setIsShowCityMenu(!isShowCityMenu);
+function MainUpperPart(
+  {
+    bcgImgDescr,
+    mainTitle,
+    firstImgDescr,
+    secondImgDescr,
+    thirdImgDescr,
+    fourthImgDescr,
+    fifthImgDescr,
+    firstImgTitle,
+    secondImgTitle,
+    thirdImgTitle,
+    fourthImgTitle,
+    fifthImgTitle,
+    isMainPage,
+    isGeneralPage,
+    buttonProps,
+    rightWrapperText,
+  }: MainUpperPartProps) {
+  const TitleContainer = isMainPage ? MainTitle : PageTitle
+  const navigate = useNavigate()
+  const [anchorElCity, setAnchorElCity] = useState<null | HTMLElement>(null)
+
+  const handleClickCity = (event: any) => {
+    setAnchorElCity(event.currentTarget)
   }
 
-  //  const handleBerlin = () => {
-  //    navigate("/berlin")
-  //    handleCloseCity()
-  //  }
-  //  const handleMunchen = () => {
-  //    navigate("/munich")
-  //    handleCloseCity()
-  //  }
-  //  const handleFran = () => {
-  //    navigate("/frankfurt")
-  //    handleCloseCity()
-  //  }
-  //  const handleDusel = () => {
-  //    navigate("/dusseldorf")
-  //    handleCloseCity()
-  //  }
-  //  const handleHamburg = () => {
-  //    navigate("/hamburg")
-  //    handleCloseCity()
-  //  }
+  const handleCloseCity = () => {
+    setAnchorElCity(null)
+  }
+
+  const handleBerlin = () => {
+    navigate("/berlin")
+    handleCloseCity()
+  }
+  const handleMunchen = () => {
+    navigate("/munich")
+    handleCloseCity()
+  }
+  const handleFran = () => {
+    navigate("/frankfurt")
+    handleCloseCity()
+  }
+  const handleDusel = () => {
+    navigate("/dusseldorf")
+    handleCloseCity()
+  }
+  const handleHamburg = () => {
+    navigate("/hamburg")
+    handleCloseCity()
+  }
 
   return (
     <BcgContainer>
@@ -98,6 +106,12 @@ function MainUpperPart({
             <ImageComponent {...fourthImgDescr} />
           </ImageWrap>
         </NewsContainer>
+        <NewsContainer>
+          <NewsTitleContainer>{fifthImgTitle}</NewsTitleContainer>
+          <ImageWrap>
+            <ImageComponent {...fifthImgDescr} />
+          </ImageWrap>
+        </NewsContainer>
       </UpperNewsContainer>
 
       <BackgroundImageContainer>
@@ -115,21 +129,91 @@ function MainUpperPart({
             </BackgroundImage>
             <RightWraper>
               <RightTitle>НАШИ РАЗДЕЛЫ</RightTitle>
-              <RightLink role="button" onClick={handleToggle}>
+              <RightLink role="button" onClick={handleClickCity}>
                 ВРАЧИ
               </RightLink>
-              <RightLink role="button" onClick={handleToggle}>
+              <div>
+                <Menu
+                  id="city-menu"
+                  anchorEl={anchorElCity}
+                  open={Boolean(anchorElCity)}
+                  onClose={handleCloseCity}
+                >
+                  <MenuItem onClick={handleBerlin}>БЕРЛИН</MenuItem>
+                  <MenuItem onClick={handleMunchen}>МЮНХЕН</MenuItem>
+                  <MenuItem onClick={handleFran}>ФРАНКФУР</MenuItem>
+                  <MenuItem onClick={handleDusel}>ДЮССЕЛЬДОРФ</MenuItem>
+                  <MenuItem onClick={handleHamburg}>ГАМБУРГ</MenuItem>
+                </Menu>
+              </div>
+              <RightLink role="button" onClick={handleClickCity}>
                 ДЕТИ
               </RightLink>
-              <RightLink role="button" onClick={handleToggle}>
+              <div>
+                <Menu
+                  id="city-menu"
+                  anchorEl={anchorElCity}
+                  open={Boolean(anchorElCity)}
+                  onClose={handleCloseCity}
+                >
+                  <MenuItem onClick={handleBerlin}>БЕРЛИН</MenuItem>
+                  <MenuItem onClick={handleMunchen}>МЮНХЕН</MenuItem>
+                  <MenuItem onClick={handleFran}>ФРАНКФУРТ</MenuItem>
+                  <MenuItem onClick={handleDusel}>ДЮССЕЛЬДОРФ</MenuItem>
+                  <MenuItem onClick={handleHamburg}>ГАМБУРГ</MenuItem>
+                </Menu>
+              </div>
+              <RightLink role="button" onClick={handleClickCity}>
                 МАГАЗИНЫ
               </RightLink>
-              <RightLink role="button" onClick={handleToggle}>
+              <div>
+                <Menu
+                  id="city-menu"
+                  anchorEl={anchorElCity}
+                  open={Boolean(anchorElCity)}
+                  onClose={handleCloseCity}
+                >
+                  <MenuItem onClick={handleBerlin}>БЕРЛИН</MenuItem>
+                  <MenuItem onClick={handleMunchen}>МЮНХЕН</MenuItem>
+                  <MenuItem onClick={handleFran}>ФРАНКФУРТ</MenuItem>
+                  <MenuItem onClick={handleDusel}>ДЮССЕЛЬДОРФ</MenuItem>
+                  <MenuItem onClick={handleHamburg}>ГАМБУРГ</MenuItem>
+                </Menu>
+              </div>
+              <RightLink role="button" onClick={handleClickCity}>
                 КАФЕ И РЕСТОРАНЫ
               </RightLink>
-              <RightLink role="button" onClick={handleToggle}>
+              <div>
+                <Menu
+                  id="city-menu"
+                  anchorEl={anchorElCity}
+                  open={Boolean(anchorElCity)}
+                  onClose={handleCloseCity}
+                >
+                  <MenuItem onClick={handleBerlin}>БЕРЛИН</MenuItem>
+                  <MenuItem onClick={handleMunchen}>МЮНХЕН</MenuItem>
+                  <MenuItem onClick={handleFran}>ФРАНКФУРТ</MenuItem>
+                  <MenuItem onClick={handleDusel}>ДЮССЕЛЬДОРФ</MenuItem>
+                  <MenuItem onClick={handleHamburg}>ГАМБУРГ</MenuItem>
+                </Menu>
+              </div>
+              <RightLink role="button" onClick={handleClickCity}>
                 УСЛУГИ
               </RightLink>
+              <div>
+                <Menu
+                  id="city-menu"
+                  anchorEl={anchorElCity}
+                  open={Boolean(anchorElCity)}
+                  onClose={handleCloseCity}
+                >
+                  <MenuItem onClick={handleBerlin}>БЕРЛИН</MenuItem>
+                  <MenuItem onClick={handleMunchen}>МЮНХЕН</MenuItem>
+                  <MenuItem onClick={handleFran}>ФРАНКФУРТ</MenuItem>
+                  <MenuItem onClick={handleDusel}>ДЮССЕЛЬДОРФ</MenuItem>
+                  <MenuItem onClick={handleHamburg}>ГАМБУРГ</MenuItem>
+                </Menu>
+              </div>
             </RightWraper>
           </>
         )}
