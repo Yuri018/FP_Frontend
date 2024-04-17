@@ -67,6 +67,7 @@ function Header({
 
   const { authenticated, name, authorities } = useSelector(userSelectors)
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
+  const [anchorElCity, setAnchorElCity] = useState<null | HTMLElement>(null)
 
   const [anchorEl1, setAnchorEl1] = useState<null | HTMLElement>(null)
   const [anchorEl2, setAnchorEl2] = useState<null | HTMLElement>(null)
