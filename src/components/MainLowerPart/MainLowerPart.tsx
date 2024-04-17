@@ -45,6 +45,8 @@ function MainLowerPart() {
           endpoint = "/general_news/except/GENERAL_INFO"
         } else if (location.pathname === "/general-info") {
           endpoint = "/general_news/get_info_by/GENERAL_INFO"
+        } else if (location.pathname === "/berlin") {
+          endpoint = "/berlin_news"
         }
 
         const response = await instance.get<NewsProps[]>(endpoint)
@@ -81,9 +83,13 @@ function MainLowerPart() {
           endpoint = "/berlin/doctors_info/cardiologist"
         } else if (location.pathname === "/berlin/doctors/dermatologists") {
           endpoint = "/berlin/doctors_info/dermatologist"
-        }
-
-        
+        } else if (location.pathname === "/berlin/services/legal_services") {
+          endpoint = "/berlin/legal_services_info"
+        } else if (location.pathname === "/berlin/services/translators") {
+          endpoint = "/berlin/translators_info"
+        } else if (location.pathname === "/berlin/services/hair_beauty") {
+          endpoint = "/berlin/hair_beauty_info"
+        }        
         const response = await instance.get<InfoProps[]>(endpoint)
         setinfoData(response.data)
       } catch (error) {
@@ -108,63 +114,90 @@ function MainLowerPart() {
           ) : (
             <div>Loading...</div>
           ))}
+        {location.pathname === "/berlin" &&
+          (newsData.length > 0 ? (
+            <NewsList newsList={newsData} />
+          ) : (
+            <div>Loading...</div>
+          ))}
         {location.pathname === "/berlin/cafes-restaurants" &&
           (infoData.length > 0 ? (
-            <InfoList infoList={infoData} endpoint={"/berlin/restaurants_info"} />
+            <InfoList
+              infoList={infoData}
+              endpoint={"/berlin/restaurants_info"}
+            />
           ) : (
             <div>Loading...</div>
           ))}
         {location.pathname === "/berlin/children" &&
           (infoData.length > 0 ? (
-            <InfoList infoList={infoData} endpoint={"/berlin/children_info"}/>
+            <InfoList infoList={infoData} endpoint={"/berlin/children_info"} />
           ) : (
             <div>Loading...</div>
           ))}
         {location.pathname === "/berlin/shops" &&
           (infoData.length > 0 ? (
-            <InfoList infoList={infoData} />
+            <InfoList infoList={infoData} endpoint={""} />
           ) : (
             <div>Loading...</div>
           ))}
         {location.pathname === "/berlin/services" &&
           (infoData.length > 0 ? (
-            <InfoList infoList={infoData} />
+            <InfoList infoList={infoData} endpoint={""} />
           ) : (
             <div>Loading...</div>
           ))}
         {location.pathname === "/berlin/doctors/physicians" &&
           (infoData.length > 0 ? (
-            <InfoList infoList={infoData} />
+            <InfoList infoList={infoData} endpoint={""} />
           ) : (
             <div>Loading...</div>
           ))}
         {location.pathname === "/berlin/doctors/stomatologists" &&
           (infoData.length > 0 ? (
-            <InfoList infoList={infoData} />
+            <InfoList infoList={infoData} endpoint={""} />
           ) : (
             <div>Loading...</div>
           ))}
         {location.pathname === "/berlin/doctors/pediatrists" &&
           (infoData.length > 0 ? (
-            <InfoList infoList={infoData} />
+            <InfoList infoList={infoData} endpoint={""} />
           ) : (
             <div>Loading...</div>
           ))}
         {location.pathname === "/berlin/doctors/orthopedists" &&
           (infoData.length > 0 ? (
-            <InfoList infoList={infoData} />
+            <InfoList infoList={infoData} endpoint={""} />
           ) : (
             <div>Loading...</div>
           ))}
         {location.pathname === "/berlin/doctors/cardiologists" &&
           (infoData.length > 0 ? (
-            <InfoList infoList={infoData} />
+            <InfoList infoList={infoData} endpoint={""} />
           ) : (
             <div>Loading...</div>
           ))}
         {location.pathname === "/berlin/doctors/dermatologists" &&
           (infoData.length > 0 ? (
-            <InfoList infoList={infoData} />
+            <InfoList infoList={infoData} endpoint={""} />
+          ) : (
+            <div>Loading...</div>
+          ))}
+        {location.pathname === "/berlin/services/legal_services" &&
+          (infoData.length > 0 ? (
+            <InfoList infoList={infoData} endpoint={""} />
+          ) : (
+            <div>Loading...</div>
+          ))}
+        {location.pathname === "/berlin/services/translators" &&
+          (infoData.length > 0 ? (
+            <InfoList infoList={infoData} endpoint={""} />
+          ) : (
+            <div>Loading...</div>
+          ))}
+        {location.pathname === "/berlin/services/hair_beauty" &&
+          (infoData.length > 0 ? (
+            <InfoList infoList={infoData} endpoint={""} />
           ) : (
             <div>Loading...</div>
           ))}
