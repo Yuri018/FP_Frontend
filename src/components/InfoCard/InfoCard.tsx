@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import InfoCardEdit from 'components/InfoCardEdit';
-import { CardActionArea, CardContent, Typography, CardActions } from '@mui/material';
-import { MyButton, MyCard, MyCardActions } from './styles';
+import { CardActionArea, CardContent, Typography, CardActions, DialogContent } from '@mui/material';
+import { MyButton, MyCard, MyCardActions, MyCardContent } from './styles';
 import { useSelector } from "react-redux"
 import { userSelectors } from "../../store/user/selectors";
 
@@ -44,9 +44,8 @@ const InfoCard: React.FC<InfoCardProps> = ({ info, endpoint }: InfoCardProps) =>
   return (
     <>
       <MyCard>
-        <CardActionArea>
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
+        <DialogContent>
+          <Typography gutterBottom variant="h5" component="h2">
               {info.title}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
@@ -64,8 +63,7 @@ const InfoCard: React.FC<InfoCardProps> = ({ info, endpoint }: InfoCardProps) =>
                 <b>Сайт:</b> {info.link}
               </Typography>
             )}
-          </CardContent>
-        </CardActionArea>
+        </DialogContent>
         <MyCardActions sx={{ padding: 2 }}>
 
           {authorities.some(

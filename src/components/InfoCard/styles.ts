@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Button from "@mui/material/Button";
 import CardMedia from "@mui/material/CardMedia";
-import { CardActions } from '@mui/material';
+import { CardActions, CardContent } from '@mui/material';
 import Card from "@mui/material/Card";
 
 export const MyButton = styled(Button)`
@@ -29,5 +29,10 @@ export const MyCard = styled(Card)`
 export const MyCardActions = styled(CardActions)`
     && {
         margin-top: auto;
+    }
+`;
+export const MyCardContent = styled(CardContent)`
+    && {
+        cursor: auto;
     }
 `;

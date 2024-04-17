@@ -11,13 +11,13 @@ export const MainLowerPartContainer = styled.section`
 export const MainLowerPartFlex = styled.div`
   display: flex;
   align-items: stretch;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
 `;
 
 export const MainLowerPartItem = styled.div`
-  width: calc(25% - 10px);
-  padding-bottom: 20px;
+  width: 25%;
+  padding: 20px 10px;
   min-height: 100%;
 `;
 
