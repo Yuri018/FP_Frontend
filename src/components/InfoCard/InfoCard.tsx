@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import InfoCardEdit from 'components/InfoCardEdit';
 import { CardActionArea, CardContent, Typography, CardActions } from '@mui/material';
-import { MyButton, MyCardMedia, MyCard } from './styles';
+import { MyButton, MyCard, MyCardActions } from './styles';
 import { useSelector } from "react-redux"
 import { userSelectors } from "../../store/user/selectors";
 
@@ -66,7 +66,7 @@ const InfoCard: React.FC<InfoCardProps> = ({ info, endpoint }: InfoCardProps) =>
             )}
           </CardContent>
         </CardActionArea>
-        <CardActions sx={{ padding: 2 }}>
+        <MyCardActions sx={{ padding: 2 }}>
 
           {authorities.some(
             authority => authority.authority === "ROLE_ADMIN",
@@ -76,7 +76,7 @@ const InfoCard: React.FC<InfoCardProps> = ({ info, endpoint }: InfoCardProps) =>
               </MyButton>
             )}
 
-        </CardActions>
+        </MyCardActions>
       </MyCard>
 
       {/* Диалоговое окно редактирования */}
