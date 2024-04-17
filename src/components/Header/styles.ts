@@ -7,14 +7,14 @@ export const HeaderDropdownContainer = styled.div`
   margin-left: auto;
   margin-right: 10px;
   &.header-dropdown {
-    .jZXYnT {
+    .bPfFzg {
       background: transparent;
       border: 1px solid ${colors.baseGrey80};
       color: ${colors.baseGrey80};
       min-height: auto;
       padding: 9px 30px;
     }
-    .iMUODL {
+    .bgHiWT {
       top: 100%;
       left: 50%;
       transform: translate(-50%, 0);

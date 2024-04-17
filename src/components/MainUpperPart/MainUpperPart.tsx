@@ -1,7 +1,7 @@
 import { ReactNode } from "react"
 import { useState } from 'react';
 
-import Button from "components/Button"
+import Button from '@mui/material/Button';
 import ImageComponent from "components/ImageComponent"
 
 import {
@@ -18,7 +18,8 @@ import {
   PageTitle,
   RightWraper,
   ImageWrap,
-  RightWraper1,
+  BackgroundImage100,
+  ButtonRead
 } from "./styles"
 
 import type { MainUpperPartProps } from "./types"
@@ -39,7 +40,8 @@ function MainUpperPart({
   fourthImgTitle,
   isMainPage,
   isGeneralPage,
-  buttonProps
+  buttonProps,
+  rightWrapperText
 }: MainUpperPartProps) {
   const TitleContainer = isMainPage ? MainTitle : PageTitle;
   const [isShowCityMenu, setIsShowCityMenu] = useState(false);
@@ -76,17 +78,18 @@ function MainUpperPart({
       </UpperNewsContainer>
 
       <BackgroundImageContainer>
-        <BackgroundImage>
-          <ImageComponent {...bcgImgDescr} />
-          <TitleContainer>{mainTitle}</TitleContainer>
-          <ButtonContainer $isGeneralPage={isGeneralPage}>
-            <DropdownMenu
-              isGeneralPage={isGeneralPage}
-              buttonProps={buttonProps}
-            />
-          </ButtonContainer>
-        </BackgroundImage>
         {isGeneralPage && (
+          <>
+            <BackgroundImage>
+            <ImageComponent {...bcgImgDescr} />
+            <TitleContainer>{mainTitle}</TitleContainer>
+            <ButtonContainer $isGeneralPage={isGeneralPage}>
+              <DropdownMenu
+                isGeneralPage={isGeneralPage}
+                buttonProps={buttonProps}
+              />
+            </ButtonContainer>
+          </BackgroundImage>
           <RightWraper>
             <RightTitle>НАШИ РАЗДЕЛЫ</RightTitle>
             <RightLink href="#">ВРАЧИ</RightLink>
@@ -95,8 +98,21 @@ function MainUpperPart({
             <RightLink href="#">КАФЕ И РЕСТОРАНЫ</RightLink>
             <RightLink href="#">УСЛУГИ</RightLink>
           </RightWraper>
+          </>
         )}
-        <RightWraper1> Адвокаты Берлина </RightWraper1>
+        {!isGeneralPage && (
+        <BackgroundImage100>
+          <ImageComponent {...bcgImgDescr} /> 
+          <TitleContainer>{mainTitle}</TitleContainer>
+
+          <ButtonContainer>
+            <ButtonRead variant="contained" disableElevation size="large">
+              Читать
+            </ButtonRead>
+          </ButtonContainer>
+
+        </BackgroundImage100>
+        )}
       </BackgroundImageContainer>
     </BcgContainer>
   )
