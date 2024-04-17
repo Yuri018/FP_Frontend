@@ -96,13 +96,13 @@ function MainLowerPart() {
           ))}
         {location.pathname === "/berlin/cafes-restaurants" &&
           (infoData.length > 0 ? (
-            <InfoList infoList={infoData} category={"restaurants_info"} />
+            <InfoList infoList={infoData} endpoint={"/berlin/restaurants_info"} />
           ) : (
             <div>Loading...</div>
           ))}
         {location.pathname === "/berlin/children" &&
           (infoData.length > 0 ? (
-            <InfoList infoList={infoData} category={"children_info"}/>
+            <InfoList infoList={infoData} endpoint={"/berlin/children_info"}/>
           ) : (
             <div>Loading...</div>
           ))}

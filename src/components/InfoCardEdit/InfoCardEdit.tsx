@@ -20,10 +20,10 @@ interface InfoEditDialogProps {
   open: boolean;
   onClose: () => void;
   info: Info;
-  category: string
+  endpoint: string
 }
 
-function InfoEditDialog({ open, onClose, info, category }: InfoEditDialogProps) {
+function InfoCardEdit({ open, onClose, info, endpoint }: InfoEditDialogProps) {
   const [editedInfo, setEditedInfo] = useState<Info>({
     id: info.id,
     link: info.link,
@@ -46,7 +46,7 @@ function InfoEditDialog({ open, onClose, info, category }: InfoEditDialogProps) 
   const handleSubmit = async (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     try {
-      await instance.put(`/${editedInfo.city.name}/${category}/admin`, editedInfo);
+      await instance.put(`${endpoint}/admin`, editedInfo);
       console.log("User data updated successfully:", editedInfo);
       onClose()
       window.location.reload(); // Перезагрузка страницы
@@ -57,7 +57,7 @@ function InfoEditDialog({ open, onClose, info, category }: InfoEditDialogProps) 
 
   const handleDelete = async () => {
     try {
-      await instance.delete(`/${editedInfo.city.name}/${category}/admin/${editedInfo.id}`);
+      await instance.delete(`${endpoint}/admin/${editedInfo.id}`);
       console.log("User data deleted successfully:", editedInfo.id);
       onClose()
       window.location.reload(); // Перезагрузка страницы
@@ -151,4 +151,4 @@ function InfoEditDialog({ open, onClose, info, category }: InfoEditDialogProps) 
   );
 };
 
-export default InfoEditDialog;
+export default InfoCardEdit;

@@ -1,3 +1,3 @@
-import InfoEditDialog from "./InfoEditDialog";
+import InfoCardEdit from "./InfoCardEdit";
 
-export default InfoEditDialog;
+export default InfoCardEdit;

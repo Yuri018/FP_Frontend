@@ -1,10 +1,12 @@
 import InfoCard from 'components/InfoCard/InfoCard';
 import { v4 as uuidv4 } from "uuid"
+import { Button } from '@mui/material';
+import { useState } from 'react';
+import { MainLowerPartFlex, MainLowerPartItem } from "./styles";
+import InfoCardAdd from "components/InfoCardAdd"
+import { useSelector } from "react-redux"
+import { userSelectors } from "../../store/user/selectors";
 
-import {
-    MainLowerPartFlex,
-    MainLowerPartItem,
-  } from "./styles";
 
 
 export interface InfoProps {
@@ -18,24 +20,63 @@ export interface InfoProps {
   city: {
     id: number;
     name: string;
-  };}
+  };
+}
 
 export interface InfoListProps {
   infoList: InfoProps[];
-  category: string
+  endpoint: string
 }
 
-const InfoList: React.FC<InfoListProps> = ({ infoList, category }) => {
+function InfoList({ infoList, endpoint }: InfoListProps) {
+  const [addDialogOpen, setAddDialogOpen] = useState(false);
+  const { authorities } = useSelector(userSelectors)
+
+  const handleAddDialogOpen = () => {
+    setAddDialogOpen(true);
+  };
+
+  const handleAddDialogClose = () => {
+    setAddDialogOpen(false);
+  };
+
   return (
-    <MainLowerPartFlex>
-      {infoList.map(info => (       
-        <MainLowerPartItem key={uuidv4()}>
-          <InfoCard info={info} category={category}/>
-        </MainLowerPartItem>
-        
-      ))}
-    </MainLowerPartFlex>
-  )
+    <>
+      {authorities.some(
+        authority => authority.authority === "ROLE_ADMIN",
+      ) && (
+
+          <Button onClick={handleAddDialogOpen} variant="contained" color="primary">
+            Добавить
+          </Button>
+        )}
+
+      <MainLowerPartFlex>
+
+        {addDialogOpen && (
+          <InfoCardAdd
+            open={addDialogOpen}
+            onClose={handleAddDialogClose}
+            info={{
+              title: '',
+              description: '',
+              address: '',
+              tel: '',
+              link: '',
+              status: 0,
+            }}
+            endpoint={endpoint}
+          />
+        )}
+
+        {infoList.map(info => (
+          <MainLowerPartItem key={uuidv4()}>
+            <InfoCard info={info} endpoint={endpoint} />
+          </MainLowerPartItem>
+        ))}
+      </MainLowerPartFlex>
+    </>
+  );
 };
 
 export default InfoList;

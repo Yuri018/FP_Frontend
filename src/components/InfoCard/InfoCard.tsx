@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
-import InfoEditDialog from 'components/InfoCardEdit'; // Импортируем компонент InfoEditDialog
+import InfoCardEdit from 'components/InfoCardEdit';
 import { CardActionArea, CardContent, Typography, CardActions } from '@mui/material';
 import { MyButton, MyCardMedia, MyCard } from './styles';
+import { useSelector } from "react-redux"
+import { userSelectors } from "../../store/user/selectors";
+
+
 
 interface Info {
   id: number;
@@ -14,15 +18,20 @@ interface Info {
   city: {
     id: number;
     name: string;
-  };}
+  };
+}
 
 interface InfoCardProps {
   info: Info;
-  category: string;
+  endpoint: string;
 }
 
-const InfoCard: React.FC<InfoCardProps> = ({ info, category }: InfoCardProps) => {
+
+
+const InfoCard: React.FC<InfoCardProps> = ({ info, endpoint }: InfoCardProps) => {
   const [editDialogOpen, setEditDialogOpen] = useState(false);
+  const { authorities } = useSelector(userSelectors)
+
 
   const handleEditDialogOpen = () => {
     setEditDialogOpen(true);
@@ -58,14 +67,20 @@ const InfoCard: React.FC<InfoCardProps> = ({ info, category }: InfoCardProps) =>
           </CardContent>
         </CardActionArea>
         <CardActions sx={{ padding: 2 }}>
-          <MyButton size="small" variant="contained" color="primary" onClick={handleEditDialogOpen}>
-            Редактировать
-          </MyButton>
+
+          {authorities.some(
+            authority => authority.authority === "ROLE_ADMIN",
+          ) && (
+              <MyButton size="small" variant="contained" color="primary" onClick={handleEditDialogOpen}>
+                Редактировать
+              </MyButton>
+            )}
+
         </CardActions>
       </MyCard>
 
       {/* Диалоговое окно редактирования */}
-      <InfoEditDialog open={editDialogOpen} onClose={handleEditDialogClose} info={info} category={category} />
+      <InfoCardEdit open={editDialogOpen} onClose={handleEditDialogClose} info={info} endpoint={endpoint} />
     </>
   )
 };
