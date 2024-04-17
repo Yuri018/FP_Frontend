@@ -62,6 +62,7 @@ export const ImageComponentWrap = styled.i`
 
 export const HeaderSearch = styled.input`
   padding: 8px 8px 8px 25px;
+  width: 450px;
   font-family: 'Montserrat'; 
   font-size: 14px;
   border: 1px solid ${colors.baseGray30};

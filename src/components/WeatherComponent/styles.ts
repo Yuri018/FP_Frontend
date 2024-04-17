@@ -3,7 +3,7 @@ import { styled } from "styled-components"
 export const WeatherWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end; 
   width: 330px;
 `
 

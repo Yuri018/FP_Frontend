@@ -27,7 +27,6 @@ interface InfoCardProps {
 }
 
 
-
 const InfoCard: React.FC<InfoCardProps> = ({ info, endpoint }: InfoCardProps) => {
   const [editDialogOpen, setEditDialogOpen] = useState(false);
   const { authorities } = useSelector(userSelectors)

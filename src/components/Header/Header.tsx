@@ -52,18 +52,33 @@ interface HeaderProps {
   rightNavLinks?: NavLink[]
 }
 
+interface Info {
+  id: number
+  title: string
+  description: string
+  address: string
+  tel: string
+  link: string
+  status: number
+  city: {
+    id: number
+    name: string
+  }
+}
+
+interface SearchResponse {
+  info: Info  
+}
+
 function Header({
   logoText,
   logoImgDescr,
-  city,
-  HeaderDropDown,
-  buttonProps,
+  city, 
   rightNavLinks,
 }: HeaderProps) {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const location = useLocation()
-  const cookies = new Cookies()
+  const location = useLocation() 
 
   const { authenticated, name, authorities } = useSelector(userSelectors)
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
@@ -71,6 +86,9 @@ function Header({
 
   const [anchorEl1, setAnchorEl1] = useState<null | HTMLElement>(null)
   const [anchorEl2, setAnchorEl2] = useState<null | HTMLElement>(null)
+
+  const [query, setQuery] = useState<string>("")
+  
     //--------------------------------
     useEffect(() => {
       async function fetchUserData() {
@@ -199,6 +217,30 @@ function Header({
     navigate("/berlin/services/hair_beauty")
     handleClose2()
   }
+
+  
+
+  const handleSearch = async () => {
+    try {
+      const response = await instance.get<SearchResponse>(
+        `/search?query=${query}`,
+      )
+      // Обрабатываем ответ от бэкенда здесь
+      console.log("Результаты поиска:", response.data)
+    } catch (error) {
+      console.error("Ошибка при выполнении поиска:", error)
+    }
+  }
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(event.target.value)
+  }
+
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      handleSearch()
+    }
+  }
   
   return (
     <MainContainer>
@@ -207,7 +249,15 @@ function Header({
           <ImageComponentWrap>
             <ImageComponent src={SearchIcon} />
           </ImageComponentWrap>
-          <HeaderSearch type="search" placeholder="search" name="Search" />
+          {/* <HeaderSearch type="search" placeholder="Поиск" name="Search" /> */}
+          <HeaderSearch
+        type="search"
+        placeholder="search"
+        name="Search"
+        value={query}
+        onChange={handleInputChange}
+        onKeyDown={handleKeyPress}
+      />
         </HeaderSerchContainer>
 
         <HeaderDropdownContainer className="header-dropdown">
