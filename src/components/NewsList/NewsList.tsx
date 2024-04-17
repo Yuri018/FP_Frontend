@@ -1,5 +1,5 @@
-import NewsCard from 'components/NewsCard';
 import { v4 as uuidv4 } from "uuid"
+import NewsCard from "components/NewsCard"
 
 import {
     MainLowerPartFlex,
@@ -19,13 +19,13 @@ export interface NewsListProps {
 }
 
 function NewsList({ newsList }: NewsListProps) {
+
   return (
-    <MainLowerPartFlex>
-      {newsList.map((news: NewsProps) => (       
+    <MainLowerPartFlex >
+      {newsList.map((news: NewsProps) => (
         <MainLowerPartItem key={uuidv4()}>
           <NewsCard news={news} />
         </MainLowerPartItem>
-        
       ))}
     </MainLowerPartFlex>
   )

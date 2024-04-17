@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef, useLayoutEffect } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import InfoList from "components/InfoList/InfoList"
 import NewsList from "components/NewsList/NewsList"
@@ -36,7 +36,7 @@ function MainLowerPart() {
   const location = useLocation()
   const [newsData, setNewsData] = useState<NewsProps[]>([])
   const [infoData, setinfoData] = useState<InfoProps[]>([])
-
+  
   useEffect(() => {
     async function fetchNewsData() {
       try {
@@ -50,15 +50,15 @@ function MainLowerPart() {
         }
 
         const response = await instance.get<NewsProps[]>(endpoint)
-        setNewsData(response.data)
+        setNewsData(response.data)                
       } catch (error) {
         console.error("Error fetching news data:", error)
       }
     }
-    fetchNewsData()
-  }, [location.pathname])
+    fetchNewsData()    
+  }, [location.pathname]) 
 
-  useEffect(() => {
+   useEffect(() => {
     async function fetchInfoData() {
       try {
 
@@ -91,15 +91,16 @@ function MainLowerPart() {
           endpoint = "/berlin/hair_beauty_info"
         }        
         const response = await instance.get<InfoProps[]>(endpoint)
-        setinfoData(response.data)
+        setinfoData(response.data)       
       } catch (error) {
         console.error("Error fetching news data:", error)
       }
     }
-    fetchInfoData()
+    fetchInfoData()    
   }, [location.pathname])
-
+    
   return (
+    // <MainLowerPartContainer ref={mainContentRef}>
     <MainLowerPartContainer>
       <MainLowerPartFlex>
         {location.pathname === "/" &&
@@ -140,7 +141,7 @@ function MainLowerPart() {
             <InfoList infoList={infoData} endpoint={"/berlin/shops_info"} />
           ) : (
             <div>Loading...</div>
-          ))}        
+          ))}
         {location.pathname === "/berlin/doctors/physicians" &&
           (infoData.length > 0 ? (
             <InfoList

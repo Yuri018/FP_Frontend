@@ -49,6 +49,28 @@ function MainUpperPart({
   const handleToggle = () => {
     setIsShowCityMenu(!isShowCityMenu);
   }
+
+  //  const handleBerlin = () => {
+  //    navigate("/berlin")
+  //    handleCloseCity()
+  //  }
+  //  const handleMunchen = () => {
+  //    navigate("/munich")
+  //    handleCloseCity()
+  //  }
+  //  const handleFran = () => {
+  //    navigate("/frankfurt")
+  //    handleCloseCity()
+  //  }
+  //  const handleDusel = () => {
+  //    navigate("/dusseldorf")
+  //    handleCloseCity()
+  //  }
+  //  const handleHamburg = () => {
+  //    navigate("/hamburg")
+  //    handleCloseCity()
+  //  }
+
   return (
     <BcgContainer>
       <UpperNewsContainer>
@@ -82,37 +104,46 @@ function MainUpperPart({
         {isGeneralPage && (
           <>
             <BackgroundImage>
-            <ImageComponent {...bcgImgDescr} />
-            <TitleContainer>{mainTitle}</TitleContainer>
-            <ButtonContainer $isGeneralPage={isGeneralPage}>
-              <DropdownMenu
-                isGeneralPage={isGeneralPage}
-                buttonProps={buttonProps}
-              />
-            </ButtonContainer>
-          </BackgroundImage>
-          <RightWraper>
-            <RightTitle>НАШИ РАЗДЕЛЫ</RightTitle>
-            <RightLink href="#">ВРАЧИ</RightLink>
-            <RightLink href="#">ДЕТИ</RightLink>
-            <RightLink href="#">МАГАЗИНЫ</RightLink>
-            <RightLink href="#">КАФЕ И РЕСТОРАНЫ</RightLink>
-            <RightLink href="#">УСЛУГИ</RightLink>
-          </RightWraper>
+              <ImageComponent {...bcgImgDescr} />
+              <TitleContainer>{mainTitle}</TitleContainer>
+              <ButtonContainer $isGeneralPage={isGeneralPage}>
+                <DropdownMenu
+                  isGeneralPage={isGeneralPage}
+                  buttonProps={buttonProps}
+                />
+              </ButtonContainer>
+            </BackgroundImage>
+            <RightWraper>
+              <RightTitle>НАШИ РАЗДЕЛЫ</RightTitle>
+              <RightLink role="button" onClick={handleToggle}>
+                ВРАЧИ
+              </RightLink>
+              <RightLink role="button" onClick={handleToggle}>
+                ДЕТИ
+              </RightLink>
+              <RightLink role="button" onClick={handleToggle}>
+                МАГАЗИНЫ
+              </RightLink>
+              <RightLink role="button" onClick={handleToggle}>
+                КАФЕ И РЕСТОРАНЫ
+              </RightLink>
+              <RightLink role="button" onClick={handleToggle}>
+                УСЛУГИ
+              </RightLink>
+            </RightWraper>
           </>
         )}
         {!isGeneralPage && (
-        <BackgroundImage100>
-          <ImageComponent {...bcgImgDescr} /> 
-          <TitleContainer>{mainTitle}</TitleContainer>
+          <BackgroundImage100>
+            <ImageComponent {...bcgImgDescr} />
+            <TitleContainer>{mainTitle}</TitleContainer>
 
-          <ButtonContainer>
-            <ButtonRead variant="contained" disableElevation size="large">
-              Читать
-            </ButtonRead>
-          </ButtonContainer>
-
-        </BackgroundImage100>
+            <ButtonContainer>
+              <ButtonRead variant="contained" disableElevation size="large">
+                Читать
+              </ButtonRead>
+            </ButtonContainer>
+          </BackgroundImage100>
         )}
       </BackgroundImageContainer>
     </BcgContainer>

@@ -11,6 +11,7 @@ import AuthRootComponent from "components/auth/Auth";
 import UserAccount from "components/updateUserSubscriptions";
 import FrontalPage_GenInfo from "pages/FrontalPage_GenInfo";
 import Berlin from "pages/Berlin";
+import InfoSearchPage from "pages/InfoSearchPage";
 
 
 function App() {
@@ -20,8 +21,9 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<FrontalPage />} />
+          <Route path="/search" element={<InfoSearchPage />} />
           <Route path="/general-info" element={<FrontalPage_GenInfo />} />
-          <Route path="/berlin" element={<Berlin />} />          
+          <Route path="/berlin" element={<Berlin />} />
           <Route path="/berlin/cafes-restaurants" element={<Berlin />} />
           <Route path="/berlin/children" element={<Berlin />} />
           <Route path="/berlin/shops" element={<Berlin />} />
