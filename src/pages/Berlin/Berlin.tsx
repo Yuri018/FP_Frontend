@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom"
-
 import MainUpperPart from "components/MainUpperPart"
 import Header from "components/Header"
 import MainLowerPart from "components/MainLowerPart"
 import Footer from "components/Footer"
 import MainMiddlePart from "components/MainMiddlePart"
+
 
 import {
   BerlinImg,
@@ -46,13 +46,14 @@ function Berlin() {
   const handleReadButton = (path: string) => {
     navigate(readButtonPath)
   }
-
+ 
   return (
     <>
       <Header
         logoImgDescr={{ src: BerlinLogo, alt: "BerlinLogo" }}
         logoText="Берлин и Бранденбург"
-        city="Берлин"
+        cityName="Берлин"
+        city="berlin"
         HeaderDropDown={true}
         rightNavLinks={cityNavLinks}
       />
@@ -74,8 +75,8 @@ function Berlin() {
         readButtonPath={readButtonPath}
         handleReadButton={handleReadButton}
       />
-      <MainLowerPart />
-      <MainLowerPart />
+      <MainLowerPart city="berlin" />
+
       <Footer />
     </>
   )

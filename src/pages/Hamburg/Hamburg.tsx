@@ -18,11 +18,11 @@ import { useNavigate } from "react-router-dom"
 function Hamburg() {
 
   const cityNavLinks = [
-    { to: "/berlin/doctors", text: "Врачи" },
-    { to: "/berlin/children", text: "Дети" },
-    { to: "/berlin/shops", text: "Магазины" },
-    { to: "/berlin/cafes-restaurants", text: "Кафе и рестораны" },
-    { to: "/berlin/services", text: "Услуги" },
+    { to: "/hamburg/doctors", text: "Врачи" },
+    { to: "/hamburg/children", text: "Дети" },
+    { to: "/hamburg/shops", text: "Магазины" },
+    { to: "/hamburg/cafes-restaurants", text: "Кафе и рестораны" },
+    { to: "/hamburg/services", text: "Услуги" },
   ]
 
   const navigate = useNavigate()
@@ -37,7 +37,8 @@ function Hamburg() {
       <Header
         logoImgDescr={{ src: HamburgLogo, alt: "HamburgLogo" }}
         logoText="Гамбург"
-        city="Гамбург"
+        cityName="Гамбург"
+        city="hamburg"
         HeaderDropDown={true}
         rightNavLinks={cityNavLinks}
       />
@@ -59,7 +60,7 @@ function Hamburg() {
         readButtonPath={readButtonPath}
         handleReadButton={handleReadButton}
       />
-      <MainLowerPart />
+      <MainLowerPart city="hamburg" />
       <Footer />
     </>
   )
