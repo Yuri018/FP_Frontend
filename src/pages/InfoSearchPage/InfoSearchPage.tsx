@@ -1,89 +1,72 @@
-import Header from "components/Header"
-import {
-  GermanMainLogo,
-} from "assets"
-import Footer from "components/Footer"
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { searchSelectors } from '../../store/search/selectors';
+import { GermanMainLogo } from 'assets';
+import { Typography, Grid, Card, CardContent, CardActions } from '@mui/material';
+import Header from 'components/Header';
+import Footer from 'components/Footer';
+import { styled } from '@mui/system';
 
-import React, { useState } from 'react';
-import InfoCardEdit from 'components/InfoCardEdit';
-import { CardActionArea, CardContent, Typography, CardActions, DialogContent } from '@mui/material';
-import { MyButton, MyCard, MyCardActions, MyCardContent } from './styles';
+const MainLowerPartFlex = styled(Grid)({
+  display: 'flex',
+  justifyContent: 'space-between',
+  flexWrap: 'wrap',
+});
 
-import { v4 as uuidv4 } from "uuid"
-import { Button } from '@mui/material';
-import { MainLowerPartFlex, MainLowerPartItem } from "./styles";
-import InfoCardAdd from "components/InfoCardAdd"
-import InfoCard from "components/InfoCard/InfoCard"
+const MainLowerPartItem = styled(Grid)({
+  width: 'calc(25% - 20px)', // Adjusting for margin
+  margin: '10px',
+});
 
-import { useSelector } from "react-redux"
-import { userSelectors } from "../../store/user/selectors";
-import { searchSelectors } from "../../store/search/selectors";
-
-
+const InfoCard = styled(Card)({
+  display: 'flex',
+  flexDirection: 'column',
+  height: '100%',
+});
 
 function InfoSearchPage() {
-  const { searchResults } = useSelector(searchSelectors)
-
+  const { searchResults } = useSelector(searchSelectors);
 
   return (
     <>
       <Header
-        logoImgDescr={{ src: GermanMainLogo, alt: "GermanMainLogo" }}
+        logoImgDescr={{ src: GermanMainLogo, alt: 'GermanMainLogo' }}
         city="Берлин"
-        HeaderDropDown={false}
-        buttonProps={{
-          name: "Выбери свой",
-          type: "button",
-        }}
       />
 
-
-      <>
-        <MainLowerPartFlex >
-
-          {searchResults.map(info => (
-            <MainLowerPartItem key={uuidv4()}>
-
-
-
-              <MyCard>
-                <DialogContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    {info.title}
-                  </Typography>
+      <MainLowerPartFlex container spacing={2}>
+        {searchResults.map((info, index) => (
+          <MainLowerPartItem key={index} item>
+            <InfoCard>
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                  {info.title}
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  {info.description}
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  <br />
+                  <b>Адрес:</b> {info.address}
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  <b>Тел.:</b> {info.tel}
+                </Typography>
+                {info.link && (
                   <Typography variant="body2" color="textSecondary" component="p">
-                    {info.description}
+                    <b>Сайт:</b> {info.link}
                   </Typography>
-                  <Typography variant="body2" color="textSecondary" component="p">
-                    <br />
-                    <b>Адрес:</b> {info.address}
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary" component="p">
-                    <b>Тел.:</b> {info.tel}
-                  </Typography>
-                  {info.link && (
-                    <Typography variant="body2" color="textSecondary" component="p">
-                      <b>Сайт:</b> {info.link}
-                    </Typography>
-                  )}
-                </DialogContent>
-                <MyCardActions sx={{ padding: 2 }}>
-
-                </MyCardActions>
-              </MyCard>
-
-
-            </MainLowerPartItem>
-          ))}
-        </MainLowerPartFlex>
-
-
-      </>
-
+                )}
+              </CardContent>
+              <CardActions sx={{ padding: 2 }} />
+            </InfoCard>
+          </MainLowerPartItem>
+        ))}
+      </MainLowerPartFlex>
 
       <Footer />
     </>
-  )
+  );
 }
 
-export default InfoSearchPage
+export default InfoSearchPage;
