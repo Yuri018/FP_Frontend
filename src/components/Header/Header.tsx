@@ -47,6 +47,7 @@ interface NavLink {
 interface HeaderProps {
   logoText?: string
   logoImgDescr?: { src: string; alt: string }
+  cityName: string
   city: string
   HeaderDropDown?: boolean
   isGeneralPage?: boolean
@@ -75,6 +76,7 @@ interface SearchResponse {
 function Header({
   logoText,
   logoImgDescr,
+  cityName,
   city, 
   rightNavLinks,
 }: HeaderProps) {
@@ -175,48 +177,93 @@ function Header({
     setAnchorEl2(null)
   }
 
+  // const handlePhysicians = () => {
+  //   navigate("/berlin/doctors/physicians")
+  //   handleClose1()
+  // }
+
+  // const handleStomatologists = () => {
+  //   navigate("/berlin/doctors/stomatologists")
+  //   handleClose1()
+  // }
+
+  // const handlePediatrists = () => {
+  //   navigate("/berlin/doctors/pediatrists")
+  //   handleClose1()
+  // }
+
+  // const handleOrthopedists = () => {
+  //   navigate("/berlin/doctors/orthopedists")
+  //   handleClose1()
+  // }
+  
+  // const handleCardiologists = () => {
+  //   navigate("/berlin/doctors/cardiologists")
+  //   handleClose1()
+  // }
+
+  // const handleDermatologists = () => {
+  //   navigate("/berlin/doctors/dermatologists")
+  //   handleClose1()
+  // }
+
+  // const handleLegalServices = () => {
+  //   navigate("/berlin/services/legal_services")
+  //   handleClose2()
+  // }
+
+  // const handleTranslators = () => {
+  //   navigate("/berlin/services/translators")
+  //   handleClose2()
+  // }
+
+  // const handleHairBeauty = () => {
+  //   navigate("/berlin/services/hair_beauty")
+  //   handleClose2()
+  // }
+
   const handlePhysicians = () => {
-    navigate("/berlin/doctors/physicians")
+    navigate(`/${city}/doctors/physicians`)
     handleClose1()
   }
 
   const handleStomatologists = () => {
-    navigate("/berlin/doctors/stomatologists")
+    navigate(`/${city}/doctors/stomatologists`)
     handleClose1()
   }
 
   const handlePediatrists = () => {
-    navigate("/berlin/doctors/pediatrists")
+    navigate(`/${city}/doctors/pediatrists`)
     handleClose1()
   }
 
   const handleOrthopedists = () => {
-    navigate("/berlin/doctors/orthopedists")
+    navigate(`/${city}/doctors/orthopedists`)
     handleClose1()
   }
-  
+
   const handleCardiologists = () => {
-    navigate("/berlin/doctors/cardiologists")
+    navigate(`/${city}/doctors/cardiologists`)
     handleClose1()
   }
 
   const handleDermatologists = () => {
-    navigate("/berlin/doctors/dermatologists")
+    navigate(`/${city}/doctors/dermatologists`)
     handleClose1()
   }
 
   const handleLegalServices = () => {
-    navigate("/berlin/services/legal_services")
+    navigate(`/${city}/services/legal_services`)
     handleClose2()
   }
 
   const handleTranslators = () => {
-    navigate("/berlin/services/translators")
+    navigate(`/${city}/services/translators`)
     handleClose2()
   }
 
   const handleHairBeauty = () => {
-    navigate("/berlin/services/hair_beauty")
+    navigate(`/${city}/services/hair_beauty`)
     handleClose2()
   }
 
@@ -255,16 +302,16 @@ function Header({
           </ImageComponentWrap>
           {/* <HeaderSearch type="search" placeholder="Поиск" name="Search" /> */}
           <HeaderSearch
-        type="search"
-        placeholder="search"
-        name="Search"
-        value={query}
-        onChange={handleInputChange}
-        onKeyDown={handleKeyPress}
-      />
+            type="search"
+            placeholder="search"
+            name="Search"
+            value={query}
+            onChange={handleInputChange}
+            onKeyDown={handleKeyPress}
+          />
         </HeaderSerchContainer>
 
-        <HeaderDropdownContainer className="header-dropdown">         
+        <HeaderDropdownContainer className="header-dropdown">
           <div>
             <ButtonCity variant="outlined" onClick={handleClickCity}>
               Выбери свой город
@@ -355,17 +402,17 @@ function Header({
               </Menu>
             </NavItem>
             <NavItem>
-              <NavigationLink as={Link} to="/berlin/children">
+              <NavigationLink as={Link} to={`/${city}/children`}>
                 Дети
               </NavigationLink>
             </NavItem>
             <NavItem>
-              <NavigationLink as={Link} to="/berlin/shops">
+              <NavigationLink as={Link} to={`/${city}/shops`}>
                 Магазины
               </NavigationLink>
             </NavItem>
             <NavItem>
-              <NavigationLink as={Link} to="/berlin/cafes-restaurants">
+              <NavigationLink as={Link} to={`/${city}/cafes-restaurants`}>
                 Кафе и рестораны
               </NavigationLink>
             </NavItem>

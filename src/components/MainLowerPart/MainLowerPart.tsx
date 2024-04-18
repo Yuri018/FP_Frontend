@@ -4,7 +4,6 @@ import InfoList from "components/InfoList/InfoList"
 import NewsList from "components/NewsList/NewsList"
 import { instance } from "../../utils/axios"
 import { MainLowerPartContainer, MainLowerPartFlex } from "./styles"
-import { title } from "process"
 
 interface NewsProps {
   title: string
@@ -32,11 +31,12 @@ export interface InfoListProps {
   infoList: InfoProps[]
 }
 
-function MainLowerPart() {
+function MainLowerPart({city}: React.PropsWithChildren<{city: string}>) {
   const location = useLocation()
+  const navigate = useNavigate()
   const [newsData, setNewsData] = useState<NewsProps[]>([])
-  const [infoData, setinfoData] = useState<InfoProps[]>([])
-  
+  const [infoData, setInfoData] = useState<InfoProps[]>([])
+
   useEffect(() => {
     async function fetchNewsData() {
       try {
@@ -50,57 +50,66 @@ function MainLowerPart() {
         }
 
         const response = await instance.get<NewsProps[]>(endpoint)
-        setNewsData(response.data)                
+        setNewsData(response.data)
       } catch (error) {
         console.error("Error fetching news data:", error)
       }
     }
-    fetchNewsData()    
+    fetchNewsData()
   }, [location.pathname]) 
 
-   useEffect(() => {
+  useEffect(() => {
     async function fetchInfoData() {
       try {
-
-        let endpoint = "/berlin/restaurants_info"
-        if (location.pathname === "/berlin/cafes-restaurants") {
-          endpoint = "/berlin/restaurants_info"
-        } else if (location.pathname === "/berlin/children") {
-          endpoint = "/berlin/children_info"
-        } else if (location.pathname === "/berlin/shops") {
-          endpoint = "/berlin/shops_info"
-        } else if (location.pathname === "/berlin/services") {
-          endpoint = "/berlin/legal_services_info"
-        } else if (location.pathname === "/berlin/doctors/physicians") {
-          endpoint = "/berlin/doctors_info/physician"
-        } else if (location.pathname === "/berlin/doctors/stomatologists") {
-          endpoint = "/berlin/doctors_info/stomatologist"
-        } else if (location.pathname === "/berlin/doctors/pediatrists") {
-          endpoint = "/berlin/doctors_info/pediatrist"
-        } else if (location.pathname === "/berlin/doctors/orthopedists") {
-          endpoint = "/berlin/doctors_info/orthopedist"
-        } else if (location.pathname === "/berlin/doctors/cardiologists") {
-          endpoint = "/berlin/doctors_info/cardiologist"
-        } else if (location.pathname === "/berlin/doctors/dermatologists") {
-          endpoint = "/berlin/doctors_info/dermatologist"
-        } else if (location.pathname === "/berlin/services/legal_services") {
-          endpoint = "/berlin/legal_services_info"
-        } else if (location.pathname === "/berlin/services/translators") {
-          endpoint = "/berlin/translators_info"
-        } else if (location.pathname === "/berlin/services/hair_beauty") {
-          endpoint = "/berlin/hair_beauty_info"
-        }        
+        let endpoint = `/${city}`
+        if (location.pathname === `/${city}/cafes-restaurants`) {
+          endpoint = `/${city}/restaurants_info`
+          console.log("Fetching data from endpoint:", endpoint)
+        } else if (location.pathname === `/${city}/children`) {
+          endpoint = `/${city}/children_info`
+          console.log("Fetching data from endpoint:", endpoint)
+        } else if (location.pathname === `/${city}/shops`) {
+          endpoint = `/${city}/shops_info`
+          console.log("Fetching data from endpoint:", endpoint)
+        } else if (location.pathname === `/${city}/doctors/physicians`) {
+          endpoint = `/${city}/doctors_info/physician`
+          console.log("Fetching data from endpoint:", endpoint)
+        } else if (location.pathname === `/${city}/doctors/stomatologists`) {
+          endpoint = `/${city}/doctors_info/stomatologist`
+          console.log("Fetching data from endpoint:", endpoint)
+        } else if (location.pathname === `/${city}/doctors/pediatrists`) {
+          endpoint = `/${city}/doctors_info/pediatrist`
+          console.log("Fetching data from endpoint:", endpoint)
+        } else if (location.pathname === `/${city}/doctors/orthopedists`) {
+          endpoint = `/${{ city }}/doctors_info/orthopedist`
+          console.log("Fetching data from endpoint:", endpoint)
+        } else if (location.pathname === `/${city}/doctors/cardiologists`) {
+          endpoint = `/${city}/doctors_info/cardiologist`
+          console.log("Fetching data from endpoint:", endpoint)
+        } else if (location.pathname === `/${city}/doctors/dermatologists`) {
+          endpoint = `/${city}/doctors_info/dermatologist`
+          console.log("Fetching data from endpoint:", endpoint)
+        } else if (location.pathname === `/${city}/services/legal_services`) {
+          endpoint = `/${city}/legal_services_info`
+          console.log("Fetching data from endpoint:", endpoint)
+        } else if (location.pathname === `/${city}/services/translators`) {
+          endpoint = `/${city}/translators_info`
+          console.log("Fetching data from endpoint:", endpoint)
+        } else if (location.pathname === `/${city}/services/hair_beauty`) {
+          endpoint = `/${city}/hair_beauty_info`
+          console.log("Fetching data from endpoint:", endpoint)
+        }
         const response = await instance.get<InfoProps[]>(endpoint)
-        setinfoData(response.data)       
+        console.log("Received data:", response.data)
+        setInfoData(response.data)
       } catch (error) {
-        console.error("Error fetching news data:", error)
+        console.error("Error fetching data:", error)
       }
     }
-    fetchInfoData()    
+    fetchInfoData()
   }, [location.pathname])
-    
+
   return (
-    // <MainLowerPartContainer ref={mainContentRef}>
     <MainLowerPartContainer>
       <MainLowerPartFlex>
         {location.pathname === "/" &&
@@ -121,104 +130,110 @@ function MainLowerPart() {
           ) : (
             <div>Loading...</div>
           ))}
-        {location.pathname === "/berlin/cafes-restaurants" &&
+        {location.pathname === `/${city}/cafes-restaurants` &&
           (infoData.length > 0 ? (
             <InfoList
               infoList={infoData}
-              endpoint={"/berlin/restaurants_info"}
+              endpoint={`/${city}/restaurants_info`}
             />
           ) : (
             <div>Loading...</div>
           ))}
-        {location.pathname === "/berlin/children" &&
-          (infoData.length > 0 ? (
-            <InfoList infoList={infoData} endpoint={"/berlin/children_info"} />
-          ) : (
-            <div>Loading...</div>
-          ))}
-        {location.pathname === "/berlin/shops" &&
-          (infoData.length > 0 ? (
-            <InfoList infoList={infoData} endpoint={"/berlin/shops_info"} />
-          ) : (
-            <div>Loading...</div>
-          ))}
-        {location.pathname === "/berlin/doctors/physicians" &&
+        {location.pathname === `/${city}/children` &&
           (infoData.length > 0 ? (
             <InfoList
               infoList={infoData}
-              endpoint={"/berlin/doctors_info/physician"}
+              endpoint={`/${city}/children_info`}
             />
           ) : (
             <div>Loading...</div>
           ))}
-        {location.pathname === "/berlin/doctors/stomatologists" &&
+        {location.pathname === `/${city}/shops` &&
           (infoData.length > 0 ? (
             <InfoList
               infoList={infoData}
-              endpoint={"/berlin/doctors_info/stomatologist"}
+              endpoint={`/${city}/shops_info`}
             />
           ) : (
             <div>Loading...</div>
           ))}
-        {location.pathname === "/berlin/doctors/pediatrists" &&
+        {location.pathname === `/${city}/doctors/physicians` &&
           (infoData.length > 0 ? (
             <InfoList
               infoList={infoData}
-              endpoint={"/berlin/doctors_info/pediatrist"}
+              endpoint={`/${city}/doctors_info/physician`}
             />
           ) : (
             <div>Loading...</div>
           ))}
-        {location.pathname === "/berlin/doctors/orthopedists" &&
+        {location.pathname === `/${city}/doctors/stomatologists` &&
           (infoData.length > 0 ? (
             <InfoList
               infoList={infoData}
-              endpoint={"/berlin/doctors_info/orthopedist"}
+              endpoint={`/${city}/doctors_info/stomatologist`}
             />
           ) : (
             <div>Loading...</div>
           ))}
-        {location.pathname === "/berlin/doctors/cardiologists" &&
+        {location.pathname === `/${city}/doctors/pediatrists` &&
           (infoData.length > 0 ? (
             <InfoList
               infoList={infoData}
-              endpoint={"/berlin/doctors_info/cardiologist"}
+              endpoint={`/${city}/doctors_info/pediatrist`}
             />
           ) : (
             <div>Loading...</div>
           ))}
-        {location.pathname === "/berlin/doctors/dermatologists" &&
+        {location.pathname === `/${city}/doctors/orthopedists` &&
           (infoData.length > 0 ? (
             <InfoList
               infoList={infoData}
-              endpoint={"/berlin/doctors_info/dermatologist"}
+              endpoint={`/${city}/doctors_info/orthopedist`}
             />
           ) : (
             <div>Loading...</div>
           ))}
-        {location.pathname === "/berlin/services/legal_services" &&
+        {location.pathname === `/${city}/doctors/cardiologists` &&
           (infoData.length > 0 ? (
             <InfoList
               infoList={infoData}
-              endpoint={"/berlin/legal_services_info"}
+              endpoint={`/${city}/doctors_info/cardiologist`}
             />
           ) : (
             <div>Loading...</div>
           ))}
-        {location.pathname === "/berlin/services/translators" &&
+        {location.pathname === `/${city}/doctors/dermatologists` &&
           (infoData.length > 0 ? (
             <InfoList
               infoList={infoData}
-              endpoint={"/berlin/translators_info"}
+              endpoint={`/${city}/doctors_info/dermatologist`}
             />
           ) : (
             <div>Loading...</div>
           ))}
-        {location.pathname === "/berlin/services/hair_beauty" &&
+        {location.pathname === `/${city}/services/legal_services` &&
           (infoData.length > 0 ? (
             <InfoList
               infoList={infoData}
-              endpoint={"/berlin/hair_beauty_info"}
+              endpoint={`/${city}/legal_services_info`}
+            />
+          ) : (
+            <div>Loading...</div>
+          ))}
+        {location.pathname === `/${city}/services/translators` &&
+          (infoData.length > 0 ? (
+            <InfoList
+              infoList={infoData}
+              endpoint={`/${city}/translators_info`}
+            />
+          ) : (
+            <div>Loading...</div>
+          ))}
+        {location.pathname === `/${city}/services/hair_beauty` &&
+          (infoData.length > 0 ? (
+            <InfoList
+              infoList={infoData}
+              endpoint={`/${city}/hair_beauty_info`}
             />
           ) : (
             <div>Loading...</div>

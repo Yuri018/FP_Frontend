@@ -18,11 +18,11 @@ import { useNavigate } from "react-router-dom"
 function Frankfurt() {
 
   const cityNavLinks = [
-    { to: "/berlin/doctors", text: "Врачи" },
-    { to: "/berlin/children", text: "Дети" },
-    { to: "/berlin/shops", text: "Магазины" },
-    { to: "/berlin/cafes-restaurants", text: "Кафе и рестораны" },
-    { to: "/berlin/services", text: "Услуги" },
+    { to: "/frankfurt/doctors", text: "Врачи" },
+    { to: "/frankfurt/children", text: "Дети" },
+    { to: "/frankfurt/shops", text: "Магазины" },
+    { to: "/frankfurt/cafes-restaurants", text: "Кафе и рестораны" },
+    { to: "/frankfurt/services", text: "Услуги" },
   ]
 
   const navigate = useNavigate()
@@ -36,7 +36,8 @@ function Frankfurt() {
       <Header
         logoImgDescr={{ src: FrankfurtLogo, alt: "FrankfurtLogo" }}
         logoText="Франкфурт"
-        city="Франкфурт"
+        cityName="Франкфурт"
+        city="frankfurt"
         HeaderDropDown={true}
         rightNavLinks={cityNavLinks}
       />
@@ -53,12 +54,12 @@ function Frankfurt() {
         fifthImgTitle="Гамбург"
       />
       <MainMiddlePart
-        bcgImgDescr={{ src: FrankfurtImg, alt: "BerlinImg" }}
+        bcgImgDescr={{ src: FrankfurtImg, alt: "FrankfurtImg" }}
         mainTitle="Новости Франкфурта и окрестностей"
         readButtonPath={readButtonPath}
         handleReadButton={handleReadButton}
       />
-      <MainLowerPart />
+      <MainLowerPart city="frankfurt" />
       <Footer />
     </>
   )

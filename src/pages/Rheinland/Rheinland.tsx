@@ -18,11 +18,11 @@ import { useNavigate } from "react-router-dom"
 function Rheinland() {
 
   const cityNavLinks = [
-    { to: "/berlin/doctors", text: "Врачи" },
-    { to: "/berlin/children", text: "Дети" },
-    { to: "/berlin/shops", text: "Магазины" },
-    { to: "/berlin/cafes-restaurants", text: "Кафе и рестораны" },
-    { to: "/berlin/services", text: "Услуги" },
+    { to: "/dusseldorf/doctors", text: "Врачи" },
+    { to: "/dusseldorf/children", text: "Дети" },
+    { to: "/dusseldorf/shops", text: "Магазины" },
+    { to: "/dusseldorf/cafes-restaurants", text: "Кафе и рестораны" },
+    { to: "/dusseldorf/services", text: "Услуги" },
   ]
 
   const navigate = useNavigate()
@@ -37,7 +37,8 @@ function Rheinland() {
       <Header
         logoImgDescr={{ src: DuesseldorfLogo, alt: "DuesseldorfLogo" }}
         logoText="Дюссельдорф-Кёльн-Бонн"
-        city="Дюссельдорф"
+        cityName="Дюссельдорф"
+        city="dusseldorf"
         HeaderDropDown={true}
         rightNavLinks={cityNavLinks}
       />
@@ -59,6 +60,7 @@ function Rheinland() {
         readButtonPath={readButtonPath}
         handleReadButton={handleReadButton}
       />
+      <MainLowerPart city="dusseldorf" />
       <Footer />
     </>
   )
