@@ -2,7 +2,14 @@ import MainUpperPart from "components/MainUpperPart"
 import Header from "components/Header"
 import MainLowerPart from "components/MainLowerPart"
 
-import { BerlinImg, BerlinLogo } from "assets"
+import {
+  BerlinImg,
+  BerlinLogo,  
+  MunichLogo,
+  FrankfurtLogo,
+  DuesseldorfLogo,
+  HamburgLogo,
+} from "assets"
 
 import Footer from "components/Footer"
 
@@ -26,12 +33,20 @@ function Berlin() {
       />
       <MainUpperPart
         bcgImgDescr={{ src: BerlinImg, alt: "BerlinImg" }}
-        mainTitle="Новости Берлина и Бранденбурга"
+        mainTitle="Новости Берлина и Бранденбурга"        
+        firstImgDescr={{ src: BerlinLogo, alt: "BerlinLogo" }}
+        secondImgDescr={{ src: MunichLogo, alt: "MunichLogo" }}
+        thirdImgDescr={{ src: FrankfurtLogo, alt: "FrankfurtLogo" }}
+        fourthImgDescr={{ src: DuesseldorfLogo, alt: "DuesseldorfLogo" }}
+        fifthImgDescr={{ src: HamburgLogo, alt: "HamburgLogo" }}
+        firstImgTitle="Берлин"
+        secondImgTitle="Мюнхен"
+        thirdImgTitle="Франкфурт"
+        fourthImgTitle="Дюссельдорф"
+        fifthImgTitle="Гамбург"
         buttonProps={{
-          name: "Читать подробнее",
-          onClick: () => {
-            console.log("Читать подробнее")
-          },
+          name: "Выбери свой город",
+          type: "button",
         }}
       />
       <MainLowerPart />
