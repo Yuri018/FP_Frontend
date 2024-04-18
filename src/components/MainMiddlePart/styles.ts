@@ -20,12 +20,13 @@ export const BcgContainer = styled.section`
 
 export const BackgroundImageContainer = styled.div`
   position: relative;
-  border-radius: 10px;
+  border-radius: 20px;
   border: 2px solid ${colors.baseGrey80};
   display: flex;
   align-items: stretch;
   justify-content: space-between;
   margin-bottom: 20px;
+  overflow: hidden;
 `;
 export const BackgroundImage = styled.div`
   width: 75%;
