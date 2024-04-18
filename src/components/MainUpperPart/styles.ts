@@ -1,4 +1,5 @@
 import { Button } from "@mui/material";
+import ImageComponent from "components/ImageComponent";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { colors } from 'styles/colors';
@@ -28,7 +29,11 @@ export const BackgroundImageContainer = styled.div`
 `;
 export const BackgroundImage = styled.div`
   width: 75%;
-  max-height: 400px;
+  min-height: 400px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
 `;
 export const BackgroundImage100 = styled.div`
   width: 100%;
@@ -108,10 +113,10 @@ export const ButtonContainer = styled.div<ButtonContainerProps>`
 `;
 
 export const MainTitle = styled.h1`
-  position: absolute;
-  top: 80px;
-  left: 80px;
-  width: 600px;
+  position: relative;
+  width: 900px;
+  padding: 50px 30px 50px;
+  text-align: right;
   color: ${colors.white};
   font-family: 'Montserrat';
   font-weight: bold;
@@ -136,31 +141,31 @@ export const UpperGrayBackground = styled.div`
 `;
 
 export const UpperNewsContainer = styled.div`  
-  background-color: ${colors.baseGrey75};
+  background-color: ${colors.white};
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 `;
 
 export const NewsContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 35px;
+  padding: 10px 35px;
   border-right: 2px solid ${colors.baseGray50};
-  width: 25%;
+  width: 20%;
   &:last-child{
     border-right: none;
   }   
 `;
 
 export const NewsTitleContainer = styled.h4`
-  color: ${colors.white};
+  color: ${colors.baseGrey80};
   font-family: 'Montserrat';
   font-weight: bold;
-  font-size: 17px;
+  font-size: 14px;
   line-height: 1.5rem;
   padding-right: 15px;
 `;
@@ -188,33 +193,9 @@ export const NewsMainContainer = styled.div`
 `;
 
 export const ImageWrap = styled.div`
-  max-width: 60px;
+  max-width: 70px;
   flex: 0 0 auto;
 `;
-// export const DropdownMenuContainer = styled.div`
-//   position: absolute;
-//   padding: 0px 20px;
-//   top: -37px;
-//   left: 180px;
-//   width: 180px;
-//   height: 234px;
-//   border-radius: 10px;
-//   z-index: 20;
-//   border: 2px solid ${colors.baseGray50};
-//   background-color: ${colors.white};
-//   &::after{
-//     content: '';
-//     position: absolute;
-//     top: 50px;
-//     left: -12px;
-//     height: 20px;
-//     width: 20px;
-//     border-bottom: 2px solid ${colors.baseGray50};
-//     border-left: 2px solid ${colors.baseGray50};
-//     background-color:  ${colors.white};
-//     transform: rotate(45deg);    
-//   }
-// `;
 
 export const DropdownMenuList = styled.ul`
   display: flex;
@@ -240,6 +221,10 @@ export const DropdownMenuLink = styled(NavLink)`
   &:active {
     color: ${colors.white}; 
   }
+`;
+export const MyImageComponent = styled(ImageComponent)`  
+  position: absolute;
+
 `;
 
 export const DropdownMenuItem = styled.li`

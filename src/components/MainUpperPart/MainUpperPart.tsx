@@ -19,7 +19,8 @@ import {
   RightWraper,
   ImageWrap,
   BackgroundImage100,
-  ButtonRead
+  ButtonRead,
+  MyImageComponent
 } from "./styles"
 
 import type { MainUpperPartProps } from "./types"
@@ -113,19 +114,18 @@ function MainUpperPart(
           </ImageWrap>
         </NewsContainer>
       </UpperNewsContainer>
-
       <BackgroundImageContainer>
         {isGeneralPage && (
           <>
             <BackgroundImage>
-              <ImageComponent {...bcgImgDescr} />
+              <MyImageComponent {...bcgImgDescr} />
               <TitleContainer>{mainTitle}</TitleContainer>
-              <ButtonContainer $isGeneralPage={isGeneralPage}>
+              {/* <ButtonContainer $isGeneralPage={isGeneralPage}>
                 <DropdownMenu
                   isGeneralPage={isGeneralPage}
                   buttonProps={buttonProps}
                 />
-              </ButtonContainer>
+              </ButtonContainer> */}
             </BackgroundImage>
             <RightWraper>
               <RightTitle>НАШИ РАЗДЕЛЫ</RightTitle>
