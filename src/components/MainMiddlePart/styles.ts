@@ -20,16 +20,17 @@ export const BcgContainer = styled.section`
 
 export const BackgroundImageContainer = styled.div`
   position: relative;
-  border-radius: 10px;
+  border-radius: 20px;
   border: 2px solid ${colors.baseGrey80};
   display: flex;
   align-items: stretch;
   justify-content: space-between;
   margin-bottom: 20px;
+  overflow: hidden;
 `;
 export const BackgroundImage = styled.div`
   width: 75%;
-  min-height: 400px;
+  min-height: 350px;
   position: relative;
   display: flex;
   align-items: flex-end;
@@ -37,7 +38,11 @@ export const BackgroundImage = styled.div`
 `;
 export const BackgroundImage100 = styled.div`
   width: 100%;
-  max-height: 400px;
+  min-height: 350px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
 `;
 
 export const BcgRightToImgContainer = styled.div`
@@ -72,18 +77,21 @@ export const RightTitle = styled.h3`
   border-bottom: 2px solid ${colors.baseGray30};
 `;
 
-export const RightLink = styled.a`
+export const RightLink = styled.button`
   flex: 1;
   font-size: 13px;
   font-weight: bold;
   color: ${colors.baseGrey80};
+  border: none;
   border-bottom: 2px solid ${colors.baseGray30};
   display: block;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
+
   &:hover {
+    cursor: pointer;
     background-color: ${colors.baseGray30};
   }
   &:nth-child(2){
@@ -103,16 +111,9 @@ export const RightLink = styled.a`
   }
 `;
 
-export const ButtonContainer = styled.div<ButtonContainerProps>`
-  position: absolute;  
-  width: fit-content;
-  top: ${({ $isGeneralPage }) => $isGeneralPage ? '280px' : '250px'}; 
-  left: ${({ $isGeneralPage }) => $isGeneralPage ? '80px' : '580px'}; 
-  height: 50px; 
-  z-index: 10;
-`;
 
-export const MainTitle = styled.h1`
+
+export const MainTitle = styled.h2`
   position: relative;
   width: 900px;
   padding: 50px 30px 50px;
@@ -124,15 +125,18 @@ export const MainTitle = styled.h1`
 `;
 
 export const PageTitle = styled.h2`
-  position: absolute;
-  /* top: 385px; */
-  bottom: 100px;
-  left: 150px;
-  width: 450px;
+  position: relative;
   color: ${colors.white};
   font-family: 'Montserrat';
   font-weight: bold;
   font-size: 40px;
+  padding: 30px;
+`;
+export const ButtonContainer = styled.div<ButtonContainerProps>`
+  position: relative;  
+  width: fit-content;
+  z-index: 10;
+  padding: 30px;
 `;
 
 export const UpperGrayBackground = styled.div`
@@ -154,7 +158,6 @@ export const NewsContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  cursor: pointer;
   padding: 10px 35px;
   border-right: 2px solid ${colors.baseGray50};
   width: 20%;
@@ -185,7 +188,6 @@ export const ButtonRead = styled(Button)`
     border-radius: 50em;
     padding: 12px 60px;
     font-weight: 800;
-    margin-left: 30px;
   }
 `;
 
@@ -263,4 +265,12 @@ export const DropdownMenuItem = styled.li`
    &:hover ${DropdownMenuLink}, &:focus ${DropdownMenuLink}, &:active ${DropdownMenuLink} {
     color: ${colors.white}; 
   }
+`;
+
+export const TitleContainerWrapper = styled.div`  
+  display: flex;
+  align-items: flex-end;
+  justify-content: center; 
+  width: 60%;
+
 `;

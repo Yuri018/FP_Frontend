@@ -12,6 +12,7 @@ import {
 } from "assets"
 
 import Footer from "components/Footer"
+import MainMiddlePart from "components/MainMiddlePart"
 
 function Rheinland() {
   return (
@@ -23,8 +24,6 @@ function Rheinland() {
         HeaderDropDown={true}
       />
       <MainUpperPart
-        bcgImgDescr={{ src: DuesseldorfImg, alt: "DuesseldorfImg" }}
-        mainTitle="Новости Райнланда: Дюссельдорф, Кёльн, Бонн"
         firstImgDescr={{ src: BerlinLogo, alt: "BerlinLogo" }}
         secondImgDescr={{ src: MunichLogo, alt: "MunichLogo" }}
         thirdImgDescr={{ src: FrankfurtLogo, alt: "FrankfurtLogo" }}
@@ -35,14 +34,11 @@ function Rheinland() {
         thirdImgTitle="Франкфурт"
         fourthImgTitle="Дюссельдорф"
         fifthImgTitle="Гамбург"
-        buttonProps={{
-          name: "Читать подробнее",
-          onClick: () => {
-            console.log("Читать подробнее Райнланда")
-          },
-        }}
       />
-      <MainLowerPart />
+      <MainMiddlePart
+        bcgImgDescr={{ src: DuesseldorfImg, alt: "DuesseldorfImg" }}
+        mainTitle="Новости Райнланда: Дюссельдорф, Кёльн, Бонн"
+      />
       <Footer />
     </>
   )

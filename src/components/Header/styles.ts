@@ -68,7 +68,7 @@ export const HeaderSearch = styled.input`
   border: 1px solid ${colors.baseGray30};
   border-radius: 5px;
   color: ${colors.baseGray30};
-  text-transform: capitalize;
+  text-transform: lowercase;
   &:focus {
     outline: none;
   }

@@ -12,6 +12,7 @@ import {
 } from "assets"
 
 import Footer from "components/Footer"
+import MainMiddlePart from "components/MainMiddlePart"
 
 function Munich() {
   return (
@@ -23,8 +24,6 @@ function Munich() {
         HeaderDropDown={true}
       />
       <MainUpperPart
-        bcgImgDescr={{ src: MunichImg, alt: "MunichImg" }}
-        mainTitle="Новости Мюнхена и Баварии"
         firstImgDescr={{ src: BerlinLogo, alt: "BerlinLogo" }}
         secondImgDescr={{ src: MunichLogo, alt: "MunichLogo" }}
         thirdImgDescr={{ src: FrankfurtLogo, alt: "FrankfurtLogo" }}
@@ -35,17 +34,14 @@ function Munich() {
         thirdImgTitle="Франкфурт"
         fourthImgTitle="Дюссельдорф"
         fifthImgTitle="Гамбург"
-        buttonProps={{
-          name: "Читать подробнее",
-          onClick: () => {
-            console.log("Читать подробнее Munich")
-          },
-        }}
       />
-      <MainLowerPart />
-      <Footer />
+      <MainMiddlePart
+        bcgImgDescr={{ src: MunichImg, alt: "MunichImg" }}
+        mainTitle="Новости Мюнхена и Баварии"
+      />
+     <Footer />
     </>
   )
 }
 
-export default Munich;
+export default Munich
