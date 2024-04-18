@@ -82,6 +82,7 @@ export const RightLink = styled.button`
   font-size: 13px;
   font-weight: bold;
   color: ${colors.baseGrey80};
+  background-color: ${colors.white};
   border: none;
   border-bottom: 2px solid ${colors.baseGray30};
   display: block;
