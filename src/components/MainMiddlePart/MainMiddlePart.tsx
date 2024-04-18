@@ -1,4 +1,5 @@
 import ImageComponent from "components/ImageComponent"
+import {  NavigateFunction, useNavigate } from "react-router-dom"
 
 import {
   BcgContainer,
@@ -16,15 +17,27 @@ import {
   TitleContainerWrapper,
 } from "./styles"
 
-import type { MainUpperPartProps } from "./types"
+import type { MainMiddlePartProps } from "./types"
 
 function MainMiddlePart({
   bcgImgDescr,
   mainTitle,
   isMainPage,
   isGeneralPage,
-}: MainUpperPartProps) {
+  readButtonPath,
+  handleReadButton,
+  onClick
+}: MainMiddlePartProps) {
   const TitleContainer = isMainPage ? MainTitle : PageTitle
+  const navigate = useNavigate()
+
+  handleReadButton = () => {
+    navigate(readButtonPath)
+  }
+
+  const handleClick: React.MouseEventHandler<HTMLButtonElement> = event => {
+    handleReadButton(readButtonPath)
+  }
 
   return (
     <BcgContainer>
@@ -51,7 +64,12 @@ function MainMiddlePart({
             <TitleContainerWrapper>
               <TitleContainer>{mainTitle}</TitleContainer>
               <ButtonContainer>
-                <ButtonRead variant="contained" disableElevation size="large">
+                <ButtonRead
+                  variant="contained"
+                  disableElevation
+                  size="large"
+                  onClick={handleClick}
+                >
                   Читать
                 </ButtonRead>
               </ButtonContainer>

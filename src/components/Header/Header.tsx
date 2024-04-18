@@ -264,11 +264,7 @@ function Header({
       />
         </HeaderSerchContainer>
 
-        <HeaderDropdownContainer className="header-dropdown">
-          {/* <DropdownMenu
-              HeaderDropDown={HeaderDropDown}
-              buttonProps={buttonProps}
-            /> */}
+        <HeaderDropdownContainer className="header-dropdown">         
           <div>
             <ButtonCity variant="outlined" onClick={handleClickCity}>
               Выбери свой город

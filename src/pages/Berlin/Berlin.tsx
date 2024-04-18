@@ -1,18 +1,35 @@
+import { useNavigate } from "react-router-dom"
+
 import MainUpperPart from "components/MainUpperPart"
 import Header from "components/Header"
 import MainLowerPart from "components/MainLowerPart"
+import Footer from "components/Footer"
+import MainMiddlePart from "components/MainMiddlePart"
 
 import {
   BerlinImg,
-  BerlinLogo,  
+  BerlinLogo,
   MunichLogo,
   FrankfurtLogo,
   DuesseldorfLogo,
   HamburgLogo,
 } from "assets"
 
-import Footer from "components/Footer"
-import MainMiddlePart from "components/MainMiddlePart"
+
+
+interface InfoProps {
+  id: number
+  title: string
+  description: string
+  address: string
+  tel: string
+  link: string
+  status: number
+  city: {
+    id: number
+    name: string
+  }
+}
 
 function Berlin() {
   const cityNavLinks = [
@@ -22,6 +39,13 @@ function Berlin() {
     { to: "/berlin/cafes-restaurants", text: "Кафе и рестораны" },
     { to: "/berlin/services", text: "Услуги" },
   ]
+
+  const navigate = useNavigate()
+  const readButtonPath = "/berlin"
+
+  const handleReadButton = (path: string) => {
+    navigate(readButtonPath)
+  }
 
   return (
     <>
@@ -44,9 +68,11 @@ function Berlin() {
         fourthImgTitle="Дюссельдорф"
         fifthImgTitle="Гамбург"
       />
-      <MainMiddlePart 
+      <MainMiddlePart
         bcgImgDescr={{ src: BerlinImg, alt: "BerlinImg" }}
         mainTitle="Новости Берлина и Бранденбурга"
+        readButtonPath={readButtonPath}
+        handleReadButton={handleReadButton}
       />
       <MainLowerPart />
       <MainLowerPart />
