@@ -12,6 +12,7 @@ import {
 } from "assets"
 
 import Footer from "components/Footer"
+import MainMiddlePart from "components/MainMiddlePart"
 
 function Berlin() {
   const cityNavLinks = [
@@ -32,8 +33,6 @@ function Berlin() {
         rightNavLinks={cityNavLinks}
       />
       <MainUpperPart
-        bcgImgDescr={{ src: BerlinImg, alt: "BerlinImg" }}
-        mainTitle="Новости Берлина и Бранденбурга"        
         firstImgDescr={{ src: BerlinLogo, alt: "BerlinLogo" }}
         secondImgDescr={{ src: MunichLogo, alt: "MunichLogo" }}
         thirdImgDescr={{ src: FrankfurtLogo, alt: "FrankfurtLogo" }}
@@ -44,11 +43,12 @@ function Berlin() {
         thirdImgTitle="Франкфурт"
         fourthImgTitle="Дюссельдорф"
         fifthImgTitle="Гамбург"
-        buttonProps={{
-          name: "Выбери свой город",
-          type: "button",
-        }}
       />
+      <MainMiddlePart 
+        bcgImgDescr={{ src: BerlinImg, alt: "BerlinImg" }}
+        mainTitle="Новости Берлина и Бранденбурга"
+      />
+      <MainLowerPart />
       <MainLowerPart />
       <Footer />
     </>

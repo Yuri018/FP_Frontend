@@ -12,6 +12,7 @@ import {
 } from "assets"
 
 import Footer from "components/Footer"
+import MainMiddlePart from "components/MainMiddlePart"
 
 function Hamburg() {
   return (
@@ -23,8 +24,6 @@ function Hamburg() {
         HeaderDropDown={true}
       />
       <MainUpperPart
-        bcgImgDescr={{ src: HamburgImg, alt: "HamburgImg" }}
-        mainTitle="Новости Гамбурга и окрестностей"
         firstImgDescr={{ src: BerlinLogo, alt: "BerlinLogo" }}
         secondImgDescr={{ src: MunichLogo, alt: "MunichLogo" }}
         thirdImgDescr={{ src: FrankfurtLogo, alt: "FrankfurtLogo" }}
@@ -35,12 +34,10 @@ function Hamburg() {
         thirdImgTitle="Франкфурт"
         fourthImgTitle="Дюссельдорф"
         fifthImgTitle="Гамбург"
-        buttonProps={{
-          name: "Читать подробнее",
-          onClick: () => {
-            console.log("Читать подробнее Hamburg")
-          },
-        }}
+      />
+      <MainMiddlePart
+        bcgImgDescr={{ src: HamburgImg, alt: "HamburgImg" }}
+        mainTitle="Новости Гамбурга и окрестностей"
       />
       <MainLowerPart />
       <Footer />

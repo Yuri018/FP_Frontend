@@ -5,6 +5,16 @@ import { Typography, CardContent, CardActions } from "@mui/material"
 import Header from "components/Header"
 import Footer from "components/Footer"
 import { MainLowerPartFlex, MainLowerPartItem, InfoCard, MainLowerPartContainer } from "./styles"
+import MainUpperPart from "components/MainUpperPart"
+
+import {
+  BerlinImg,
+  BerlinLogo,  
+  MunichLogo,
+  FrankfurtLogo,
+  DuesseldorfLogo,
+  HamburgLogo,
+} from "assets"
 
 function InfoSearchPage() {
   const { searchResults } = useSelector(searchSelectors)
@@ -14,6 +24,18 @@ function InfoSearchPage() {
       <Header
         logoImgDescr={{ src: GermanMainLogo, alt: "GermanMainLogo" }}
         city="Берлин"
+      />
+      <MainUpperPart
+        firstImgDescr={{ src: BerlinLogo, alt: "BerlinLogo" }}
+        secondImgDescr={{ src: MunichLogo, alt: "MunichLogo" }}
+        thirdImgDescr={{ src: FrankfurtLogo, alt: "FrankfurtLogo" }}
+        fourthImgDescr={{ src: DuesseldorfLogo, alt: "DuesseldorfLogo" }}
+        fifthImgDescr={{ src: HamburgLogo, alt: "HamburgLogo" }}
+        firstImgTitle="Берлин"
+        secondImgTitle="Мюнхен"
+        thirdImgTitle="Франкфурт"
+        fourthImgTitle="Дюссельдорф"
+        fifthImgTitle="Гамбург"
       />
       <MainLowerPartContainer>
         <MainLowerPartFlex>
