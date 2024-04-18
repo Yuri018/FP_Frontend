@@ -36,6 +36,8 @@ import {
 import { MainTitle, SearchIcon, SignInIcon } from "assets";
 import { userActions } from "../../store/user/userSlice";
 import { userSelectors } from "../../store/user/selectors";
+import { searchActions } from "../../store/search/searchSlice";
+import { SearchResult } from "store/search/types"
 
 interface NavLink {
   to: string
@@ -222,25 +224,27 @@ function Header({
 
   const handleSearch = async () => {
     try {
-      const response = await instance.get<SearchResponse>(
-        `/search?query=${query}`,
-      )
-      // Обрабатываем ответ от бэкенда здесь
-      console.log("Результаты поиска:", response.data)
+      const searchResponse = await instance.get<SearchResult[]>(
+        `/search?keywords=${query}`
+      );
+      // Сохраняем результаты поиска в Redux
+      dispatch(searchActions.setSearchResults(searchResponse.data));
+      // Переходим на страницу с результатами поиска
+      navigate("/search");
     } catch (error) {
-      console.error("Ошибка при выполнении поиска:", error)
+      console.error("Ошибка при выполнении поиска:", error);
     }
-  }
-
+  };
+  
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(event.target.value)
-  }
+    setQuery(event.target.value);
+  };
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
-      handleSearch()
+      handleSearch();
     }
-  }
+  };
   
   return (
     <MainContainer>

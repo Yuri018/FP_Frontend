@@ -4,11 +4,15 @@ import {weatherReducers} from "./weather/weatherSlice"
 import { WeatherState } from "./weather/types"
 import { userReducers } from "./user/userSlice";
 import { UserState } from "./user/types";
+import { SearchState } from "./search/types";
+import { searchReducers } from "./search/searchSlice";
+
 
 export const store = configureStore({
     reducer: {  
       weatherData: weatherReducers as Reducer<WeatherState>,
-      userData: userReducers as Reducer<UserState>
+      userData: userReducers as Reducer<UserState>,
+      searchData: searchReducers as Reducer<SearchState>
     },    
   }) 
 
