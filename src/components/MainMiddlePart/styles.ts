@@ -81,13 +81,16 @@ export const RightLink = styled.button`
   font-size: 13px;
   font-weight: bold;
   color: ${colors.baseGrey80};
+  border: none;
   border-bottom: 2px solid ${colors.baseGray30};
   display: block;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
+
   &:hover {
+    cursor: pointer;
     background-color: ${colors.baseGray30};
   }
   &:nth-child(2){
