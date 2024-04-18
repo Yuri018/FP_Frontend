@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import CardMedia from "@mui/material/CardMedia";
 import { CardActions, CardContent } from '@mui/material';
 import Card from "@mui/material/Card";
+
 export const FrontalPageWrapper = styled.div`
   position: relative;
 

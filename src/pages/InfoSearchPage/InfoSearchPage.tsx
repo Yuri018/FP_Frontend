@@ -7,23 +7,11 @@ import Header from 'components/Header';
 import Footer from 'components/Footer';
 import { styled } from '@mui/system';
 
-import {
-  GermanMainLogo,
-  BerlinLogo,
-  MunichLogo,
-  FrankfurtLogo,
-  DuesseldorfLogo,
-  HamburgLogo,
-} from "assets"
-
-import { MainUpperPartProps } from "components/MainUpperPart/types"
-
 const MainLowerPartFlex = styled(Grid)({
   display: 'flex',
   justifyContent: 'space-between',
   flexWrap: 'wrap',
 });
-
 
 const MainLowerPartItem = styled(Grid)({
   width: 'calc(25% - 20px)', // Adjusting for margin
@@ -39,10 +27,6 @@ const InfoCard = styled(Card)({
 function InfoSearchPage() {
   const { searchResults } = useSelector(searchSelectors);
 
-
-
-
-function InfoSearchPage({isGeneralPage}: MainUpperPartProps) {
   return (
     <>
       <Header
@@ -80,29 +64,41 @@ function InfoSearchPage({isGeneralPage}: MainUpperPartProps) {
         ))}
       </MainLowerPartFlex>
 
-        HeaderDropDown={false}
-        buttonProps={{
-          name: "Выбери свой",
-          type: "button",
-        }}
-      />
-      <MainUpperPart
-        firstImgDescr={{ src: BerlinLogo, alt: "BerlinLogo" }}
-        secondImgDescr={{ src: MunichLogo, alt: "MunichLogo" }}
-        thirdImgDescr={{ src: FrankfurtLogo, alt: "FrankfurtLogo" }}
-        fourthImgDescr={{ src: DuesseldorfLogo, alt: "DuesseldorfLogo" }}
-        fifthImgDescr={{ src: HamburgLogo, alt: "HamburgLogo" }}
-        firstImgTitle="Берлин"
-        secondImgTitle="Мюнхен"
-        thirdImgTitle="Франкфурт"
-        fourthImgTitle="Дюссельдорф"
-        fifthImgTitle="Гамбург"
-        isGeneralPage={false}
-      />
-      <MainLowerPart />
       <Footer />
     </>
   );
 }
 
 export default InfoSearchPage;
+        
+
+
+
+
+
+
+
+
+
+
+//       />
+//       <MainUpperPart
+//         firstImgDescr={{ src: BerlinLogo, alt: "BerlinLogo" }}
+//         secondImgDescr={{ src: MunichLogo, alt: "MunichLogo" }}
+//         thirdImgDescr={{ src: FrankfurtLogo, alt: "FrankfurtLogo" }}
+//         fourthImgDescr={{ src: DuesseldorfLogo, alt: "DuesseldorfLogo" }}
+//         fifthImgDescr={{ src: HamburgLogo, alt: "HamburgLogo" }}
+//         firstImgTitle="Берлин"
+//         secondImgTitle="Мюнхен"
+//         thirdImgTitle="Франкфурт"
+//         fourthImgTitle="Дюссельдорф"
+//         fifthImgTitle="Гамбург"
+//         isGeneralPage={false}
+//       />
+//       <MainLowerPart />
+//       <Footer />
+//     </>
+//   );
+// }
+
+// export default InfoSearchPage;
