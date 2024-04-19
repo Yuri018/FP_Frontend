@@ -10,6 +10,7 @@ interface NewsProps {
   shortDescription: string
   imgUrl: string
   content: string
+  imgCopyright?: string
 }
 interface InfoProps {
   id: number;
@@ -46,10 +47,11 @@ function MainLowerPart({city}: React.PropsWithChildren<{city: string}>) {
         } else if (location.pathname === "/general-info") {
           endpoint = "/general_news/get_info_by/GENERAL_INFO"
         } else if (location.pathname === "/berlin") {
-          endpoint = "/berlin_news"
+          endpoint = "/berlin_news"          
         }
 
         const response = await instance.get<NewsProps[]>(endpoint)
+        console.log("Received news data:", response.data)
         setNewsData(response.data)
       } catch (error) {
         console.error("Error fetching news data:", error)

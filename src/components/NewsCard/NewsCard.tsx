@@ -7,7 +7,8 @@ interface News {
   imgUrl: string
   title: string
   shortDescription: string
-  content: string  
+  content: string
+  imgCopyright?: string
 }
 
 interface NewsCardProps {
