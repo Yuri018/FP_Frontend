@@ -1,15 +1,14 @@
 import { Link, useNavigate, useLocation } from "react-router-dom"
 import { useState, useEffect, MouseEvent } from "react"
 import { instance } from "../../utils/axios"
-import { Cookies } from "react-cookie"
-import { Button, Menu, MenuItem } from "@mui/material"
+import { Menu, MenuItem } from "@mui/material"
 import { AccountCircle } from "@mui/icons-material"
 import { useDispatch, useSelector } from "react-redux"
 
 import ImageComponent from "components/ImageComponent"
 import LogoComponent from "components/LogoComponent"
 import WeatherComponent from "components/WeatherComponent"
-import DropdownMenu from "components/DropdownMenu"
+
 import {
   MainContainer,
   HeaderUpperContainer,
@@ -33,7 +32,7 @@ import {
   ButtonProf,
   ButtonCity,
 } from "./styles"
-import { MainTitle, SearchIcon, SignInIcon } from "assets";
+import { SearchIcon } from "assets";
 import { userActions } from "../../store/user/userSlice";
 import { userSelectors } from "../../store/user/selectors";
 import { searchActions } from "../../store/search/searchSlice";
@@ -48,7 +47,7 @@ interface HeaderProps {
   logoText?: string
   logoImgDescr?: { src: string; alt: string }
   cityName?: string
-  city?: string
+  city: string
   HeaderDropDown?: boolean
   isGeneralPage?: boolean
   buttonProps?: any
@@ -176,52 +175,7 @@ function Header({
   const handleClose2 = () => {
     setAnchorEl2(null)
   }
-
-  // const handlePhysicians = () => {
-  //   navigate("/berlin/doctors/physicians")
-  //   handleClose1()
-  // }
-
-  // const handleStomatologists = () => {
-  //   navigate("/berlin/doctors/stomatologists")
-  //   handleClose1()
-  // }
-
-  // const handlePediatrists = () => {
-  //   navigate("/berlin/doctors/pediatrists")
-  //   handleClose1()
-  // }
-
-  // const handleOrthopedists = () => {
-  //   navigate("/berlin/doctors/orthopedists")
-  //   handleClose1()
-  // }
   
-  // const handleCardiologists = () => {
-  //   navigate("/berlin/doctors/cardiologists")
-  //   handleClose1()
-  // }
-
-  // const handleDermatologists = () => {
-  //   navigate("/berlin/doctors/dermatologists")
-  //   handleClose1()
-  // }
-
-  // const handleLegalServices = () => {
-  //   navigate("/berlin/services/legal_services")
-  //   handleClose2()
-  // }
-
-  // const handleTranslators = () => {
-  //   navigate("/berlin/services/translators")
-  //   handleClose2()
-  // }
-
-  // const handleHairBeauty = () => {
-  //   navigate("/berlin/services/hair_beauty")
-  //   handleClose2()
-  // }
-
   const handlePhysicians = () => {
     navigate(`/${city}/doctors/physicians`)
     handleClose1()
