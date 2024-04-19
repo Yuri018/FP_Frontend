@@ -47,8 +47,8 @@ interface NavLink {
 interface HeaderProps {
   logoText?: string
   logoImgDescr?: { src: string; alt: string }
-  cityName: string
-  city: string
+  cityName?: string
+  city?: string
   HeaderDropDown?: boolean
   isGeneralPage?: boolean
   buttonProps?: any
@@ -131,7 +131,7 @@ function Header({
     handleCloseCity()
   }
   const handleMunchen = () => {
-    navigate("/munich")
+    navigate("/muenchen")
     handleCloseCity()
   }
   const handleFran = () => {

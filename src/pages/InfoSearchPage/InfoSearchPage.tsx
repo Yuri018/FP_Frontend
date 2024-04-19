@@ -22,8 +22,7 @@ function InfoSearchPage() {
   return (
     <>
       <Header
-        logoImgDescr={{ src: GermanMainLogo, alt: "GermanMainLogo" }}
-        city="Берлин"
+        logoImgDescr={{ src: GermanMainLogo, alt: "GermanMainLogo" }}        
       />
       <MainUpperPart
         firstImgDescr={{ src: BerlinLogo, alt: "BerlinLogo" }}
