@@ -9,7 +9,6 @@ import Frankfurt from "pages/Frankfurt";
 import Hamburg from "pages/Hamburg";
 import AuthRootComponent from "components/auth/Auth";
 import UserAccount from "components/updateUserSubscriptions";
-import FrontalPage_GenInfo from "pages/FrontalPage_GenInfo";
 import Berlin from "pages/Berlin";
 import InfoSearchPage from "pages/InfoSearchPage";
 
