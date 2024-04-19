@@ -112,7 +112,7 @@ export const LogoTextContainer = styled.p`
 `;
 
 export const TitleContainer = styled.div`
-
+  margin-bottom: 25px;
 `;
 
 export const TitleLinkContainer = styled(NavLink)`
