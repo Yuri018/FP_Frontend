@@ -26,7 +26,7 @@ function Munich() {
   ]
 
   const navigate = useNavigate()
-  const readButtonPath = "/munich"
+  const readButtonPath = "/muenchen"
 
   const handleReadButton = (path: string) => {
     navigate(readButtonPath)
