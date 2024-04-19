@@ -35,19 +35,19 @@ function App() {
           <Route path="/berlin/doctors/orthopedists" element={<Berlin />} />
           <Route path="/berlin/doctors/cardiologists" element={<Berlin />} />
           <Route path="/berlin/doctors/dermatologists" element={<Berlin />} />
-          <Route path="/munich" element={<Munich />} />
-          <Route path="/munich/cafes-restaurants" element={<Munich />} />
-          <Route path="/munich/children" element={<Munich />} />
-          <Route path="/munich/shops" element={<Munich />} />
-          <Route path="/munich/services/legal_services" element={<Munich />} />
-          <Route path="/munich/services/translators" element={<Munich />} />
-          <Route path="/munich/services/hair_beauty" element={<Munich />} />
-          <Route path="/munich/doctors/physicians" element={<Munich />} />
-          <Route path="/munich/doctors/stomatologists" element={<Munich />} />
-          <Route path="/munich/doctors/pediatrists" element={<Munich />} />
-          <Route path="/munich/doctors/orthopedists" element={<Munich />} />
-          <Route path="/munich/doctors/cardiologists" element={<Munich />} />
-          <Route path="/munich/doctors/dermatologists" element={<Munich />} />
+          <Route path="/muenchen" element={<Munich />} />
+          <Route path="/muenchen/cafes-restaurants" element={<Munich />} />
+          <Route path="/muenchen/children" element={<Munich />} />
+          <Route path="/muenchen/shops" element={<Munich />} />
+          <Route path="/muenchen/services/legal_services" element={<Munich />} />
+          <Route path="/muenchen/services/translators" element={<Munich />} />
+          <Route path="/muenchen/services/hair_beauty" element={<Munich />} />
+          <Route path="/muenchen/doctors/physicians" element={<Munich />} />
+          <Route path="/muenchen/doctors/stomatologists" element={<Munich />} />
+          <Route path="/muenchen/doctors/pediatrists" element={<Munich />} />
+          <Route path="/muenchen/doctors/orthopedists" element={<Munich />} />
+          <Route path="/muenchen/doctors/cardiologists" element={<Munich />} />
+          <Route path="/muenchen/doctors/dermatologists" element={<Munich />} />
           <Route path="/frankfurt" element={<Frankfurt />} />
           <Route path="/frankfurt/cafes-restaurants" element={<Frankfurt />} />
           <Route path="/frankfurt/children" element={<Frankfurt />} />

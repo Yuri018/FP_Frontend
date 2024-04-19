@@ -18,11 +18,11 @@ import { useNavigate } from "react-router-dom"
 function Munich() {
 
   const cityNavLinks = [
-    { to: "/munich/doctors", text: "Врачи" },
-    { to: "/munich/children", text: "Дети" },
-    { to: "/munich/shops", text: "Магазины" },
-    { to: "/munich/cafes-restaurants", text: "Кафе и рестораны" },
-    { to: "/munich/services", text: "Услуги" },
+    { to: "/muenchen/doctors", text: "Врачи" },
+    { to: "/muenchen/children", text: "Дети" },
+    { to: "/muenchen/shops", text: "Магазины" },
+    { to: "/muenchen/cafes-restaurants", text: "Кафе и рестораны" },
+    { to: "/muenchen/services", text: "Услуги" },
   ]
 
   const navigate = useNavigate()
@@ -38,7 +38,7 @@ function Munich() {
         logoImgDescr={{ src: MunichLogo, alt: "MunichLogo" }}
         logoText="Мюнхен и Бавария"
         cityName="Мюнхен"
-        city="munich"
+        city="muenchen"
         HeaderDropDown={true}
         rightNavLinks={cityNavLinks}
       />
@@ -60,7 +60,7 @@ function Munich() {
         readButtonPath={readButtonPath}
         handleReadButton={handleReadButton}
       />
-      <MainLowerPart city="munich" />
+      <MainLowerPart city="muenchen" />
       <Footer />
     </>
   )
