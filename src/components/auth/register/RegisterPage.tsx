@@ -8,6 +8,9 @@ import Footer from "components/Footer";
 import { GermanMainLogo } from "assets";
 import { Button, TextField, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+
 
 
 function RegisterPage() {
@@ -15,31 +18,52 @@ function RegisterPage() {
   const [password, setPasswordLog] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = async (e: { preventDefault: () => void }) => {
-    e.preventDefault();
+  // Создаем схему валидации с Yup
+  const validationSchema = Yup.object().shape({
+    email: Yup.string()
+      .required("Поле email обязательное")
+      .email("Неправильный формат email"),
+    password: Yup.string()
+      .required("Поле password обязательное")
+      .min(5, "минимум 5 символов"),
+  });
 
-    const userDataReg = {
-      username,
-      password,
-    };
 
-    try {
-      const newUser = await instance.post("/user_login/register", userDataReg, {
-        headers: { accept: "*/*", "Content-Type": "application/json" }
-      });
-      console.log("user", newUser.data);
-      // После успешной регистрации автоматически выполняем вход
-      const response = await instance.post("/auth/login", userDataReg, {
-        headers: { accept: "*/*", "Content-Type": "application/json" },
-      });
-      const { accessToken } = response.data;
+  // Инициализируем useFormik для управления формой и валидации
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validationSchema: validationSchema,
+    // onSubmit: async (e: { preventDefault: () => void }) => {
+    onSubmit: async (values) => {
 
-      navigate("/user_login/user_account");
-    } catch (error) {
-      console.error("Error registering user:", error);
+      // e.preventDefault();
+
+      // const userDataReg = {
+      //   username,
+      //   password,
+      // };
+      const { email, password } = values;
+      try {
+        const newUser = await instance.post("/user_login/register", { username: email, password }, {
+          headers: { accept: "*/*", "Content-Type": "application/json" }
+        });
+        console.log("user", newUser.data);
+        // После успешной регистрации автоматически выполняем вход
+        const response = await instance.post("/auth/login", { username: email, password }, {
+          headers: { accept: "*/*", "Content-Type": "application/json" },
+        });
+        const { accessToken } = response.data;
+
+        navigate("/user_login/user_account");
+      } catch (error) {
+        console.error("Error registering user:", error);
+      }
     }
-  };
 
+  });
 
   return (
     <>
@@ -53,7 +77,7 @@ function RegisterPage() {
         }}
       />
       <Auth>
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={formik.handleSubmit}>
           <Box
             sx={{
               display: "flex",
@@ -87,8 +111,13 @@ function RegisterPage() {
               variant="outlined"
               placeholder="Введите ваш Email"
               size="small"
-              onChange={(e) => setEmailLog(e.target.value)}
-            />
+              name="email"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              error={formik.touched.email && Boolean(formik.errors.email)}
+              helperText={formik.touched.email && formik.errors.email}
+                />
             <TextField
               fullWidth
               margin="dense"
@@ -97,8 +126,13 @@ function RegisterPage() {
               placeholder="Введите ваш пароль"
               size="small"
               type="password"
-              onChange={(e) => setPasswordLog(e.target.value)}
-            />
+              name="password"
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              error={formik.touched.password && Boolean(formik.errors.password)}
+              helperText={formik.touched.password && formik.errors.password}
+                />
             <Button
               type="submit"
               variant="contained"
