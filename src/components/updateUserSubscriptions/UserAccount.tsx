@@ -68,6 +68,7 @@ function UserAccount() {
     try {
         await instance.put("/user_login", userData);
         console.log("User data updated successfully:", userData);
+        navigate("/")
     } catch (error) {
       console.error("Error updating user data:", error);
     }
