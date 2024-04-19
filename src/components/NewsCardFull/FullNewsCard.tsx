@@ -24,7 +24,11 @@ function FullNewsCard ({ open, onClose, news }: FullNewsCardProps) {
       </DialogTitle>
       <DialogContent>
         <MyCardMedia image={news.imgUrl} title="test" />
-        <Typography variant="body1" component="p">
+        <Typography
+          variant="body1"
+          component="p"
+          style={{ marginBottom: "10px" }}
+        >
           {news.imgCopyright}
         </Typography>
         <Typography variant="body1">{news.content}</Typography>
