@@ -35,7 +35,7 @@ function MainUpperPart({
     navigate("/berlin")
   }
   const handleMunchen = () => {
-    navigate("/munich")
+    navigate("/muenchen")
   }
   const handleFran = () => {
     navigate("/frankfurt")
