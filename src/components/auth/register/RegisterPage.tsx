@@ -36,15 +36,8 @@ function RegisterPage() {
       password: "",
     },
     validationSchema: validationSchema,
-    // onSubmit: async (e: { preventDefault: () => void }) => {
     onSubmit: async (values) => {
 
-      // e.preventDefault();
-
-      // const userDataReg = {
-      //   username,
-      //   password,
-      // };
       const { email, password } = values;
       try {
         const newUser = await instance.post("/user_login/register", { username: email, password }, {
