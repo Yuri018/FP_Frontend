@@ -7,10 +7,11 @@ import Munich from "pages/Munich";
 import Rheinland from "pages/Rheinland";
 import Frankfurt from "pages/Frankfurt";
 import Hamburg from "pages/Hamburg";
-import AuthRootComponent from "components/auth/Auth";
 import UserAccount from "components/updateUserSubscriptions";
 import Berlin from "pages/Berlin";
 import InfoSearchPage from "pages/InfoSearchPage";
+import RegisterPage from "components/auth/register";
+import LoginPage from "components/auth/login";
 
 
 function App() {
@@ -141,8 +142,8 @@ function App() {
           <Route path="/hamburg/doctors/orthopedists" element={<Hamburg />} />
           <Route path="/hamburg/doctors/cardiologists" element={<Hamburg />} />
           <Route path="/hamburg/doctors/dermatologists" element={<Hamburg />} />
-          <Route path="/login" element={<AuthRootComponent />} />
-          <Route path="/user_login/register" element={<AuthRootComponent />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/user_login/register" element={<RegisterPage />} />
           <Route path="/user_login/user_account" element={<UserAccount />} />
           <Route path="*" element="Page is not found" />
         </Routes>
