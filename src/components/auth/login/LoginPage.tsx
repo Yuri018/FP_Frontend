@@ -12,34 +12,28 @@ import { useDispatch, useSelector } from "react-redux";
 import { userActions } from "../../../store/user/userSlice";
 import { userSelectors } from "../../../store/user/selectors";
 
-
 function LoginPage() {
   const [username, setEmailLog] = useState("");
   const [password, setPasswordLog] = useState("");
+  const [error, setError] = useState(""); // Состояние для отслеживания ошибок
   const dispatch = useDispatch();
   const { authenticated, authorities } = useSelector(userSelectors);
-
   const navigate = useNavigate();
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-
-    const userDataLog = {
-      username,
-      password,
-    };
+    const userDataLog = { username, password };
 
     try {
       const response = await instance.post("/auth/login", userDataLog, {
         headers: { accept: "*/*", "Content-Type": "application/json" }
       });
+
       const { accessToken } = response.data;
-      // Получаем информацию о пользователе после успешной аутентификации
       const userInfoResponse = await instance.get("/auth/get_auth_info");
-      // Сохраняем информацию о пользователе в Redux
       dispatch(userActions.setUserInfo(userInfoResponse.data));
-      console.log("user data:", response.data);
     } catch (error) {
+      setError("Неправильный логин или пароль");
       console.error("Error registering user:", error);
     }
   };
@@ -47,14 +41,9 @@ function LoginPage() {
   useEffect(() => {
     if (authenticated) {
       const isAdmin = authorities.some((authority) => authority.authority === "ROLE_ADMIN");
-      if (isAdmin) {
-        navigate("/");
-      } else {
-        navigate("/user_login/user_account");
-      }
+      navigate(isAdmin ? "/" : "/user_login/user_account");
     }
   }, [authenticated, authorities, navigate]);
-
 
   return (
     <>
@@ -82,17 +71,10 @@ function LoginPage() {
               boxShadow: `5px 5px 10px ${colors.baseGray50}`,
             }}
           >
-
-            <Typography
-              variant="h4"
-              sx={{ mb: 0, fontFamily: "Montserrat", fontWeight: 500, textAlign: "center" }}
-            >
+            <Typography variant="h4" sx={{ mb: 0, fontFamily: "Montserrat", fontWeight: 500, textAlign: "center" }}>
               Авторизация
             </Typography>
-            <Typography
-              variant="body2"
-              sx={{ mb: 0, fontFamily: "Montserrat", fontWeight: 400, textAlign: "center" }}
-            >
+            <Typography variant="body2" sx={{ mb: 0, fontFamily: "Montserrat", fontWeight: 400, textAlign: "center" }}>
               Введите ваш логин и пароль
             </Typography>
             <TextField
@@ -114,24 +96,22 @@ function LoginPage() {
               type="password"
               onChange={(e) => setPasswordLog(e.target.value)}
             />
+            {error && (
+              <Typography variant="body2" sx={{ fontFamily: "Montserrat", fontWeight: 400, color: "red" }}>
+                {error}
+              </Typography>
+            )}
             <Button
               type="submit"
               variant="contained"
               size="small"
-              sx={{
-                width: "80%",
-                mt: 2,
-                mb: 2,
-                fontFamily: "Montserrat",
-                padding: 2,
-              }}
+              sx={{ width: "80%", mt: 2, mb: 2, fontFamily: "Montserrat", padding: 2 }}
             >
               Войти
             </Button>
             <Typography variant="body2" sx={{ fontFamily: "Montserrat", fontWeight: 400 }}>
               У вас нет аккаунта?? <IncitingText to="/user_login/register">Регистрация</IncitingText>
             </Typography>
-
           </Box>
         </Form>
       </Auth>
