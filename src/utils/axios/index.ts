@@ -12,7 +12,7 @@ import { Cookies } from "react-cookie";
 const cookies = new Cookies();
 
 export const instance = axios.create({
-  baseURL: '/',
+  baseURL: '/api',
   timeout: 10000,
   headers: {
     // 'X-Custom-Header': 'foobar',
