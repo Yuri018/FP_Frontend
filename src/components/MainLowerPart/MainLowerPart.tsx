@@ -45,7 +45,7 @@ function MainLowerPart({ city }: MainLowerPartProps ) {
   useEffect(() => {
     async function fetchNewsData() {
       try {
-        let endpoint = "/general_news/except/GENERAL_INFO"
+        let endpoint = `/${city}_news`
         if (location.pathname === "/") {
           endpoint = "/general_news/except/GENERAL_INFO"
         } else if (location.pathname === "/general-info") {
