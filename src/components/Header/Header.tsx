@@ -319,7 +319,7 @@ function Header({
           {logoText && <LogoTextContainer>{logoText}</LogoTextContainer>}
         </LogoContainer>
         <TitleContainer>
-          <TitleLinkContainer to="/">Германия в ладонях</TitleLinkContainer>
+          <TitleLinkContainer to="/">Германия на ладонях</TitleLinkContainer>
         </TitleContainer>
         <WeatherComponent city={city} />
       </HeaderMiddleContainer>
