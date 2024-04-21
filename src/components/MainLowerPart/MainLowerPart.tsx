@@ -32,7 +32,11 @@ export interface InfoListProps {
   infoList: InfoProps[]
 }
 
-function MainLowerPart({city}: React.PropsWithChildren<{city: string}>) {
+interface MainLowerPartProps {
+  city?: string
+}
+
+function MainLowerPart({ city }: MainLowerPartProps ) {
   const location = useLocation()
   const navigate = useNavigate()
   const [newsData, setNewsData] = useState<NewsProps[]>([])
@@ -46,8 +50,8 @@ function MainLowerPart({city}: React.PropsWithChildren<{city: string}>) {
           endpoint = "/general_news/except/GENERAL_INFO"
         } else if (location.pathname === "/general-info") {
           endpoint = "/general_news/get_info_by/GENERAL_INFO"
-        } else if (location.pathname === "/berlin") {
-          endpoint = "/berlin_news"          
+        } else if (location.pathname === `/${city}`) {
+          endpoint = `/${city}_news`
         }
 
         const response = await instance.get<NewsProps[]>(endpoint)
@@ -58,7 +62,7 @@ function MainLowerPart({city}: React.PropsWithChildren<{city: string}>) {
       }
     }
     fetchNewsData()
-  }, [location.pathname]) 
+  }, [location.pathname])
 
   useEffect(() => {
     async function fetchInfoData() {
@@ -126,7 +130,7 @@ function MainLowerPart({city}: React.PropsWithChildren<{city: string}>) {
           ) : (
             <div>Loading...</div>
           ))}
-        {location.pathname === "/berlin" &&
+        {location.pathname === `/${city}` &&
           (newsData.length > 0 ? (
             <NewsList newsList={newsData} />
           ) : (
@@ -143,19 +147,13 @@ function MainLowerPart({city}: React.PropsWithChildren<{city: string}>) {
           ))}
         {location.pathname === `/${city}/children` &&
           (infoData.length > 0 ? (
-            <InfoList
-              infoList={infoData}
-              endpoint={`/${city}/children_info`}
-            />
+            <InfoList infoList={infoData} endpoint={`/${city}/children_info`} />
           ) : (
             <div>Loading...</div>
           ))}
         {location.pathname === `/${city}/shops` &&
           (infoData.length > 0 ? (
-            <InfoList
-              infoList={infoData}
-              endpoint={`/${city}/shops_info`}
-            />
+            <InfoList infoList={infoData} endpoint={`/${city}/shops_info`} />
           ) : (
             <div>Loading...</div>
           ))}

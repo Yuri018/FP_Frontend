@@ -44,8 +44,9 @@ function FrontalPage() {
         isGeneralPage={true}
         isMainPage={true}
         bcgImgDescr={{ src: GermanMainImg, alt: "GermanMainImg" }}
-        mainTitle="Здесь вы сможете найти полезную для себя информацию по разделам"
-      />
+        mainTitle="Здесь вы сможете найти полезную для себя информацию по разделам" readButtonPath={""} handleReadButton={function (path: string): void {
+          throw new Error("Function not implemented.");
+        } }      />
       <MainLowerPart />
       <Footer />
     </>
