@@ -11,6 +11,8 @@ import {
   Separator,
 } from "./styles"
 import { FaFacebook, FaYoutube, FaInstagram } from "react-icons/fa"
+import germanyMain2 from "../../assets/GermanyMain2.png"
+
 
 function Footer() {
   return (
@@ -18,7 +20,7 @@ function Footer() {
       <FooterMainContainer>
         <FooterRow>
           <FooterContainerOne>
-            <img src="/src/assets/GermanyMain2.png" alt="GermanMainLogo" />
+            <img src={germanyMain2} alt="GermanMainLogo" />
           </FooterContainerOne>
 
           <FooterContainerTwo>
