@@ -12,7 +12,7 @@ import Berlin from "pages/Berlin";
 import InfoSearchPage from "pages/InfoSearchPage";
 import RegisterPage from "components/auth/register";
 import LoginPage from "components/auth/login";
-import TermsOfUsage from "components/Footer/TermsOfUsage";
+import Tearms from "components/Footer/Tearms";
 
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
         <Routes>
           <Route path="/" element={<FrontalPage />} />
           <Route path="/search" element={<InfoSearchPage />} />
-          <Route path="/terms_of_usage" element={<TermsOfUsage />} />
+          <Route path="/terms_of_usage" element={<Tearms />} />
           <Route path="/general-info" element={<FrontalPage />} />
           <Route path="/berlin" element={<Berlin />} />
           <Route path="/berlin/cafes-restaurants" element={<Berlin />} />

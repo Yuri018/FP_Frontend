@@ -14,7 +14,7 @@ import {
 import { FaFacebook, FaYoutube, FaInstagram } from "react-icons/fa"
 import germanyMain2 from "../../assets/GermanyMain2.png"
 import {} from "../../assets/"
-import TermsOfUsage from "./TermsOfUsage"
+import TermsOfUsage from "./Tearms"
 
 interface TermsLinksProps {
   onClick: React.MouseEventHandler<HTMLButtonElement>   
@@ -23,11 +23,6 @@ interface TermsLinksProps {
 
 function Footer( TermsOfUsage: any ) {
   const navigate = useNavigate()
-  // const handleTermsLinkClick: React.MouseEventHandler<
-  //   HTMLButtonElement
-  // > = event => {
-  //   navigate("/termsOfUsage")
-  // }
 
   const handleClick = (event?: any) => {
     navigate("/terms_of_usage")

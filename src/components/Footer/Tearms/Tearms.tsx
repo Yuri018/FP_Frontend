@@ -1,5 +1,4 @@
 import { GermanMainLogo } from "assets"
-import { Typography, CardContent, CardActions } from "@mui/material"
 import Header from "components/Header"
 import Footer from "components/Footer"
 import { MainLowerPartContainer, TermsOUcontainer, TermsHeader, TermsSubHeader, TermsText } from "./styles"
@@ -14,7 +13,7 @@ import {
   HamburgLogo,
 } from "assets"
 
-function TermsOfUsage() {
+function Tearms() {
 
   return (
     <>
@@ -71,4 +70,4 @@ function TermsOfUsage() {
   )
 }
 
-export default TermsOfUsage
+export default Tearms
