@@ -11,19 +11,19 @@ import { Cookies } from "react-cookie";
 
 const cookies = new Cookies();
 
+let baseURL = '/api';
+if (process.env.NODE_ENV === 'development') {
+  baseURL = 'http://localhost:8080/api';
+}
+
 export const instance = axios.create({
-  baseURL: '/api',
+  baseURL: baseURL,
   timeout: 10000,
   headers: {
     // 'X-Custom-Header': 'foobar',
     'Content-Type': 'application/json' // Устанавливаем заголовок Content-Type для всех запросов
   },
   withCredentials: true,
-  proxy: {
-    protocol: 'http',
-    host: '127.0.0.1',
-    port: 8080,
-  }
 });
 
 // Добавляем перехватчик запросов, чтобы включить токен доступа в заголовки
