@@ -44,7 +44,7 @@ export const FooterContainerTwo = styled.div`
 export const TermsLinks = styled.a`
   color: #ffffff;
   transition: color 0.3s ease;
-
+  cursor: pointer;
   &:hover {
     color: #bbbbbb;
   }

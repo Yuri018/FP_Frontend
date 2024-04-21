@@ -23,14 +23,14 @@ interface TermsLinksProps {
 
 function Footer( TermsOfUsage: any ) {
   const navigate = useNavigate()
-  const handleTermsLinkClick: React.MouseEventHandler<
-    HTMLButtonElement
-  > = event => {
-    navigate("/termsOfUsage")
-  }
+  // const handleTermsLinkClick: React.MouseEventHandler<
+  //   HTMLButtonElement
+  // > = event => {
+  //   navigate("/termsOfUsage")
+  // }
 
   const handleClick = (event?: any) => {
-    handleTermsLinkClick(event)
+    navigate("/terms_of_usage")
   }
 
   return (
@@ -43,7 +43,7 @@ function Footer( TermsOfUsage: any ) {
 
           <FooterContainerTwo>
             <TermsLinks onClick={handleClick} target="_blank">
-              {TermsOfUsage}
+            Условия использования
             </TermsLinks>
           </FooterContainerTwo>
 
