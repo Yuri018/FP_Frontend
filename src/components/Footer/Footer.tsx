@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom"
 import {
   FooterMain,
   FooterMainContainer,
@@ -12,9 +13,26 @@ import {
 } from "./styles"
 import { FaFacebook, FaYoutube, FaInstagram } from "react-icons/fa"
 import germanyMain2 from "../../assets/GermanyMain2.png"
+import {} from "../../assets/"
+import TermsOfUsage from "./TermsOfUsage"
 
+interface TermsLinksProps {
+  onClick: React.MouseEventHandler<HTMLButtonElement>   
+  children: React.ReactNode 
+}  
 
-function Footer() {
+function Footer( TermsOfUsage: any ) {
+  const navigate = useNavigate()
+  const handleTermsLinkClick: React.MouseEventHandler<
+    HTMLButtonElement
+  > = event => {
+    navigate("/termsOfUsage")
+  }
+
+  const handleClick = (event?: any) => {
+    handleTermsLinkClick(event)
+  }
+
   return (
     <FooterMain>
       <FooterMainContainer>
@@ -24,8 +42,8 @@ function Footer() {
           </FooterContainerOne>
 
           <FooterContainerTwo>
-            <TermsLinks href="/src/assets/TermsOfUse.html" target="_blank">
-              Условия использования
+            <TermsLinks onClick={handleClick} target="_blank">
+              {TermsOfUsage}
             </TermsLinks>
           </FooterContainerTwo>
 

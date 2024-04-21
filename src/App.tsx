@@ -22,6 +22,7 @@ function App() {
         <Routes>
           <Route path="/" element={<FrontalPage />} />
           <Route path="/search" element={<InfoSearchPage />} />
+          <Route path="/termsOfUsage" element={<InfoSearchPage />} />
           <Route path="/general-info" element={<FrontalPage />} />
           <Route path="/berlin" element={<Berlin />} />
           <Route path="/berlin/cafes-restaurants" element={<Berlin />} />
@@ -40,7 +41,10 @@ function App() {
           <Route path="/muenchen/cafes-restaurants" element={<Munich />} />
           <Route path="/muenchen/children" element={<Munich />} />
           <Route path="/muenchen/shops" element={<Munich />} />
-          <Route path="/muenchen/services/legal_services" element={<Munich />} />
+          <Route
+            path="/muenchen/services/legal_services"
+            element={<Munich />}
+          />
           <Route path="/muenchen/services/translators" element={<Munich />} />
           <Route path="/muenchen/services/hair_beauty" element={<Munich />} />
           <Route path="/muenchen/doctors/physicians" element={<Munich />} />

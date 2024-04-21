@@ -73,6 +73,23 @@ export const SocialIcons = styled.a`
   }
 `
 
+export const TermsOUcontainer = styled.div`
+    width: 100%;
+    margin: 30px auto;
+`
+
+export const TermsHeader = styled.h1`
+  font-family: 'Montserrat';
+`
+export const TermsSubHeader = styled.h2`
+  font-family: 'Montserrat';
+`
+
+export const TermsText = styled.p`
+  font-family: 'Montserrat';
+  font-size: 17px;
+`
+
 export const FacebookIcon = styled(FaFacebook)``
 
 export const YoutubeIcon = styled(FaYoutube)``

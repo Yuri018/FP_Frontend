@@ -1,6 +1,6 @@
 // MainMiddlePart.tsx
 import React, { useRef, useState } from "react";
-import { NavigateFunction, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { BcgContainer, BackgroundImageContainer, BackgroundImage, MainTitle, RightWraper, BackgroundImage100, ButtonRead, MyImageComponent, TitleContainerWrapper, PageTitle, RightTitle, RightLink, ButtonContainer } from "./styles";
 import DoctorsMenu from "./DoctorsMenu";
 import ServicesMenu from "./ServicesMenu";
