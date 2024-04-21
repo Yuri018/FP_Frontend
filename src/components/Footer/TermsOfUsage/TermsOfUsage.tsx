@@ -14,7 +14,7 @@ import {
   HamburgLogo,
 } from "assets"
 
-function InfoSearchPage() {
+function TermsOfUsage() {
 
   return (
     <>
@@ -71,4 +71,4 @@ function InfoSearchPage() {
   )
 }
 
-export default InfoSearchPage
+export default TermsOfUsage
