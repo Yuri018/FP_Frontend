@@ -152,6 +152,8 @@ export const UpperNewsContainer = styled.div`
 
 export const NewsContainer = styled.div`
   display: flex;
+  flex: 1;
+  overflow: hidden;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
@@ -164,6 +166,8 @@ export const NewsContainer = styled.div`
 `;
 
 export const NewsTitleContainer = styled.h4`
+  flex: 1;
+  flex-shrink: 1;
   color: ${colors.baseGrey80};
   font-family: 'Montserrat';
   font-weight: bold;
@@ -196,7 +200,9 @@ export const NewsMainContainer = styled.div`
 
 export const ImageWrap = styled.div`
   max-width: 70px;
-  flex: 0 0 auto;
+  /* flex: 0 0 auto; */
+  flex: 1;
+  overflow: hidden;
 `;
 
 export const DropdownMenuList = styled.ul`
